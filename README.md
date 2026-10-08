@@ -19,6 +19,37 @@ A Windows companion for Football Manager, built around clubs, players and the st
 
 ---
 
+## 💛 支持作者，让 FMODD 继续成长
+
+如果 FMODD 让你的生涯多了一些乐趣，欢迎请作者喝杯咖啡。每一份支持，都是继续维护、更新和尝试新玩法的动力。
+
+<a href="https://fmodd.com/donate"><img src="docs/assets/support-fmodd.svg" alt="支持 FMODD 作者 · 点击打开官网捐赠页面" width="100%" /></a>
+
+<p align="center">
+<a href="https://ko-fi.com/fmodd"><img src="https://img.shields.io/badge/Ko--fi-%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E6%9D%AF%E5%92%96%E5%95%A1-e6b74b?style=for-the-badge&amp;logo=kofi&amp;logoColor=123d32" alt="Ko-fi · 请作者喝杯咖啡" /></a>
+</p>
+
+<p align="center"><strong><a href="https://fmodd.com/donate">💛 打开官网捐赠页</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.md">查看二维码与全部支持方式</a></strong></p>
+
+<details>
+<summary><strong>其他支持方式：BTC · ETH · TRX · SOL · BNB</strong></summary>
+
+地址和网络来自 [官网捐赠页](https://fmodd.com/donate)，转账时请对应表中币种及网络。
+
+| 币种 | 网络 | 收款地址 |
+| --- | --- | --- |
+| BTC | Bitcoin | `bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn` |
+| ETH | Ethereum | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
+| TRX | Tron | `TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC` |
+| SOL | Solana | `ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn` |
+| BNB | BNB Smart Chain | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
+
+二维码见 [支持作者](docs/SUPPORT.md)。
+
+</details>
+
+---
+
 ## 让一段生涯，多一些值得经营的事
 
 FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你可以经营旗下俱乐部、安排球员训练与球队活动，在比赛之外管理资金和人员，也可以保存球员的成长轨迹、比赛时刻与人物关系。
