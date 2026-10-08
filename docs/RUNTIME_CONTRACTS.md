@@ -431,7 +431,7 @@ FMODD 的投注盈亏配色固定为“红色表示盈利、绿色表示亏损�
 
 ## 资源与生成文件
 
-公开仓库保留开发版运行源码，不提供 EXE 打包流水线、spec 或版本资源文本。开发服务直接读取 `web/`。
+公开仓库提供开发版运行源码，开发服务直接读取 `web/`。
 
 `native/fmodd_native_core` 承载盘口概率/亚洲盘权重、原生 vector 布局校验和普通数据页验证式写入；`native/fmodd_hook_core` 承载 Hook 签名扫描、`rel32` 跳转和可执行页补丁事务。`tools/native_library_loader.py` 统一执行绝对路径加载、正式版加载前 SHA-256 校验、系统依赖搜索限制和进程生命周期文件锁；冻结运行时不接受环境变量 DLL 覆盖。`fm_collector.win32.write_process_memory` 先读取期望旧值，再按目标页属性把普通数据写入分派给 Rust、把可执行页和代码洞写入分派给 C++；两条路径都在原生层再次比较旧值、写后回读并在失败时回滚。Python 保留 FM24/FM26 与发行版选择、对象身份、Hook 状态机和卸载编排。刷新保护覆盖 `game_session`、`database_index` 和 `refresh_memory_core`；HTTP、线程、阶段状态发布、取消处理和持久化仍由普通 Python 编排。
 

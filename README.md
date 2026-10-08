@@ -105,7 +105,7 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 
 精确兼容性、功能边界与技术说明见 **[产品详情](docs/PRODUCT_GUIDE.md)**。
 
-源码使用方式见 [开发手册](DEVELOPMENT.md)。公开仓库提供开发版，不包含 EXE 打包脚本、配置或教程。
+开发版源码的运行方式见 [开发手册](DEVELOPMENT.md)。
 
 ## 一起把项目做得更好
 

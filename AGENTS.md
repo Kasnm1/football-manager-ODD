@@ -11,4 +11,4 @@ These rules apply to this source repository.
 - Development serves `web/` directly. Do not hand-edit generated asset bundles. User-visible font sizes must be at least 13px.
 - User-visible copy must support en-GB, zh-CN, zh-TW, ko-KR, de-DE, es-ES, fr-FR, ru-RU, ja-JP, pt-BR, and pt-PT.
 - Update architecture, runtime contracts, or feature-index entries when their corresponding behavior or ownership changes.
-- This repository provides development source and does not include EXE packaging scripts, configuration, or instructions. A passing static or mock test does not prove live-game behavior.
+- This repository provides development source and source runtime instructions. A passing static or mock test does not prove live-game behavior.

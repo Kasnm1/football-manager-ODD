@@ -9,7 +9,7 @@ FMODD is an unofficial Windows desktop companion for Football Manager. This repo
 - 贡献方式：[CONTRIBUTING.md](../CONTRIBUTING.md)
 - 第三方材料：[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
 
-公开源码快照包含现有程序功能、运行资源和相关测试；个人数据、内部原始研究产物、编译产物和 SDK 二进制不在仓库中。此快照未重新打包 EXE；源码存在及模拟测试不代表所有游戏版本已完成实机验收。
+公开源码快照包含现有程序功能、运行资源和相关测试；个人数据、内部原始研究产物、编译产物和 SDK 二进制不在仓库中。源码存在及模拟测试不代表所有游戏版本已完成实机验收。
 
 FMODD 是面向 Football Manager 的本地桌面工具。当前版本为 **V2.7.0beta**，由 Python 本地服务、HTML/CSS/JavaScript 界面和 WebView2 桌面宿主组成。
 
@@ -108,7 +108,7 @@ python scripts\build_cpp_hook_core.py
 python fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-开发服务直接读取 `web/`。本仓库不提供 EXE 打包方法。
+开发服务直接读取 `web/`。
 
 ## 数据边界
 
