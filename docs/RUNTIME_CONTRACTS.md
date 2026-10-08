@@ -431,9 +431,9 @@ FMODD 的投注盈亏配色固定为“红色表示盈利、绿色表示亏损�
 
 ## 资源与生成文件
 
-保护版发布前端由 `tools/build_release_web_assets.mjs` 从 `web/` 生成到 `build/web_release/`：`app.js` 使用 esbuild 打包压缩，CSS 与 HTML 压缩，静态图片原样复制，不生成 source map，并把开发版本文本替换为正式版本。`scripts/verify_release_surface.py` 在 PyInstaller 前后分别检查生产资源、Cython 输出、受保护模块的 `PYZ` 泄漏和禁止随包分发的开发路径。开发服务不读取 `build/web_release/`。
+公开仓库保留开发版运行源码，不提供 EXE 打包流水线、spec 或版本资源文本。开发服务直接读取 `web/`。
 
-`build/protection.toml` 是 Cython 保护名单、Rust/C++ 原生 DLL 和发布面规则的唯一配置源；保护版 spec 直接读取该文件。`native/fmodd_native_core` 承载盘口概率/亚洲盘权重、原生 vector 布局校验和普通数据页验证式写入；`native/fmodd_hook_core` 承载 Hook 签名扫描、`rel32` 跳转和可执行页补丁事务。`tools/native_library_loader.py` 统一执行绝对路径加载、正式版加载前 SHA-256 校验、系统依赖搜索限制和进程生命周期文件锁；冻结运行时不接受环境变量 DLL 覆盖。`fm_collector.win32.write_process_memory` 先读取期望旧值，再按目标页属性把普通数据写入分派给 Rust、把可执行页和代码洞写入分派给 C++；两条路径都在原生层再次比较旧值、写后回读并在失败时回滚。Python 保留 FM24/FM26 与发行版选择、对象身份、Hook 状态机和卸载编排。刷新保护覆盖 `game_session`、`database_index` 和 `refresh_memory_core`；HTTP、线程、阶段状态发布、取消处理和持久化仍由普通 Python 编排。
+`native/fmodd_native_core` 承载盘口概率/亚洲盘权重、原生 vector 布局校验和普通数据页验证式写入；`native/fmodd_hook_core` 承载 Hook 签名扫描、`rel32` 跳转和可执行页补丁事务。`tools/native_library_loader.py` 统一执行绝对路径加载、正式版加载前 SHA-256 校验、系统依赖搜索限制和进程生命周期文件锁；冻结运行时不接受环境变量 DLL 覆盖。`fm_collector.win32.write_process_memory` 先读取期望旧值，再按目标页属性把普通数据写入分派给 Rust、把可执行页和代码洞写入分派给 C++；两条路径都在原生层再次比较旧值、写后回读并在失败时回滚。Python 保留 FM24/FM26 与发行版选择、对象身份、Hook 状态机和卸载编排。刷新保护覆盖 `game_session`、`database_index` 和 `refresh_memory_core`；HTTP、线程、阶段状态发布、取消处理和持久化仍由普通 Python 编排。
 
 ### 账户存档与缓存
 
@@ -478,11 +478,10 @@ FMODD 的投注盈亏配色固定为“红色表示盈利、绿色表示亏损�
 
 开发命令和授权边界分别以 [`../DEVELOPMENT.md`](../DEVELOPMENT.md) 与 [`../AGENTS.md`](../AGENTS.md) 为准；本节只保留与运行时行为相连的补充说明。
 
-- 修改 `web/`：运行 `python tools\build_embedded_web_assets.py`。
+- 修改 `web/`：开发服务直接读取源文件，刷新浏览器查看变化。
 - 普通功能修改：重启 7857 开发服务（只结束监听 7857 的进程，从仓库根目录以隐藏窗口启动 `fm_odds_web.py --port 7857 --no-browser --keep-alive`）；启动常驻进程后即结束启动步骤，不轮询端口。
 - 仅修改文档或做静态检查且暂不需要加载新代码时，可以不重启开发服务。
 - 仅在用户明确要求时进行界面或读取结果验证。
-- 封装新版本时同步所有版本字符串与 `build/protection.toml`、重新编译桌面宿主，再运行保护封装脚本或对应 spec。
 正式版共享启动链在启动监控前比较已观察的 FMODD 应用版本。奖励版本键只取数字主版本，尾部纯字母构建后缀会被折叠，因此 `2.2.0b`、`2.2.0c`、`2.2.0d` 共用 `2.2.0` 奖励。数字主版本变化时只快照当时已有物理账户存档，并向每个账户写入一封可手动领取 50M 的“更新奖励”邮件，不在检测阶段自动修改钱包。`POST /api/mail/version-update-reward/claim` 在同一账户容器事务内校验邮件、写入确定性钱包交易并把邮件标为已领取，因此重复点击或请求重试不会重复入账；旧版本已自动入账的同源交易会被识别并只补记领取状态。全局待处理批次记录投递失败账户并在后续启动重试，同版本族后来创建的账户不进入本轮批次。
 
 邮件列表通过 `/api/mail?page=&page_size=` 分页读取，默认每页 20 封，最多 50 封；投注盈利邮件（`bet_profit`）按游戏日期保留 5 天，超过 5 天自动清理。更新奖励、处罚、违约等正式通知邮件不参与该清理，永久保留。足协处罚首次自动弹出时立即持久化已阅状态，关闭或重启工具后不再自动重复弹出，邮件仍可从邮箱中重新查看。

@@ -16,6 +16,9 @@ tools/embedded_web_assets.py
 assets/source/
 
 # Build outputs
+/FMODD*.version.txt
+/build/*.spec
+/build/protection.toml
 build/*/
 build/desktop_host/FMODD.WebViewHost.*
 build/game_date_disp_candidates.txt

@@ -2,10 +2,6 @@ from __future__ import annotations
 
 import sys
 import tempfile
-try:
-    import tomllib
-except ModuleNotFoundError:  # Python 3.10 runtime used by the desktop dev server.
-    import tomli as tomllib
 import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -28,15 +24,6 @@ class DesktopRuntimeParityTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.source = (ROOT / "fmodd_desktop.py").read_text(encoding="utf-8")
         cls.web_source = (ROOT / "fm_odds_web.py").read_text(encoding="utf-8")
-        cls.spec_source = (ROOT / "build" / "FMODD-V1.9.2beta.spec").read_text(
-            encoding="utf-8",
-        )
-        cls.protected_spec_source = (
-            ROOT / "build" / "FMODD-V1.9.2beta-protected.spec"
-        ).read_text(encoding="utf-8")
-        cls.protection_config = tomllib.loads(
-            (ROOT / "build" / "protection.toml").read_text(encoding="utf-8")
-        )
 
     def test_web_and_desktop_use_one_shared_runtime_entry(self) -> None:
         self.assertIn("from fm_odds_web import Handler, LocalOddsState, start_local_runtime", self.source)
@@ -112,14 +99,6 @@ class DesktopRuntimeParityTests(unittest.TestCase):
         state.startup_async.assert_not_called()
         self.assertEqual(state.status, "等待连接 Football Manager 存档")
 
-    def test_current_spec_packages_the_shared_desktop_entry(self) -> None:
-        self.assertIn("root = Path(SPECPATH).resolve().parent", self.spec_source)
-        self.assertNotIn(r'Path(r"U:\Work\FM")', self.spec_source)
-        self.assertIn('[str(root / "fmodd_desktop.py")]', self.spec_source)
-        self.assertIn('pathex=[str(root)]', self.spec_source)
-        self.assertIn("binaries=[]", self.spec_source)
-        self.assertNotIn("protected_root", self.spec_source)
-        self.assertNotIn("protected_modules", self.spec_source)
 
     def test_unprotected_release_does_not_require_integrity_extension(self) -> None:
         with patch("fmodd_desktop.FROZEN", True), patch.dict(
@@ -186,73 +165,6 @@ class DesktopRuntimeParityTests(unittest.TestCase):
         self.assertIn("Rectangle.Intersect(savedBounds, screen.WorkingArea)", host_source)
         self.assertIn("WindowState = FormWindowState.Maximized;", host_source)
         self.assertIn("File.Replace(temporaryPath, statePath, null, true);", host_source)
-
-    def test_cython_keeps_python_annotation_semantics(self) -> None:
-        build_source = (ROOT / "scripts" / "build_protected_release.py").read_text(
-            encoding="utf-8",
-        )
-        self.assertIn('"annotation_typing": False', build_source)
-        self.assertIn('"infer_types": False', build_source)
-        self.assertIn('"boundscheck": True', build_source)
-        self.assertIn('"wraparound": True', build_source)
-        self.assertIn('"initializedcheck": True', build_source)
-        self.assertIn('"nonecheck": True', build_source)
-        self.assertIn('"overflowcheck": True', build_source)
-        self.assertIn('"cdivision": False', build_source)
-
-    def test_cython_protection_excludes_dynamic_persistence_boundaries(self) -> None:
-        protected = list(self.protection_config["protected_modules"])
-        self.assertEqual(protected, [
-            "tools.attribute_growth_hook",
-            "tools.board_listens_hook",
-            "tools.ca_growth_hook",
-            "tools.club_affiliations",
-            "tools.database_index",
-            "tools.game_layout",
-            "tools.game_session",
-            "tools.goalkeeper_bribe",
-            "tools.hook_native_core",
-            "tools.live_market",
-            "tools.money",
-            "tools.native_layout_core",
-            "tools.native_library_loader",
-            "tools.odds_math_core",
-            "tools.pass_methods",
-            "tools.player_details_fm24",
-            "tools.player_details_fm26",
-            "tools.player_effects",
-            "tools.player_languages",
-            "tools.player_rca",
-            "tools.preferred_moves",
-            "tools.redbull_hook",
-            "tools.referee_hook",
-            "tools.refresh_memory_core",
-            "tools.retirement",
-            "tools.rust_native_core",
-            "tools.team_nuclear_hooks",
-            "tools.transfer_budget",
-            "tools.youth_generation_hook",
-        ])
-        for module_name in (
-            "tools.betting_account",
-            "tools.club_economy",
-            "tools.preview_cup_odds",
-        ):
-            self.assertNotIn(module_name, protected)
-            self.assertNotIn(f'"{module_name}"', self.protected_spec_source)
-
-    def test_protected_release_embeds_automated_analysis_notice(self) -> None:
-        notice = (ROOT / "AI_USAGE_NOTICE.txt").read_text(encoding="utf-8")
-        self.assertIn("unauthorized unpacking", notice)
-        self.assertIn("未经授权的解包", notice)
-        self.assertEqual(
-            self.protection_config["ai_usage_notice"], "AI_USAGE_NOTICE.txt",
-        )
-        self.assertIn('AI_USAGE_NOTICE.txt"), "."', self.protected_spec_source)
-        build_source = (ROOT / "scripts" / "build_protected_release.py").read_text(
-            encoding="utf-8",
-        )
-        self.assertIn("AI_USAGE_NOTICE =", build_source)
 
 
 if __name__ == "__main__":

@@ -105,6 +105,8 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 
 精确兼容性、功能边界与技术说明见 **[产品详情](docs/PRODUCT_GUIDE.md)**。
 
+源码使用方式见 [开发手册](DEVELOPMENT.md)。公开仓库提供开发版，不包含 EXE 打包脚本、配置或教程。
+
 ## 一起把项目做得更好
 
 欢迎提交功能建议、复现问题、改进翻译、修复代码，或分享你的玩法。小而完整的贡献也有价值。
@@ -114,7 +116,7 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 | 报告问题或提出建议 | [Issues](https://github.com/Kasnm1/football-manager-ODD/issues)；附版本、平台和复现步骤 |
 | 提交代码改进 | Fork → 修改 → Pull Request；详见 [贡献说明](CONTRIBUTING.md) |
 | 理解代码结构 | [文档导航](docs/README.md)、[架构](docs/ARCHITECTURE.md)、[功能索引](docs/FEATURE_INDEX.md) |
-| 在本机开发 | [开发手册](DEVELOPMENT.md)，包括原生核心与桌面 SDK 的准备 |
+| 在本机开发 | [开发手册](DEVELOPMENT.md)，包括原生核心准备与开发版运行 |
 | 支持持续开发 | [支持作者](https://fmodd.com/donate)，按自己的意愿参与 |
 
 维护者按精力处理反馈与 PR，不承诺即时回复或固定更新频率。感谢每一位愿意测试、贡献和支持项目的人。

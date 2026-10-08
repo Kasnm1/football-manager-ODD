@@ -1,19 +1,18 @@
 # FMODD 开发手册
 
-本文记录 FMODD 的日常修改、验证、版本管理和正式封装流程。文档职责与阅读顺序见 `docs/README.md`，项目结构与模块职责见 `docs/ARCHITECTURE.md`，面向使用者的概览见 `README.md`，自动化代理必须遵守的仓库约定见 `AGENTS.md`。本文是操作手册，不扩大用户对修改、Git 或发布操作的授权范围。
+本文记录 FMODD 的依赖准备、源码运行、日常修改和验证。文档职责与阅读顺序见 `docs/README.md`，项目结构与模块职责见 `docs/ARCHITECTURE.md`，面向使用者的概览见 `README.md`，自动化代理必须遵守的仓库约定见 `AGENTS.md`。本文是操作手册，不扩大用户对修改、Git 或发布操作的授权范围。
 
-首次检出时执行 `python scripts/restore_webview2.py`，从官方 NuGet 包恢复桌面 SDK；二进制写入被 Git 忽略的 `build/desktop_host/`。
+本仓库提供开发版源码及运行说明，不提供 EXE 打包脚本、配置或教程。现有 Windows 成品可从 [官网](https://fmodd.com/download) 获取。
 
 ## 1. 当前基线
 
 - 当前版本：V2.7.0beta。
 - 开发服务端口：`7857`。
 - 正式桌面服务端口：`7856`。
-- 当前封装配置：`build/FMODD-V2.7.0beta-protected.spec`。
 - 桌面宿主目标框架：`.NET Framework 4.8`（`net48`）。
 - GitHub 公共仓库：`https://github.com/Kasnm1/football-manager-ODD`。
 
-当前版本首先以 `build/protection.toml` 为准，并与 `README.md`、运行入口、桌面宿主、`FMODD.version.txt` 和目标 spec 交叉核对。版本升级后，应同步更新这些位置；若内容冲突，停止发布并报告，不静默选用其中一个值。
+当前版本由 `fm_odds_web.py` 的版本常量、README 与桌面源码维护。仓库不保存或生成独立的版本资源文本。
 
 ## 2. 开发边界
 
@@ -24,7 +23,6 @@
 - 程序使用的网页图片放在 `web/assets/`；原始美术素材放在 `assets/source/`。
 - `dist/`、版本宿主构建目录和其他生成物不进入 Git。
 - 未经明确要求，不启动正式 EXE，不读取 FM 刷新结果，也不进行界面截图验证。
-- 未经用户明确要求“封装”“打包”“构建正式 EXE”或“发布”，不得运行保护构建脚本、PyInstaller、正式桌面宿主编译或发布预检。
 
 ## 3. 修改位置
 
@@ -52,9 +50,21 @@
 | 页面行为 | `web/app.js` |
 | 页面样式 | `web/app.css` |
 | 桌面入口和窗口 | `fmodd_desktop.py`、`desktop/` |
-| PyInstaller 封装 | `build/FMODD-V2.7.0beta.spec`、`build/FMODD-V2.7.0beta-protected.spec` |
 
 ## 4. 日常开发流程
+
+### 4.0 运行开发版
+
+在 Windows 上准备 Python 3.10+；Python 3.10 另需安装 `tomli`。涉及原生核心时，需 Rust MSVC 工具链及 Visual C++ Build Tools。
+
+```powershell
+python scripts\build_rust_native.py
+python scripts\build_cpp_hook_core.py
+python fm_odds_web.py --port 7857 --no-browser --keep-alive
+```
+
+在浏览器中打开 `http://127.0.0.1:7857`。开发服务直接读取 `web/`；连接游戏后，功能可用性仍由实际 FM build 与平台校验决定。
+
 
 ### 4.1 修改前检查
 
@@ -75,18 +85,14 @@ Get-CimInstance Win32_Process | Where-Object {
     $_.CommandLine -match 'fm_odds_web\.py' -and
     $_.CommandLine -match '(?:--port\s+|--port=)7857(?:\s|$)'
 } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
-Start-Process python -ArgumentList @('fm_odds_web.py', '--port', '7857', '--no-browser', '--keep-alive') -WorkingDirectory 'U:\Work\FM' -WindowStyle Hidden
+Start-Process python -ArgumentList @('fm_odds_web.py', '--port', '7857', '--no-browser', '--keep-alive') -WorkingDirectory (Get-Location).Path -WindowStyle Hidden
 ```
 
 重启前应确认目标进程的命令行确实包含 `fm_odds_web.py --port 7857`，不能仅凭它是 Python 进程就结束它。启动常驻进程后即结束启动步骤，不要轮询端口、等待监听状态或反复提示“仍在初始化”。
 
-### 4.3 修改网页后重建资源
+### 4.3 修改网页后刷新界面
 
-只要修改了 `web/` 中的 HTML、CSS、JavaScript 或运行图片，就执行：
-
-```powershell
-python tools\build_embedded_web_assets.py
-```
+开发服务直接读取 `web/`，修改后刷新浏览器；服务端代码变化时按需重启开发服务。
 
 ### 4.4 基础检查
 
@@ -99,12 +105,6 @@ git diff --check
 ```
 
 修改 `tools/*.py` 时可检查实际变更模块。优先运行相关行为回归；涉及共享契约时覆盖受影响调用方，不自动运行全套。已通过的检查仅在新增改动、失败或明确未解决风险时重复/扩大。只使用已确认隔离的测试数据；真实 FM、账户数据或外部服务操作另需相应授权。
-
-桌面宿主正式编译仅在用户明确授权桌面构建/发布时执行，不能因修改了宿主源码而自动运行：
-
-```powershell
-dotnet build desktop\WebViewHost.csproj -c Release
-```
 
 检查通过不等于已经实机验证 FM 内存功能。涉及新偏移、Hook、伤病、属性或比赛状态时，必须区分 FM24、FM26 以及 Steam、Epic、XGP，不允许在版本未通过校验时复用其他版本地址。
 
@@ -155,153 +155,11 @@ git push -u origin 当前分支名
 - 仅供研究的未确认内存样本
 - `tools/embedded_web_assets.py` 等生成文件
 
-## 7. 新版本封装
+## 7. 常见问题
 
-### 7.0 自动版本同步
+### 修改网页后仍显示旧内容
 
-版本升级、稳定版转换或版本内改动记录统一使用：
-
-```powershell
-python scripts\sync_version.py --version 2.7.0beta --change "说明修改内容" --removed "说明删除或停用内容"
-```
-
-`--change` 和 `--removed` 可重复指定。脚本只同步活动版本文件，自动创建 `docs/releases/V<版本>.md`；历史 spec、版本资源、CHANGELOG 和研究报告不会被改写。执行前可加 `--dry-run` 预览文件清单。
-
-保护封装统一由 `scripts/build_protected_release.py` 执行；普通 PyInstaller 基准封装仍使用对应 spec。以下是当前 V2.7.0beta 的完整流程，仅在用户明确授权封装或发布后执行。
-
-保护流水线还会对桌面宿主和原生输出执行发布清理门禁：拒绝 `.pdb` 等调试产物，并扫描二进制中的工作区路径、source-map 和调试标记；这些检查不改变开发目录，只阻止不干净的发布继续封装。
-
-### 7.1 确定版本名
-
-示例：
-
-- 展示版本：`V2.7.0beta`
-- 文件版本：`2.7.0beta`
-- 四段程序集版本：按 `desktop/WebViewHost.csproj` 中可接受的四段数字版本设置
-- 桌面宿主目录：`build/desktop_host_v270beta`
-- spec：`build/FMODD-V2.7.0beta.spec`、`build/FMODD-V2.7.0beta-protected.spec`
-- 输出：`dist/FMODD-V2.7.0beta.exe`
-
-### 7.2 同步版本位置
-
-封装前逐项检查：
-
-- `fm_odds_web.py`：冻结版 `APP_VERSION`
-- `fmodd_desktop.py`：消息框标题
-- `desktop/WebViewHost.cs`：窗口标题
-- `desktop/WebViewHost.csproj`：`Version`、`AssemblyVersion`、`FileVersion`
-- `FMODD.version.txt`：数字版本、展示版本和输出文件名
-- `FMODD-V<版本>.version.txt`：供新 spec 使用的版本资源
-- `build/FMODD-V<版本>.spec` 与 `build/FMODD-V<版本>-protected.spec`：宿主目录、EXE 名和版本资源文件
-- `build/protection.toml`：`version`、`tag`、`spec`、`host_output`、`protected_output`
-- `AGENTS.md`、`README.md`、`DEVELOPMENT.md`、`CHANGELOG.md`：当前版本与封装命令
-
-可用以下命令查找遗漏的旧版本字符串：
-
-```powershell
-rg -n --glob '!data/**' --glob '!dist/**' '3\.0|V3\.0|v30' AGENTS.md README.md DEVELOPMENT.md fm_odds_web.py fmodd_desktop.py desktop build FMODD*.version.txt
-```
-
-spec 当前包含本机绝对项目路径。仓库移动后，必须同步修改 spec 的 `root`。
-
-### 7.3 构建前检查
-
-```powershell
-python -m py_compile fm_odds_web.py fmodd_desktop.py tools\*.py
-node --check web\app.js
-python tools\build_embedded_web_assets.py
-git diff --check
-```
-
-如果 PowerShell 没有按预期展开 `tools\*.py`，应列出本次涉及的 Python 文件执行 `py_compile`，不要因此跳过检查。
-
-### 7.4 编译 net48 桌面宿主
-
-以 V2.7.0beta 为例：
-
-```powershell
-dotnet build desktop\WebViewHost.csproj -c Release -o build\desktop_host_v270beta
-```
-
-必须保持 `TargetFramework` 为 `net48`，避免重新引入用户必须安装或更新 .NET Desktop Runtime 的问题。
-
-确认宿主目录至少包含：
-
-- `FMODD.WebViewHost.exe`
-- `Microsoft.Web.WebView2.Core.dll`
-- `Microsoft.Web.WebView2.WinForms.dll`
-- `WebView2Loader.dll`
-
-### 7.5 执行封装
-
-V2.7.0beta 保护封装（流水线自动执行发布预检、完整测试、npm 依赖与生产前端、内嵌资源、桌面宿主、Cython 原生模块、保护核心一致性、发布面审计和 PyInstaller，任一步失败都不得继续）：
-
-```powershell
-python scripts\build_protected_release.py --version 2.7.0beta --clean
-```
-
-可单独运行只读发布预检：
-
-```powershell
-python scripts\release_preflight.py --repo . --version 2.7.0beta
-```
-
-普通 PyInstaller 基准封装使用：
-
-```powershell
-pyinstaller --noconfirm --clean build\FMODD-V2.7.0beta.spec
-```
-
-封装时不要启动正式 EXE。成功后确认输出存在：
-
-```powershell
-Get-Item dist\FMODD-V2.7.0beta.exe | Select-Object FullName, Length, LastWriteTime
-```
-
-### 7.6 校验成品
-
-```powershell
-$exe = Get-Item dist\FMODD-V2.7.0beta.exe
-$exe.VersionInfo | Select-Object FileVersion, ProductVersion, OriginalFilename
-Get-FileHash $exe.FullName -Algorithm SHA256
-```
-
-保护封装还会生成 `dist/FMODD-V2.7.0beta.sha256.json` 清单。交付时至少记录：
-
-- 文件名
-- 文件大小
-- FileVersion 和 ProductVersion
-- SHA256
-- 构建是否出现错误或警告
-
-除非明确要求，不打开成品、不验证界面、不读取 FM 数据。
-
-## 8. 发布与回退
-
-- 源码提交到私有 GitHub 仓库；`dist/` 不提交 Git。
-- 需要长期保存或分发 EXE 时，使用 GitHub Release 或其他交付渠道上传成品和更新日志。
-- Beta 版本使用预发布标记，避免与稳定版本混淆。
-- 发布前建议给当前源码提交打对应标签，例如 `v2.7.0beta`。
-- 发现问题时从已验证提交创建修复分支，不用覆盖历史或强推 `main`。
-- 回退只回退本次相关提交；用户数据格式发生变化时，要先确认旧版本能否读取新数据。
-
-## 9. 常见问题
-
-### EXE 提示安装或更新 .NET
-
-检查 `desktop/WebViewHost.csproj` 是否仍为 `net48`，并确认 spec 打包的是新编译的版本宿主目录，而不是旧的 `net8.0-windows` 产物。
-
-### 修改网页后开发版或封装版仍显示旧内容
-
-重新运行 `python tools\build_embedded_web_assets.py`，再重启开发服务或重新封装。
-
-### 打包成功但版本号仍是旧的
-
-检查第 7.2 节的全部版本位置，并确认 `build/protection.toml` 与 spec 都指向新建的版本资源和宿主目录。
-
-### 保护封装中途失败
-
-保护流水线要求每一步都成功：发布预检、Rust 原生核心与 C++ Hook 核心构建、pytest、`npm ci` 与生产前端、`dotnet build`、Cython 编译、保护核心一致性和发布面审计。按失败阶段检查对应依赖（Rust MSVC 工具链、Visual C++ Build Tools、Cython、npm/esbuild、.NET SDK）与受保护模块源码，修复后重新运行，不要跳过失败步骤继续发布。
+刷新浏览器并确认访问的是当前开发服务地址；服务端代码变化时按 4.2 节重启。
 
 ### Git 中出现大量运行数据或生成文件
 
@@ -311,17 +169,17 @@ Get-FileHash $exe.FullName -Algorithm SHA256
 
 先检查 `7857` 的占用者；仅当其 Python 命令行同时匹配 `fm_odds_web.py` 和端口参数 `7857` 时，按 4.2 节重启。其他占用者只报告，不自动结束。不要结束所有 Python 或 FM 进程。
 
-## 10. 每次任务的最小交付清单
+## 8. 每次任务的最小交付清单
 
 仅核对本次任务适用项；纯文档/技能修改不要求应用测试、网页重建或服务重启，用户更窄的明确限制优先。
 
 - 需求相关代码已修改，未覆盖无关改动。
-- 修改网页时已重建内嵌资源。
+- 修改网页时已检查实际页面资源与相关语法。
 - 已执行与改动范围相符的语法或编译检查。
 - 普通功能修改后已重启 `7857` 开发服务；启动常驻进程后即结束启动步骤。
 - 未主动启动正式 EXE、读取 FM 刷新结果或进行界面验证。
 - 已说明修改内容、检查结果以及仍需实机验证的风险。
-- 只有用户明确要求时才封装、提交、推送或发布。
+- 只有用户明确要求时才提交、推送或发布。
 
 ## 通用只读验证工具与内部编码报告
 

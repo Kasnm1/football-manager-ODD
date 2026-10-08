@@ -13,7 +13,7 @@
 | [I18N_ARCHITECTURE.md](I18N_ARCHITECTURE.md) | Localisation |
 | [MACOS_PORTING_GUIDE.md](MACOS_PORTING_GUIDE.md) | Porting plan; does not imply macOS support |
 | [RESEARCH_SOURCES.md](RESEARCH_SOURCES.md) | Public evidence boundary |
-| [../DEVELOPMENT.md](../DEVELOPMENT.md) | Development and build instructions |
+| [../DEVELOPMENT.md](../DEVELOPMENT.md) | Development setup and source runtime |
 | [../CONTRIBUTING.md](../CONTRIBUTING.md) | Issues and pull requests |
 | [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) | Third-party materials and notices |
 

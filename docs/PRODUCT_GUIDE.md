@@ -90,17 +90,12 @@ FMODD 是面向 Football Manager 的本地桌面工具。当前版本为 **V2.7.
 | 训练场、关系综训、青训与董事会目标 | `tools/training_ground.py`、`tools/relationship_training.py`、`tools/person_relationships.py`、`tools/youth_intake.py`、`tools/board_listens_hook.py`、`tools/club_vision.py` |
 | 常驻会话、数据库目录与刷新核心 | `tools/game_session.py`、`tools/database_index.py`、`tools/refresh_memory_core.py` |
 | WebView2 宿主 | `desktop/WebViewHost.cs` |
-| V2.7.0beta 普通/保护封装配置 | `build/FMODD-V2.7.0beta.spec`、`build/FMODD-V2.7.0beta-protected.spec` |
 
 完整文档导航见 [`docs/README.md`](../docs/README.md)，首读代码路由见 [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)，详细跨模块行为见 [`docs/RUNTIME_CONTRACTS.md`](../docs/RUNTIME_CONTRACTS.md)，赔率、盘口、投注和结算链路见 [`docs/ODDS_ARCHITECTURE.md`](../docs/ODDS_ARCHITECTURE.md)。公开证据边界见 [`docs/RESEARCH_SOURCES.md`](../docs/RESEARCH_SOURCES.md)。涉及功能存在性、作用范围、对象定位、字段偏移、AOB 或 Hook 时，应先查研究索引，不能只搜索业务源码。
 
 ## 开发启动
 
-首次检出后先恢复桌面 SDK：
-
-```powershell
-python scripts\restore_webview2.py
-```
+源码运行使用浏览器开发版，依赖和启动步骤见 [开发手册](../DEVELOPMENT.md)。
 
 原生核心变化后构建 Rust 与 C++ DLL：
 
@@ -113,31 +108,7 @@ python scripts\build_cpp_hook_core.py
 python fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-修改网页后重建内嵌资源：
-
-```powershell
-python tools\build_embedded_web_assets.py
-```
-
-## 正式版封装
-
-1. 同步 `fm_odds_web.py`、`fmodd_desktop.py`、`desktop/WebViewHost.cs`、`FMODD.version.txt` 和 spec 中的版本号。
-2. 使用 `dotnet build desktop/WebViewHost.csproj -c Release -o build/desktop_host_v243beta` 编译 .NET Framework 4.8 桌面宿主。
-3. V2.7.0beta 的保护封装编译布局、比赛 Hook 与窄核心模块；刷新编排、缓存迁移、投注和经济模块保持普通 Python 语义：
-
-```powershell
-python scripts\build_protected_release.py --version 2.7.0beta --clean
-```
-
-保护封装会先构建 Rust 原生核心（盘口数学、布局校验和普通进程写入事务）与 C++ Hook 核心（签名扫描、相对跳转和可执行页补丁事务），再按 `build/protection.toml` 的唯一名单编译 Cython 原生模块，通过锁定版本的 esbuild 压缩生产前端并移除 source map，随后检查受保护模块没有以 Python 字节码进入 PyInstaller 的 `PYZ`。构建时会把两个原生 DLL 的 SHA-256 写入受保护完整性模块；正式版只从 PyInstaller 固定解包目录加载，加载前校验摘要，并在进程生命周期内保持拒绝写入和删除的文件锁。前端依赖由流水线使用 `package-lock.json` 自动安装；开发服务仍直接读取未压缩的 `web/`。
-
-普通 PyInstaller 基准封装使用：
-
-```powershell
-pyinstaller --noconfirm --clean build\FMODD-V2.7.0beta.spec
-```
-
-输出位于 `dist/`。该目录不进入 Git。
+开发服务直接读取 `web/`。本仓库不提供 EXE 打包方法。
 
 ## 数据边界
 
