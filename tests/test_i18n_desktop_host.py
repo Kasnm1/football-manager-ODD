@@ -8,7 +8,7 @@ from unittest.mock import patch
 import fmodd_desktop
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 CHINESE = re.compile(r"[\u3400-\u9fff]")
 
 

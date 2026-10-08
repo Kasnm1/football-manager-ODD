@@ -35,7 +35,7 @@ def main() -> int:
     if hashlib.sha256(payload).hexdigest() != PACKAGE_SHA256:
         raise RuntimeError("WebView2 package checksum mismatch; no files were written.")
 
-    target = Path(__file__).resolve().parents[1] / "build" / "desktop_host"
+    target = Path(__file__).resolve().parents[1] / "src" / "build" / "desktop_host"
     with zipfile.ZipFile(io.BytesIO(payload)) as archive:
         files = [(target / name, archive.read(entry)) for entry, name in ENTRIES.items()]
     for path, content in files:

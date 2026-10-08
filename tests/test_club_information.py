@@ -8,7 +8,7 @@ from tools.game_layout import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_staff_job_type_8_is_managing_director() -> None:

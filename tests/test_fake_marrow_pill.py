@@ -12,7 +12,7 @@ from tools.club_reader import plan_fake_marrow_ca
 from tools import club_reader
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_fake_marrow_product_precedes_common_marrow_pill() -> None:

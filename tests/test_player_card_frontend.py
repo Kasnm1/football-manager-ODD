@@ -6,7 +6,7 @@ from pathlib import Path
 from frontend_source import read_frontend_source
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class PlayerCardFrontendTests(unittest.TestCase):

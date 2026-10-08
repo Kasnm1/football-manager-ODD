@@ -8,7 +8,7 @@ import pytest
 from frontend_source import read_frontend_source
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 SCRIPT = read_frontend_source(ROOT / "web" / "app.js", mode="raw")
 PROJECTED_SCRIPT = read_frontend_source(ROOT / "web" / "app.js", mode="zh-CN")
 HTML = read_frontend_source(ROOT / "web" / "index.html", mode="raw")

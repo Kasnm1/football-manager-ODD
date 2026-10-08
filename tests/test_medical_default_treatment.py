@@ -12,7 +12,7 @@ from tools.club_economy import (
 from tools.money import to_minor, write_minor
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def _injured_player(player_id: int) -> dict[str, object]:

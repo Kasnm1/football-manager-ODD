@@ -15,7 +15,7 @@ from tools.initial_data_audit import (
 from tools.world_clubs import merge_native_world_clubs
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class FakeReader:

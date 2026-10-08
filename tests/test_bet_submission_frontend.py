@@ -6,7 +6,7 @@ import subprocess
 import pytest
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_bet_submission_has_timeout_busy_state_and_retry_identity() -> None:

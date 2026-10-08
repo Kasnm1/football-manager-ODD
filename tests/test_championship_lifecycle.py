@@ -154,7 +154,7 @@ class ChampionshipLifecycleTests(unittest.TestCase):
         node=shutil.which('node')
         if not node:
             self.skipTest('Node unavailable')
-        source=(Path(__file__).resolve().parents[1]/'web'/'app.js').read_text(encoding='utf8')
+        source=((Path(__file__).resolve().parents[1] / "src")/'web'/'app.js').read_text(encoding='utf8')
         start=source.index('function championshipDataIndex() {')
         end=source.index('\nfunction championshipSettlementDate(',start)
         script='''const data={competitions:[{competition_id:1,season_key:'1:2027/28',status:'open',teams:[{team_id:7}]},{competition_id:1,season_key:'1:2026/27',status:'complete',teams:[]}]}; const app={}; function championshipData(){return data;} function output(){return {competitions:[]};} function activeUiLocale(){return 'en-GB';} '''+source[start:end]+'''\nconst index=championshipDataIndex(); if(!index.teamsByCompetitionId.get(1).has(7))throw new Error('Current selection lost'); console.log(index.competitions.length);'''

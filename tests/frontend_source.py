@@ -15,7 +15,7 @@ import subprocess
 from typing import Literal
 
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[1]
+_PROJECT_ROOT = (Path(__file__).resolve().parents[1] / "src")
 _ORIGINAL_PATH_READ_TEXT = Path.read_text
 SourceMode = Literal["raw", "zh-CN"]
 

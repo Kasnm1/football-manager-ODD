@@ -32,30 +32,30 @@ flowchart LR
 
 | 模块 | 负责 | 不负责 |
 | --- | --- | --- |
-| `fm_odds_web.py` | `LocalOddsState`、连接/刷新/结算编排、状态发布、下注入口和 HTTP 服务 | 底层概率算法、持久化格式、版本偏移真值 |
-| `tools/local_state_services.py` | 刷新锁、取消、阶段发布、账户作用域绑定和应用服务编排 | FM 结构解析、钱包文件格式、盘口数学 |
-| `tools/api_routing.py`、`tools/domain_errors.py` | 路由注册、统一分派和稳定错误载荷 | 业务计算 |
-| `tools/game_layout.py` | FM24/FM26 与 Steam/Epic/XGP 的模块、RVA、vtable 和字段布局 | 产品级功能门禁和赔率参数 |
-| `tools/game_session.py` | 常驻只读进程句柄、模块身份和会话代际 | 缓存易变的球队状态或赛果 |
-| `tools/database_index.py` | Club、Competition、Nation、Person、Stadium、Team 等原生对象目录 | 盘口筛选和价格生成 |
-| `tools/initial_data_audit.py` | 原生赛程、赛果、事件和基础对象解析 | 账户、风控和前端状态 |
-| `tools/refresh_memory_core.py` | 固定/动态赛程池发现、结构校验、同 slab 补全和有界回退扫描 | xG、抽水和投注结算 |
-| `tools/preview_cup_odds.py` | 当前核心赔率管线：读取窗口、赛程/赛果恢复、球队画像、xG、比分矩阵、单场市场和快照；保留结果历史兼容入口 | 钱包事务、处罚、HTTP 路由、历史文件生命周期实现 |
-| `tools/odds_math_core.py` | 比分矩阵和亚洲盘权重的窄 Python 接口 | 业务状态和 FM 内存访问 |
-| `tools/result_evidence.py` | 稳定场次身份、半场/首球明细一致性、明细清理和快照匹配；`preview_cup_odds` 保留兼容导出 | FM 读取、历史文件和盘口模型 |
-| `tools/result_history.py` | 显式生涯路径下的赛果账本读取、旧来源合并、可信冲突优先级、明细继承、保留、备份恢复和原子保存 | FM 内存记录恢复、赔率模型和账户派彩 |
-| `tools/odds_profiles.py` | 已提供阵容和近期赛果的纯画像、可出战筛选、分层 CA、体能锐度修正和位置诊断；原门面保留辅助函数兼容导出 | FM 读取、画像缓存生命周期、xG 定价和账户状态 |
-| `tools/rust_native_core.py` / `fmodd_native_core` | 原生 Poisson/比分矩阵与市场权重计算、输入输出校验 | 版本选择、模型参数和盘口发布 |
-| `tools/live_market.py` | 早盘、临场压力、轨迹和实时盘口输出 | 原生赛果读取和注单持久化 |
-| `tools/league_standings.py` | 原生或赛果重建积分榜、赛事内 ELO、积分调整审计 | 冠军投注账户结算 |
-| `tools/championship_odds.py` | 联赛/杯赛参赛者、冠军概率、快照、关闭条件和唯一冠军判定 | 单场盘口和钱包记账 |
-| `tools/betting_account.py` | 钱包、注单、单关/串关/复式、退款、玩法判定和结算事务 | 生成比赛赔率、扫描 FM 内存 |
-| `tools/money.py` | 最小货币单位整数换算、取整和兼容迁移 | 下注规则 |
-| `tools/pass_methods.py` | 串关套餐组合与组合上限 | 单腿赛果判断 |
-| `tools/match_integrity.py` | 异常投注证据、处罚、盘口停用和通知状态 | 普通注单结算和赔率模型 |
-| `tools/season_ledger.py` | 赛季级核心预测归档 | 实时盘口发布 |
-| `tools/save_context.py`、`tools/storage_*.py` | 存档/经理作用域、账户容器、缓存和保留策略 | 推导赔率或比赛结果 |
-| `web/app.js` | 状态同步、盘口展示、投注单和局部交互 | 赔率真值、结算真值和风控判断 |
+| `src/fm_odds_web.py` | `LocalOddsState`、连接/刷新/结算编排、状态发布、下注入口和 HTTP 服务 | 底层概率算法、持久化格式、版本偏移真值 |
+| `src/tools/local_state_services.py` | 刷新锁、取消、阶段发布、账户作用域绑定和应用服务编排 | FM 结构解析、钱包文件格式、盘口数学 |
+| `src/tools/api_routing.py`、`src/tools/domain_errors.py` | 路由注册、统一分派和稳定错误载荷 | 业务计算 |
+| `src/tools/game_layout.py` | FM24/FM26 与 Steam/Epic/XGP 的模块、RVA、vtable 和字段布局 | 产品级功能门禁和赔率参数 |
+| `src/tools/game_session.py` | 常驻只读进程句柄、模块身份和会话代际 | 缓存易变的球队状态或赛果 |
+| `src/tools/database_index.py` | Club、Competition、Nation、Person、Stadium、Team 等原生对象目录 | 盘口筛选和价格生成 |
+| `src/tools/initial_data_audit.py` | 原生赛程、赛果、事件和基础对象解析 | 账户、风控和前端状态 |
+| `src/tools/refresh_memory_core.py` | 固定/动态赛程池发现、结构校验、同 slab 补全和有界回退扫描 | xG、抽水和投注结算 |
+| `src/tools/preview_cup_odds.py` | 当前核心赔率管线：读取窗口、赛程/赛果恢复、球队画像、xG、比分矩阵、单场市场和快照；保留结果历史兼容入口 | 钱包事务、处罚、HTTP 路由、历史文件生命周期实现 |
+| `src/tools/odds_math_core.py` | 比分矩阵和亚洲盘权重的窄 Python 接口 | 业务状态和 FM 内存访问 |
+| `src/tools/result_evidence.py` | 稳定场次身份、半场/首球明细一致性、明细清理和快照匹配；`preview_cup_odds` 保留兼容导出 | FM 读取、历史文件和盘口模型 |
+| `src/tools/result_history.py` | 显式生涯路径下的赛果账本读取、旧来源合并、可信冲突优先级、明细继承、保留、备份恢复和原子保存 | FM 内存记录恢复、赔率模型和账户派彩 |
+| `src/tools/odds_profiles.py` | 已提供阵容和近期赛果的纯画像、可出战筛选、分层 CA、体能锐度修正和位置诊断；原门面保留辅助函数兼容导出 | FM 读取、画像缓存生命周期、xG 定价和账户状态 |
+| `src/tools/rust_native_core.py` / `fmodd_native_core` | 原生 Poisson/比分矩阵与市场权重计算、输入输出校验 | 版本选择、模型参数和盘口发布 |
+| `src/tools/live_market.py` | 早盘、临场压力、轨迹和实时盘口输出 | 原生赛果读取和注单持久化 |
+| `src/tools/league_standings.py` | 原生或赛果重建积分榜、赛事内 ELO、积分调整审计 | 冠军投注账户结算 |
+| `src/tools/championship_odds.py` | 联赛/杯赛参赛者、冠军概率、快照、关闭条件和唯一冠军判定 | 单场盘口和钱包记账 |
+| `src/tools/betting_account.py` | 钱包、注单、单关/串关/复式、退款、玩法判定和结算事务 | 生成比赛赔率、扫描 FM 内存 |
+| `src/tools/money.py` | 最小货币单位整数换算、取整和兼容迁移 | 下注规则 |
+| `src/tools/pass_methods.py` | 串关套餐组合与组合上限 | 单腿赛果判断 |
+| `src/tools/match_integrity.py` | 异常投注证据、处罚、盘口停用和通知状态 | 普通注单结算和赔率模型 |
+| `src/tools/season_ledger.py` | 赛季级核心预测归档 | 实时盘口发布 |
+| `src/tools/save_context.py`、`src/tools/storage_*.py` | 存档/经理作用域、账户容器、缓存和保留策略 | 推导赔率或比赛结果 |
+| `src/web/app.js` | 状态同步、盘口展示、投注单和局部交互 | 赔率真值、结算真值和风控判断 |
 
 `live_market` 对由赛程身份和早盘价格决定的临场方向、强度和轨迹使用有界进程内缓存；由基础 xG 与舍入后临场胜平负唯一决定的比分概率面和完整详细盘口也使用独立的有界纯数学缓存。缓存只覆盖确定性派生值，不缓存钱包、FM 地址或赛果。清空 Python 进程后自然失效，盘口输入或模型版本改变时也不会跨进程复用。
 
@@ -167,7 +167,7 @@ flowchart LR
 - 旧错误赛季键仅在赛事 ID 和下注日期能唯一匹配完成市场时兼容结算；常规赛季窗口覆盖首场比赛前的下注，但带日期的同年新赛事不能追溯匹配其开赛前的旧注单。
 - 冠军盘只有在赛季完成且唯一冠军证据成立后结算；模型领先者不是冠军事实。
 
-积分榜事实仍由 `tools/league_standings.py` 提供。其 LRU 上限 8 的缓存只保存绑定存档作用域、FM 布局、游戏日期、赛季/实际赛事对象身份、各赛事推断赛季起点、赛果/阶段、原生积分榜快照、赛事声望和全部积分调整记录的公共投影，并在命中时返回副本；赛季对象替换或积分调整变化必须形成新依赖键。`tools/championship_odds.py` 保留现有按市场版本管理的价格/市场缓存，不能反向定义当前积分榜、把旧表按理论场数清零，或重复实现第二套冠军盘缓存。以上优化不改变冠军判定、盘口关闭、下注时价格核对或结算条件。
+积分榜事实仍由 `src/tools/league_standings.py` 提供。其 LRU 上限 8 的缓存只保存绑定存档作用域、FM 布局、游戏日期、赛季/实际赛事对象身份、各赛事推断赛季起点、赛果/阶段、原生积分榜快照、赛事声望和全部积分调整记录的公共投影，并在命中时返回副本；赛季对象替换或积分调整变化必须形成新依赖键。`src/tools/championship_odds.py` 保留现有按市场版本管理的价格/市场缓存，不能反向定义当前积分榜、把旧表按理论场数清零，或重复实现第二套冠军盘缓存。以上优化不改变冠军判定、盘口关闭、下注时价格核对或结算条件。
 
 ## 7. 持久化边界
 
@@ -176,7 +176,7 @@ flowchart LR
 | 数据 | 位置/所有者 | 规则 |
 | --- | --- | --- |
 | 钱包、注单、处罚、物品等账户数据 | `saves/<storage-scope>.fmodd` / 账户存储层 | 原子替换、作用域绑定、未来 schema 失败关闭 |
-| 跨存档投注统计 | `tools/global_statistics.py` 的按需只读投影 | 只汇总已登记账户的已结算注单；不合并余额或未结算资金，不改变结算真值 |
+| 跨存档投注统计 | `src/tools/global_statistics.py` 的按需只读投影 | 只汇总已登记账户的已结算注单；不合并余额或未结算资金，不改变结算真值 |
 | 可重建盘口和模型快照 | `cache/<storage-scope>/` | 必须校验存档、模型、设置和会话身份 |
 | 生涯赛果历史 | `careers/<career-id>/result_history.json` | 作为跨账户的赛果证据账本，不属于临时盘口缓存 |
 | 赛季预测账本 | `season_ledger` | 每次成功盘口刷新都归档核心预测，详细市场仅在已生成时可选保存 |
@@ -187,18 +187,18 @@ flowchart LR
 | 需求 | 首选修改位置 |
 | --- | --- |
 | 调整 xG、球队权重或抽水 | `preview_cup_odds.py`；纯矩阵算法进入 `odds_math_core`/原生核心 |
-| 新增单场玩法 | 市场生成放 `preview_cup_odds.py`，单腿判定放 `betting_account.py`，UI 放 `web/app.js` |
+| 新增单场玩法 | 市场生成放 `preview_cup_odds.py`，单腿判定放 `betting_account.py`，UI 放 `src/web/app.js` |
 | 修改实时赔率 | `live_market.py` |
 | 修改冠军概率/冠军判定 | `championship_odds.py`，积分/ELO 事实放 `league_standings.py` |
 | 修改刷新策略 | `local_state_services.py` 与 `LocalOddsState`；底层扫描放 `refresh_memory_core.py` |
 | 新增 FM 字段/结构 | `game_layout.py` 与读取层；不得塞入赔率公式 |
 | 修改钱包、退款、派彩 | `betting_account.py`、`money.py` |
 | 修改异常投注规则 | `match_integrity.py` |
-| 修改前端展示/交互 | `web/`；服务端仍保持全部真值校验 |
+| 修改前端展示/交互 | `src/web/`；服务端仍保持全部真值校验 |
 
 新增功能不要默认继续扩大两个大文件：
 
-- `fm_odds_web.py` 只保留跨领域状态门面和薄用例入口；可独立测试的刷新/账户编排优先进入 `local_state_services.py`。
+- `src/fm_odds_web.py` 只保留跨领域状态门面和薄用例入口；可独立测试的刷新/账户编排优先进入 `local_state_services.py`。
 - `preview_cup_odds.py` 目前仍同时承载读取、恢复、模型和定价。纯数学、纯解析或独立持久化逻辑应进入现有窄模块；大规模拆分必须单独立项并保持快照/结算兼容。
 
 ## 9. 验证路由
@@ -224,7 +224,7 @@ flowchart LR
 
 当前代码已经把原生数学、实时盘、冠军盘、账户结算、风控、路由和部分刷新协调拆成独立模块，但仍有两个集中点：
 
-- `fm_odds_web.py` 同时承担状态门面、刷新/结算编排和大量非赔率产品业务；
+- `src/fm_odds_web.py` 同时承担状态门面、刷新/结算编排和大量非赔率产品业务；
 - `preview_cup_odds.py` 同时承担内存读取、赛果恢复、球队画像、模型和市场生成。
 
 因此后续应按“新逻辑进入责任模块、旧逻辑按独立任务渐进迁移”的方式收敛，而不是一次性重写。任何拆分都必须保持 API 状态契约、快照兼容、下注重定价和结算幂等性。

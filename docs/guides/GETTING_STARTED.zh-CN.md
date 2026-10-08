@@ -26,10 +26,10 @@ python -m pip install tomli
 ```powershell
 python scripts\build_rust_native.py
 python scripts\build_cpp_hook_core.py
-python fm_odds_web.py --port 7857 --no-browser --keep-alive
+python src\fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-在浏览器打开 **http://127.0.0.1:7857**。开发服务直接读取 `web/` 中的 HTML、CSS、JavaScript 与资源文件。
+在浏览器打开 **http://127.0.0.1:7857**。开发服务直接读取 `src/web/` 中的 HTML、CSS、JavaScript 与资源文件。
 
 启动 Football Manager，载入存档，再通过 FMODD 连接。功能可用性取决于具体游戏 build 与发行平台。首次使用原生数据修改功能前，请先备份游戏存档。
 
@@ -40,3 +40,14 @@ python fm_odds_web.py --port 7857 --no-browser --keep-alive
 修改前端文件后刷新浏览器；服务端代码变化后重启本地服务，只停止自己启动的服务实例。个人存档、账户数据、凭据与本地生成物保留在提交之外。
 
 详细开发和排错说明见 [开发手册](../development/DEVELOPMENT.md)。
+
+## 运行相关测试
+
+在开发环境中安装测试工具，再按改动选择相关测试。例如：
+
+```powershell
+python -m pip install pytest
+python -m pytest tests/test_local_icon_assets.py
+```
+
+仓库配置会将 `src/` 加入测试的模块搜索路径。

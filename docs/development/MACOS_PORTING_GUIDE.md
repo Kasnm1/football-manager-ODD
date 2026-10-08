@@ -85,7 +85,7 @@ macOS 版本的目标应是复用 FMODD 已有的 Web UI、HTTP API、账户与�
 
 | 平台接口 | Windows 当前来源 | macOS 实现目标 |
 | --- | --- | --- |
-| `DesktopHost` | `fmodd_desktop.py`、`desktop/WebViewHost.cs` | `.app` 宿主、WKWebView、窗口状态和外部链接策略 |
+| `DesktopHost` | `src/fmodd_desktop.py`、`src/desktop/WebViewHost.cs` | `.app` 宿主、WKWebView、窗口状态和外部链接策略 |
 | `ProcessDiscovery` | Toolhelp/Win32 进程与模块枚举 | `libproc`/受支持系统 API，返回 PID、架构、路径和模块身份 |
 | `ProcessMemory` | `OpenProcess`、`ReadProcessMemory`、`WriteProcessMemory` | Mach task 与 `mach_vm_*` 封装，统一错误和权限状态 |
 | `ModuleIdentity` | PE 时间戳、映像大小、SHA-256、DLL | Mach-O UUID、代码签名身份、文件摘要、加载映像与架构 |
@@ -98,7 +98,7 @@ macOS 版本的目标应是复用 FMODD 已有的 Web UI、HTTP API、账户与�
 
 ### 4.2 桌面宿主
 
-当前 `desktop/WebViewHost.csproj` 是 `net48` WinForms，使用 WebView2、`user32.dll` 和 `dwmapi.dll`，必须整体替换。可选方案：
+当前 `src/desktop/WebViewHost.csproj` 是 `net48` WinForms，使用 WebView2、`user32.dll` 和 `dwmapi.dll`，必须整体替换。可选方案：
 
 1. 原生 Swift/SwiftUI + WKWebView：平台一致性和签名流程最好，但需要维护一个新的宿主项目。
 2. 成熟的跨平台 WebView 宿主：开发较快，但要核对 WKWebView 生命周期、下载、外链、窗口恢复和分发许可。
@@ -133,7 +133,7 @@ Windows 的 EXE SHA-256、PE timestamp、RVA、DLL 名称、vtable、AOB 和 Hoo
 
 ### 4.5 原生核心与 Hook
 
-`native/fmodd_native_core` 当前仅在 Windows 下链接 `kernel32`，`native/fmodd_hook_core` 直接包含 `windows.h`。移植时应把纯数学、纯布局校验与进程 I/O 拆开：
+`src/native/fmodd_native_core` 当前仅在 Windows 下链接 `kernel32`，`src/native/fmodd_hook_core` 直接包含 `windows.h`。移植时应把纯数学、纯布局校验与进程 I/O 拆开：
 
 - 纯数学和纯字节校验可编译为跨平台 Rust/Cython 核心。
 - 进程读写通过平台接口注入，不让纯核心链接系统进程 API。
@@ -152,7 +152,7 @@ Windows 的 EXE SHA-256、PE timestamp、RVA、DLL 名称、vtable、AOB 和 Hoo
 - 日志：`~/Library/Logs/FMODD/`
 - 用户主动选择的外置数据目录：保存 security-scoped bookmark 或宿主框架的等价授权凭据。
 
-现有 `tools/app_paths.py` 在冻结版使用 Windows 配置目录和 Documents 默认目录，需要平台化。`tools/storage_io.py` 在非 Windows 上目前只有线程内锁，不具备多个进程之间的互斥保证；macOS 版本必须增加跨进程文件锁，并验证原子替换、崩溃残留、外置卷断开和大小写敏感文件系统。
+现有 `src/tools/app_paths.py` 在冻结版使用 Windows 配置目录和 Documents 默认目录，需要平台化。`src/tools/storage_io.py` 在非 Windows 上目前只有线程内锁，不具备多个进程之间的互斥保证；macOS 版本必须增加跨进程文件锁，并验证原子替换、崩溃残留、外置卷断开和大小写敏感文件系统。
 
 不得自动扫描、上传或迁移用户的 Windows `data/`。如支持跨平台迁移，应只迁移去地址化的账户/生涯数据，并先验证格式版本、备份、冲突处理和回滚。
 

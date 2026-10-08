@@ -12,7 +12,7 @@ from fm_odds_web import Handler, LocalOddsState
 from tools.live_market import market_output
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_large_json_response_uses_gzip_when_client_accepts_it() -> None:

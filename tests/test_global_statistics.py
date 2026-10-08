@@ -9,7 +9,7 @@ from unittest.mock import patch
 import tools.global_statistics as statistics
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class GlobalStatisticsTests(unittest.TestCase):

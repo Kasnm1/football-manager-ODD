@@ -115,7 +115,7 @@ def test_staff_activity_requires_both_directional_write_results(monkeypatch):
 
 
 def test_staff_activity_api_uses_atomic_bidirectional_relationship_writer():
-    source = (Path(__file__).resolve().parents[1] / "fm_odds_web.py").read_text(
+    source = ((Path(__file__).resolve().parents[1] / "src") / "fm_odds_web.py").read_text(
         encoding="utf-8",
     )
     handler = source.split("def staff_activity(", 1)[1].split(

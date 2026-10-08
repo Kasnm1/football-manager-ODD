@@ -4,7 +4,7 @@ import subprocess
 
 
 def test_account_switch_awaits_fresh_state_after_an_older_inflight_read():
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = r'''
 const fs = require("fs");
 const vm = require("vm");

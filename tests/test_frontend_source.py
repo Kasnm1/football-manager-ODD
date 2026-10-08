@@ -7,7 +7,7 @@ import pytest
 from frontend_source import read_frontend_source
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_raw_and_zh_cn_views_are_distinct_for_real_i18n_markup():

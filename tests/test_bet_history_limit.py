@@ -3,7 +3,7 @@ from pathlib import Path
 from tools.betting_account import SETTLED_BET_HISTORY_LIMIT, public_bet_history
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_public_history_keeps_all_pending_and_latest_500_settled() -> None:

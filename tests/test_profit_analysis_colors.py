@@ -8,7 +8,7 @@ from frontend_source import read_frontend_source
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class ProfitAnalysisColorTests(unittest.TestCase):

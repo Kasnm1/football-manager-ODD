@@ -16,7 +16,7 @@ from fmodd_desktop import (
 from fm_odds_web import start_local_runtime
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class DesktopRuntimeParityTests(unittest.TestCase):

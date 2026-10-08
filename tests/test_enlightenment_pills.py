@@ -12,7 +12,7 @@ from tools import club_reader
 from tools.club_reader import develop_player, plan_player_development
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 ENLIGHTENMENT_SKUS = (
     "enlightenment",
     "random_enlightenment",

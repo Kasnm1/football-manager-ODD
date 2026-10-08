@@ -12,7 +12,7 @@ from tools.club_economy import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 EXPECTED_SHOP_PRICES = {

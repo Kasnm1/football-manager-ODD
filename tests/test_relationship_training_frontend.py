@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 APP_JS = (ROOT / "web" / "app.js").read_text(encoding="utf-8")
 APP_CSS = (ROOT / "web" / "app.css").read_text(encoding="utf-8")
 

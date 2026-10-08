@@ -9,7 +9,7 @@ import subprocess
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1] / "src"
 SOURCE = ROOT / "native" / "fmodd_hook_core" / "fmodd_hook_core.cpp"
 DEFAULT_OUTPUT = ROOT / "build" / "cpp_native"
 VSWHERE = Path(r"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe")

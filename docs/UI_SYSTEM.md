@@ -1,7 +1,7 @@
 # FMODD 前端生成与界面秩序规范
 
 > 状态：当前规范
-> 适用范围：`web/index.html`、`web/app.css`、`web/dark-theme.css`、`web/app.js` 中新增或修改的用户界面
+> 适用范围：`src/web/index.html`、`src/web/app.css`、`src/web/dark-theme.css`、`src/web/app.js` 中新增或修改的用户界面
 > 目的：让 FMODD 的功能增长保持统一、可识别，并避免回到通用 AI Dashboard 风格。
 
 ## 1. 产品视觉主张

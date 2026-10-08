@@ -16,7 +16,7 @@ from tools import player_movement as movement
 from tools.domain_errors import ValidationError
 from tools.player_departure_messages import MESSAGES
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 PLAYER = {'id': 10, 'name': 'Player', 'age': 25, 'ca': 130, 'world_reputation': 6000, 'market_value': 1000000}
 CLUBS = [{'id': uid, 'name': f'Club {uid}', 'team_type':'club', 'reputation': rep, 'competition_name': 'League'}
          for uid, rep in [(1, 6000), (2, 6500), (3, 6200), (4, 3000), (5, 8500), (6, 4500)]]

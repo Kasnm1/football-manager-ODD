@@ -10,7 +10,7 @@ from tools.update_check import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class _Response:

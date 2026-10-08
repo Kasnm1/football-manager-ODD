@@ -3445,7 +3445,7 @@ def test_manual_recovery_shortfall_stays_open_without_second_refund(
 
 
 def test_frontend_exposes_both_youth_plan_actions() -> None:
-    root = Path(__file__).parents[1]
+    root = (Path(__file__).parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     markup = (root / "web" / "index.html").read_text(encoding="utf-8")
     assert '"academy_son"' in script
@@ -3529,7 +3529,7 @@ def test_frontend_exposes_both_youth_plan_actions() -> None:
 
 
 def test_existing_youth_plans_lock_their_saved_form_values() -> None:
-    script = (Path(__file__).parents[1] / "web" / "app.js").read_text(
+    script = ((Path(__file__).parents[1] / "src") / "web" / "app.js").read_text(
         encoding="utf-8",
     )
     renderer = script.split("function renderPortfolioYouth", 1)[1].split(

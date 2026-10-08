@@ -33,28 +33,18 @@ Start here to find the right guide. Product homepages are available in [English]
 | [Changelog](../CHANGELOG.md) | Version history |
 | [Source and third-party materials notice](notices/SOURCE_NOTICE.md) | Source publication and third-party boundaries |
 | [Third-party notices](../THIRD_PARTY_NOTICES.md) | Dependencies, materials and their terms |
-| [Third-party licences](licenses/) | Original dependency licence texts |
+| [Third-party licences](licenses) | Original dependency licence texts |
 
 ## Repository layout · 仓库目录 · 저장소 구조
 
-| Path | Contents |
+| Directory | Contents |
 | --- | --- |
-| [fm_odds_web.py](../fm_odds_web.py) | Local HTTP service, state coordination and API entrypoint |
-| [fmodd_desktop.py](../fmodd_desktop.py) | Desktop entrypoint and service lifecycle |
-| [fm_collect.py](../fm_collect.py), [fm_collector/](../fm_collector/) | Collection entrypoint and modules |
-| [tools/](../tools/) | Python domain logic, FM readers, transactions and shared helpers; use the [feature index](FEATURE_INDEX.md) to locate a feature |
-| [web/](../web/) | HTML, CSS, JavaScript, interface translations and runtime images |
-| [desktop/](../desktop/) | C# WebView2 host source |
-| [native/](../native/) | Rust core and C++ hook core source |
-| [FMDataBridge/](../FMDataBridge/) | C# data bridge source and its own guide |
+| [src/](../src/) | Application entrypoints, Python modules, web interface, desktop host, native code and runtime assets |
+| [tests/](../tests/) | Isolated regression tests, separate from application code |
 | [scripts/](../scripts/) | Native core build helpers and WebView2 SDK restoration |
-| [tests/](../tests/) | Isolated regression tests; choose tests relevant to the changed feature |
-| [assets/](../assets/) | Player-name dictionaries |
-| [build/](../build/) | Tracked desktop icon |
-| [docs/guides/](guides/) | Quick starts and product details |
-| [docs/development/](development/) | Development manual and porting notes |
-| [docs/support/](support/) | Donation guides in three languages |
-| [docs/assets/](assets/) | Images for documentation and the GitHub homepage |
-| [docs/notices/](notices/), [licenses/](licenses/) | Publication notices and third-party licence texts |
+| [docs/](README.md) | Guides, architecture, support and project notices |
+| [.github/](../.github/) | GitHub funding configuration |
+
+Within `src/`, the [feature index](FEATURE_INDEX.md) and [architecture](ARCHITECTURE.md) locate the relevant module. Run development commands from the repository root; see the [quick start](guides/GETTING_STARTED.md).
 
 Internal raw research records, recovered binaries and local-session logs are outside this public source snapshot. Source, tests and matching-version runtime evidence remain distinct; filenames or feature labels do not prove compatibility.

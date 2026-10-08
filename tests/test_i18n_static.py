@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 LOCALES = ("en-GB", "zh-CN", "ko-KR")
 ATTRIBUTE_KEYS = {
     "aria-label": "data-i18n-aria-label",

@@ -236,7 +236,7 @@ def test_portrait_sources_persist_as_mutually_exclusive_modes(tmp_path: Path) ->
 
 
 def test_portrait_settings_ui_exposes_two_pickers_and_clear_all() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     host = (root / "desktop" / "WebViewHost.cs").read_text(encoding="utf-8")
     control = script.split("function ensurePortraitSourceControl()", 1)[1].split(

@@ -14,7 +14,7 @@ from tools.game_layout import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 @pytest.fixture(autouse=True)

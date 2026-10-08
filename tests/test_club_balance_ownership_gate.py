@@ -10,7 +10,7 @@ import pytest
 import fm_odds_web
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def managed_club_state() -> fm_odds_web.LocalOddsState:

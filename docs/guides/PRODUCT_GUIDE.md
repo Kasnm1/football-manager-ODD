@@ -72,26 +72,26 @@ FMODD 是面向 Football Manager 的本地桌面工具。当前版本为 **V2.7.
 
 | 任务 | 文件 |
 | --- | --- |
-| 本地服务与 API | `fm_odds_web.py` |
-| 正式版桌面入口 | `fmodd_desktop.py` |
-| 前端 | `web/index.html`、`web/app.js`、`web/app.css` |
+| 本地服务与 API | `src/fm_odds_web.py` |
+| 正式版桌面入口 | `src/fmodd_desktop.py` |
+| 前端 | `src/web/index.html`、`src/web/app.js`、`src/web/app.css` |
 | 界面显示偏好 | 设置中可切换 English、简体中文与 한국어；全新安装以英文为默认和翻译回退，旧版已有设置保持原中文体验。语言切换不刷新页面或修改存档。另可分别选择中文和英文字体、一键恢复初始字体，并用六档滑块调整字号与标准/加粗字重 |
-| 俱乐部与球员内存读取 | `tools/club_reader.py` |
-| 俱乐部人物库、名人堂偏好与时间线 | `tools/club_legacy.py` |
-| 玩家执教俱乐部历史转会投影 | `tools/transfer_history.py` |
-| FM24/FM26 Steam/Epic/XGP 内存布局 | `tools/game_layout.py` |
-| 功能饮料、黑哨比赛 Hook | `tools/redbull_hook.py`、`tools/referee_hook_sync.py` |
-| 异常投注取证、处罚与足协通知 | `tools/match_integrity.py` |
-| 联赛积分榜与冠军盘 | `tools/league_standings.py`、`tools/championship_odds.py`、`tools/league_table_memory.py` |
-| 商店、钱包与物品 | `tools/club_economy.py` |
-| 投注账户 | `tools/betting_account.py` |
-| 版本更新奖励 | `tools/update_rewards.py` |
-| 存档与经理账户身份 | `tools/save_context.py`、`tools/app_paths.py` |
-| 转会预算 | `tools/transfer_budget.py` |
-| 已收购俱乐部球员转会与租借 | `tools/player_movement.py` |
-| 训练场、关系综训、青训与董事会目标 | `tools/training_ground.py`、`tools/relationship_training.py`、`tools/person_relationships.py`、`tools/youth_intake.py`、`tools/board_listens_hook.py`、`tools/club_vision.py` |
-| 常驻会话、数据库目录与刷新核心 | `tools/game_session.py`、`tools/database_index.py`、`tools/refresh_memory_core.py` |
-| WebView2 宿主 | `desktop/WebViewHost.cs` |
+| 俱乐部与球员内存读取 | `src/tools/club_reader.py` |
+| 俱乐部人物库、名人堂偏好与时间线 | `src/tools/club_legacy.py` |
+| 玩家执教俱乐部历史转会投影 | `src/tools/transfer_history.py` |
+| FM24/FM26 Steam/Epic/XGP 内存布局 | `src/tools/game_layout.py` |
+| 功能饮料、黑哨比赛 Hook | `src/tools/redbull_hook.py`、`src/tools/referee_hook_sync.py` |
+| 异常投注取证、处罚与足协通知 | `src/tools/match_integrity.py` |
+| 联赛积分榜与冠军盘 | `src/tools/league_standings.py`、`src/tools/championship_odds.py`、`src/tools/league_table_memory.py` |
+| 商店、钱包与物品 | `src/tools/club_economy.py` |
+| 投注账户 | `src/tools/betting_account.py` |
+| 版本更新奖励 | `src/tools/update_rewards.py` |
+| 存档与经理账户身份 | `src/tools/save_context.py`、`src/tools/app_paths.py` |
+| 转会预算 | `src/tools/transfer_budget.py` |
+| 已收购俱乐部球员转会与租借 | `src/tools/player_movement.py` |
+| 训练场、关系综训、青训与董事会目标 | `src/tools/training_ground.py`、`src/tools/relationship_training.py`、`src/tools/person_relationships.py`、`src/tools/youth_intake.py`、`src/tools/board_listens_hook.py`、`src/tools/club_vision.py` |
+| 常驻会话、数据库目录与刷新核心 | `src/tools/game_session.py`、`src/tools/database_index.py`、`src/tools/refresh_memory_core.py` |
+| WebView2 宿主 | `src/desktop/WebViewHost.cs` |
 
 完整文档导航见 [`docs/README.md`](../README.md)，首读代码路由见 [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md)，详细跨模块行为见 [`docs/RUNTIME_CONTRACTS.md`](../RUNTIME_CONTRACTS.md)，赔率、盘口、投注和结算链路见 [`docs/ODDS_ARCHITECTURE.md`](../ODDS_ARCHITECTURE.md)。公开证据边界见 [`docs/RESEARCH_SOURCES.md`](../RESEARCH_SOURCES.md)。涉及功能存在性、作用范围、对象定位、字段偏移、AOB 或 Hook 时，应先查研究索引，不能只搜索业务源码。
 
@@ -107,10 +107,10 @@ python scripts\build_cpp_hook_core.py
 ```
 
 ```powershell
-python fm_odds_web.py --port 7857 --no-browser --keep-alive
+python src\fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-开发服务直接读取 `web/`。
+开发服务直接读取 `src/web/`。
 
 ## 数据边界
 
@@ -127,7 +127,7 @@ python fm_odds_web.py --port 7857 --no-browser --keep-alive
 - 每个 FM 生涯使用永久 `career-*` 身份，每个“生涯＋人类经理”使用永久 `account-*` 身份。经理 UID 用于确定生涯内账户；FM24 首次只读到经理而暂缺稳定存档证据时建立的临时生涯，会在同一活动上下文随后取得稳定证据时原地升级并保留原账户、钱包和库存，不再创建空账户。两个各自具备不同稳定证据的存档仍不会仅因经理 UID 相同而合并。账户首次完整识别经理与执教球队后，显示名称固定为“经理名-执教球队名-经理ID-首次识别日期”；该名称不参与物理路径或账户匹配，换队也不会重命名。设置中的历史账户选择可临时切回旧数据账户，也可恢复“跟随自动识别”。
 - 生涯共享人物库容器不会进入“存档账户”列表，也不能被恢复成钱包账户；旧版基础名称 `.fmodd` 仍可在首次经理绑定时无损认领。FM24 后台先复核已确认经理对象，换队或经理列表变化不会切档；对象失效后再用本地存档名或无重叠的人类经理 UID 集合确认真正换档。保留相同经理 UID 的网络存档副本仍需使用“更换存档刷新”。
 - 设置→存档账户提供“合并同ID账户”：仅在当前 FM 代际内，将相同经理 UID 的多个账户文档去重合并到一个新账户并绑定当前生涯；源账户和原始容器保留为备份，盘口/模型缓存不直接拼接，合并后按当前存档重新验证。
-- 正式资源位于 `web/assets/` 和 `assets/`。
-- `assets/source/` 保存原始美术素材；程序实际使用压缩后的 `web/assets/`。
+- 正式资源位于 `src/web/assets/` 和 `src/assets/`。
+- `src/assets/source/` 保存原始美术素材；程序实际使用压缩后的 `src/web/assets/`。
 - 退役计划交流支持在“本俱乐部 / 全世界”范围间切换，并提供球员或球队搜索；全世界候选直接来自当前 FM 原生退役管理器与 Person 目录的交集，避免逐人扫描。
 - 训练器材目录载入时会清理已退役器材及仍在使用的关联任务，但保留历史会话档案；历史记录继续通过旧 SKU 显示当时的器材名称。

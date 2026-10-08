@@ -465,7 +465,7 @@ class RetirementActivityTests(unittest.TestCase):
         self.assertEqual(result["retirement"], updated)
 
     def test_frontend_offers_only_three_fixed_retirement_actions(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8"
         )
 
@@ -478,7 +478,7 @@ class RetirementActivityTests(unittest.TestCase):
         self.assertNotIn('id="retirement-date"', script)
 
     def test_frontend_labels_detected_retirement_plan_states(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8"
         )
 

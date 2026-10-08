@@ -24,7 +24,7 @@ from tools.player_movement import (
     _required_layout,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class _EntryReader:

@@ -97,7 +97,7 @@ class MoneyCurrencyTests(unittest.TestCase):
                         self.assertEqual(app_settings.load_settings()["money_currency"], currency)
 
     def test_frontend_exposes_extended_choices_and_currency_precision(self):
-        source = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        source = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         self.assertIn(

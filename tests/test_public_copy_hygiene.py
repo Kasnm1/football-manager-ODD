@@ -7,7 +7,7 @@ from pathlib import Path
 from tools.player_rca import FM24_RCA_MODEL, FM26_RCA_MODEL
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 PUBLIC_RUNTIME_FILES = (
     ROOT / "fm_odds_web.py",
     ROOT / "tools" / "club_reader.py",

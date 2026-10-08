@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 from fm_odds_web import LocalOddsState
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class InventoryPlayerProfileReloadTests(unittest.TestCase):

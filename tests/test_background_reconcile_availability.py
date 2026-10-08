@@ -13,7 +13,7 @@ from fm_odds_web import (
 from tools.local_state_services import RefreshCoordinator
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 class BackgroundReconcileAvailabilityTests(unittest.TestCase):

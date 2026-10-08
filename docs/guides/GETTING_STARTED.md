@@ -26,10 +26,10 @@ python -m pip install tomli
 ```powershell
 python scripts\build_rust_native.py
 python scripts\build_cpp_hook_core.py
-python fm_odds_web.py --port 7857 --no-browser --keep-alive
+python src\fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-Open **http://127.0.0.1:7857** in your browser. Development reads the HTML, CSS, JavaScript and assets directly from `web/`.
+Open **http://127.0.0.1:7857** in your browser. Development reads the HTML, CSS, JavaScript and assets directly from `src/web/`.
 
 Start Football Manager, load a save, then connect through FMODD. Available operations depend on the exact game build and distribution platform. Back up your save before first using operations that modify native game data.
 
@@ -40,3 +40,14 @@ Read [the contributor rules](../../AGENTS.md), the [documentation map](../README
 Refresh the browser after editing frontend files. Restart the local service when server code changes; stop only the service instance you started. Keep personal saves, account data, credentials and local outputs outside your commits.
 
 Detailed development and troubleshooting notes are available in the [development manual (Chinese)](../development/DEVELOPMENT.md).
+
+## Run focused tests
+
+Install the test runner in your development environment, then select the tests relevant to your change. For example:
+
+```powershell
+python -m pip install pytest
+python -m pytest tests/test_local_icon_assets.py
+```
+
+The repository configuration adds `src/` to the test import path.

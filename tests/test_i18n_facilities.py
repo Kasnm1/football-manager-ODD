@@ -8,7 +8,7 @@ from pathlib import Path
 from tools.training_ground import FACILITIES
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def facilities_probe() -> dict[str, object]:

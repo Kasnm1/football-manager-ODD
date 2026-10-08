@@ -10,7 +10,7 @@ class PassMethodTests(unittest.TestCase):
     def test_parlay_combination_limit_is_five_thousand_in_backend_and_frontend(self):
         self.assertEqual(MAX_PARLAY_COMBINATIONS, 5000)
 
-        script = (Path(__file__).parents[1] / "web" / "app.js").read_text(encoding="utf-8")
+        script = ((Path(__file__).parents[1] / "src") / "web" / "app.js").read_text(encoding="utf-8")
         self.assertIn("const MAX_PARLAY_COMBINATIONS = 5000;", script)
         self.assertIn("systemSummary.combinations > MAX_PARLAY_COMBINATIONS", script)
 

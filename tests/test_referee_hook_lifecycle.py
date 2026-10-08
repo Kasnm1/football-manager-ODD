@@ -235,7 +235,7 @@ def test_inventory_use_does_not_report_an_unrelated_active_effect_error() -> Non
 def test_frontend_and_all_locales_cover_pending_referee_activation() -> None:
     from pathlib import Path
 
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     assert 'refereeActivationState === "pending" ? "inventory.referee_pending"' in script
     for name in (

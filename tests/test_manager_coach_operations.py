@@ -14,7 +14,7 @@ from tools.game_layout import FM24_LAYOUT, FM26_LAYOUT
 from tools.initial_data_audit import ENTITY_UID, TEAM_MANAGER
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_two_year_contract_extension_handles_leap_day() -> None:

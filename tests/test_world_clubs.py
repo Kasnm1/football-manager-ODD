@@ -1113,7 +1113,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         })
 
     def test_owned_club_metrics_frontend_uses_one_batch_request(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         block = script.split("async function performOwnedClubMetricsLoad", 1)[1].split(
@@ -1126,7 +1126,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("/api/world-clubs/detail?team_id=", block)
 
     def test_world_club_detail_uses_long_timeout_and_lazy_owned_squads(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         helper = script.split("function requestWorldClubDetail", 1)[1].split(
@@ -1158,7 +1158,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("requestWorldClubDetail(teamId)", acquire)
 
     def test_owned_club_detail_cache_is_session_scoped_and_single_flight(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         helper = script.split("const OWNED_CLUB_DETAIL_FRESH_MS", 1)[1].split(
@@ -1191,7 +1191,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("detail.ownedSquadsLoaded = true", squads)
 
     def test_owned_club_busy_state_keeps_navigation_and_close_available(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         busy = script.split("function syncWorldClubDetailBusy", 1)[1].split(
@@ -1205,7 +1205,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("worldClubDetailBusyToken", script)
 
     def test_owned_club_local_rerenders_preserve_scroll_and_focus(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         renderer = script.split("function renderOwnedClubDetailContent", 1)[1].split(
@@ -1217,7 +1217,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("preventScroll:true", script)
 
     def test_owned_club_dividend_is_visible_in_bank_and_portfolio(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         self.assertIn("俱乐部分红", script)
@@ -1230,10 +1230,10 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("下月起参与", script)
 
     def test_owned_club_card_debt_action_and_equal_action_sizes(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
-        styles = (Path(__file__).resolve().parents[1] / "web" / "app.css").read_text(
+        styles = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.css").read_text(
             encoding="utf-8",
         )
         self.assertIn('data-world-debt="${Number(teamId)}"', script)
@@ -1245,7 +1245,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("height:48px;min-height:48px", styles)
 
     def test_owned_club_financial_sections_share_operations_card(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         renderer = script.split("function renderOwnedClubDetailContent", 1)[1].split(
@@ -1272,7 +1272,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn('data-owned-panel="finance"', renderer)
 
     def test_owned_club_detail_discards_late_responses_from_previous_club(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         guard = script.split("function isCurrentWorldClubDetail", 1)[1].split(
@@ -1315,7 +1315,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("input.focus()", rename)
 
     def test_owned_club_frontend_handles_suspension_and_refresh_queue(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card = script.split("function worldClubCard", 1)[1].split(
@@ -1367,7 +1367,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("client_submission_id:submissionId", acquisition)
 
     def test_local_finance_updates_keep_cached_detail_and_group_summary_current(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         debt = script.split("async function repayOwnedClubDebt", 1)[1].split(
@@ -1391,7 +1391,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         )[1].split("async function repayOwnedClubDebt", 1)[0])
 
     def test_world_club_background_scan_reuses_manual_progress_polling(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         load_block = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1410,10 +1410,10 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("setInterval", scan_block)
 
     def test_world_club_refresh_state_is_visible_in_content_and_scan_button(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
-        styles = (Path(__file__).resolve().parents[1] / "web" / "app.css").read_text(
+        styles = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.css").read_text(
             encoding="utf-8",
         )
         load_block = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1432,7 +1432,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn('#world-club-scan.is-refreshing svg', styles)
 
     def test_world_club_load_failure_exits_spinner_and_offers_retry(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         load_block = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1449,7 +1449,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("data-world-clubs-retry", render_block)
 
     def test_my_clubs_renders_loading_and_retry_instead_of_a_blank_page(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         load_block = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1466,7 +1466,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("data-my-clubs-retry", render_block)
 
     def test_world_club_frontend_indexes_visible_data_and_skips_equal_renders(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         index_block = script.split("function worldClubDataIndex", 1)[1].split(
@@ -1486,7 +1486,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn('aria-pressed="${row.name === app.worldClubContinent}"', render_block)
 
     def test_owned_club_frontend_indexes_state_and_skips_equal_renders(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         index_block = script.split("function ownedClubDataIndex", 1)[1].split(
@@ -1513,7 +1513,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("const clubs = index.ordered", render_block)
 
     def test_world_and_owned_club_busy_states_are_accessible(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         markup = (root / "web" / "index.html").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
@@ -1536,7 +1536,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn(".my-clubs-sync-status > i", reduced_motion)
 
     def test_owned_club_disclosure_supports_keyboard_and_group_rename_focus(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card = script.split("function worldClubCard", 1)[1].split(
@@ -1575,7 +1575,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("world clubs unavailable", responses[0][1]["error"])
 
     def test_get_routes_have_a_common_json_error_boundary(self) -> None:
-        server = (Path(__file__).resolve().parents[1] / "fm_odds_web.py").read_text(
+        server = ((Path(__file__).resolve().parents[1] / "src") / "fm_odds_web.py").read_text(
             encoding="utf-8",
         )
         wrapper = server.split("def do_GET(self)", 1)[1].split(
@@ -1614,7 +1614,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
                 handler.do_GET()
 
     def test_world_pages_reload_stale_or_cross_save_caches(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         show_page = script.split("function showPage", 1)[1].split(
@@ -1626,7 +1626,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("app.worldNationsScope !== worldScope", show_page)
 
     def test_world_requests_ignore_late_responses_from_another_save(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         clubs = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1644,7 +1644,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
             self.assertIn(scope_field, block)
 
     def test_account_change_clears_owned_club_state_before_reloading(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         reset_block = script.split("function resetAccountScopedWorldState", 1)[1].split(
@@ -1662,7 +1662,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn('loadWorldClubs({page:1})', state_block)
 
     def test_owned_club_responses_are_bound_to_the_requested_scope(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         clubs = script.split("async function loadWorldClubs", 1)[1].split(
@@ -1800,7 +1800,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         )
 
     def test_owned_club_refresh_uses_targeted_endpoint(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         helper = script.split("async function refreshOwnedClubCards", 1)[1].split(
@@ -1822,7 +1822,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn('request("/api/world-clubs/scan"', block)
 
     def test_owned_club_detail_reports_active_refresh_instead_of_scan_prompt(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         detail_block = script.split("async function openWorldClubDetail", 1)[1].split(
@@ -1838,7 +1838,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("app.ownedClubRefreshLoading = false", refresh_block)
 
     def test_world_club_information_renderer_does_not_depend_on_team_id(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         block = script.split("function renderWorldClubInformation", 1)[1].split(
@@ -2038,7 +2038,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertEqual(metrics["fan_count"], 63_000)
         self.assertEqual(metrics["fan_count_source"], "season_ticket_holders")
 
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card = script.split("function worldClubCard", 1)[1].split(
@@ -2344,7 +2344,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         ])
 
     def test_owned_club_frontend_hides_acquisition_compensation(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
 
@@ -2355,7 +2355,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn(".owned-rebalance-badge", styles)
 
     def test_owned_club_frontend_renders_portfolio_value_feedback(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(
             encoding="utf-8",
         )
@@ -2376,7 +2376,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn('valuationScore("阵容", "squad")', script)
 
     def test_unimplemented_owned_club_actions_are_marked_in_the_label(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         helper = script.split("function ownedClubAction", 1)[1].split(
@@ -2386,7 +2386,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("`${uiLegacy(label)}（暂未实装）`", helper)
 
     def test_owned_club_money_uses_the_configured_currency_formatter(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         money_helper = script.split("function ownedClubMoney", 1)[1].split(
@@ -2401,7 +2401,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("compactMoney", signed_helper)
 
     def test_world_club_acquisition_is_only_exposed_in_detail(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card_renderer = script.split("function worldClubCard", 1)[1].split(
@@ -2422,7 +2422,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn("result.warning", acquire_handler)
 
     def test_world_club_acquisition_shows_thirty_second_progress_feedback(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
 
@@ -2441,7 +2441,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertIn(".world-acquisition-progress", styles)
 
     def test_world_club_cards_use_plain_names_text_view_and_compact_price(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card_renderer = script.split("function worldClubCard", 1)[1].split(
@@ -2459,7 +2459,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn("formatFullMoney(acquisitionPrice)", detail_renderer)
 
     def test_brand_promotion_keeps_button_reference_across_confirmation(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         handler = script.split(
@@ -2567,7 +2567,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertEqual(credited[0][0:2], (98_000_000, "world_club_sale"))
 
     def test_owned_club_frontend_confirms_sale_below_view(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         card = script.split("function worldClubCard", 1)[1].split(
@@ -2593,7 +2593,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         from frontend_source import read_frontend_source
 
         script = read_frontend_source(
-            Path(__file__).resolve().parents[1] / "web" / "app.js", mode="raw",
+            (Path(__file__).resolve().parents[1] / "src") / "web" / "app.js", mode="raw",
         )
         profile = script.split('content.innerHTML = `<section class="owned-club-profile"', 1)[1]
         profile = profile.split("</section>", 1)[0]
@@ -2609,7 +2609,7 @@ class WorldClubDirectoryTests(unittest.TestCase):
         self.assertNotIn('ownedClubMetric("主席状态"', overview)
 
     def test_world_club_detail_orders_cards_and_hides_unowned_income_report(self) -> None:
-        script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         block = script.split("function renderWorldClubInformation", 1)[1].split(

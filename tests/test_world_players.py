@@ -18,7 +18,7 @@ from tools.game_layout import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_previous_club_layout_is_enabled_for_verified_builds() -> None:

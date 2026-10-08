@@ -131,7 +131,7 @@ def test_reputation_targets_return_lightweight_managed_club_players() -> None:
 
 
 def test_player_brochure_frontend_uses_lightweight_targets_and_team_id() -> None:
-    script = (Path(__file__).parents[1] / "web" / "app.js").read_text(encoding="utf-8")
+    script = ((Path(__file__).parents[1] / "src") / "web" / "app.js").read_text(encoding="utf-8")
     start = script.index("async function openReputationItem")
     end = script.index("async function openHealingItem", start)
     block = script[start:end]

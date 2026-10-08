@@ -144,7 +144,7 @@ class TrainingGroundTests(unittest.TestCase):
         self.assertEqual(legacy["scene"], "office_3f")
 
     def test_wallet_only_connection_keeps_account_training_facilities_visible(self) -> None:
-        source = Path(__file__).resolve().parents[1].joinpath(
+        source = (Path(__file__).resolve().parents[1] / "src").joinpath(
             "fm_odds_web.py",
         ).read_text(encoding="utf-8")
         block = source.split("training_ground = (", 1)[1].split(
@@ -544,7 +544,7 @@ class TrainingGroundTests(unittest.TestCase):
             self.assertEqual(product["scene"], expected_scenes[sku])
             if sku in expected_sizes:
                 self.assertEqual(product["size"], expected_sizes[sku])
-            self.assertTrue((Path(__file__).resolve().parents[1] / "web" / "assets" / "training" / f"{sku}.webp").is_file())
+            self.assertTrue(((Path(__file__).resolve().parents[1] / "src") / "web" / "assets" / "training" / f"{sku}.webp").is_file())
         self.assertFalse(any(
             "受伤倾向" in attribute
             for sku in expected
@@ -2399,7 +2399,7 @@ class TrainingGroundTests(unittest.TestCase):
                 self.assertIn(expected, item["description"])
 
     def test_right_dock_has_capacity_people_and_inline_submission(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         page = (root / "web" / "index.html").read_text(encoding="utf-8")
@@ -2579,7 +2579,7 @@ class TrainingGroundTests(unittest.TestCase):
         self.assertIn('.training-person.open svg { fill:none;', styles)
 
     def test_training_equipment_capacity_player_details_and_dock_hash(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         markup = (root / "web" / "index.html").read_text(encoding="utf-8")
@@ -2647,7 +2647,7 @@ class TrainingGroundTests(unittest.TestCase):
         self.assertIn('.training-sync-status > i { animation:none; }', reduced_motion)
 
     def test_training_mutation_keeps_state_supplements_for_every_facility(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         prefix = "function updateTrainingResponse(response) {"
         function_body = script.split(prefix, 1)[1].split(
@@ -2684,7 +2684,7 @@ if (app.state.training_ground.growth_hook.installed !== true) throw new Error("f
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_training_use_panel_executes_for_builtin_and_single_user_facilities(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         prefix = "function trainingUsePanel(facility) {"
         function_body = script.split(prefix, 1)[1].split(
@@ -2754,7 +2754,7 @@ if (!activeHabit.includes("球员梅西使用中，训练尝试倒钩，还需5�
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_goalkeeper_training_selector_accepts_any_player_with_gk_ability(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         prefix = "function trainingPlayerMatchesPositionGroup(player, positionGroup) {"
         function_body = script.split(prefix, 1)[1].split(
@@ -2778,7 +2778,7 @@ if (!trainingPlayerMatchesPositionGroup(legacyGoalkeeper,"goalkeepers")) throw n
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_training_attribute_targets_keep_stop_ball_available_to_every_player(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         prefix = "function playerAttributeValue(player, key) {"
         helper_body = script.split(prefix, 1)[1].split(
@@ -2803,14 +2803,14 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_new_indoor_training_equipment_has_webp_assets(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         for sku in ("balance_platform", "pressure_pod", "leadership_desk", "defence_learning_desk"):
             asset = root / "web" / "assets" / "training" / f"{sku}.webp"
             self.assertTrue(asset.is_file())
             self.assertGreater(asset.stat().st_size, 10_000)
 
     def test_training_ground_is_nested_under_team_facilities(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         facilities = index.split('id="facilities-subnav"', 1)[1].split("</div>", 1)[0]
         self.assertIn(
@@ -2819,7 +2819,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         )
 
     def test_training_equipment_tabs_use_requested_text_without_icons(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         for marker in (
@@ -2833,7 +2833,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertNotIn('data-training-dock="shop"><i ', index)
 
     def test_training_dock_keeps_localised_copy_readable(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
 
         self.assertIn("grid-template-columns:minmax(620px,1fr) clamp(330px,30vw,420px)", styles)
@@ -2844,14 +2844,14 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertNotIn("line-clamp", dock_copy_rule)
 
     def test_coaching_page_is_named_coaching_management(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         self.assertIn('<span>执教管理</span>', index)
         self.assertIn('<strong>执教管理</strong>', index)
         self.assertIn('<h1 id="club-title">执教管理</h1>', index)
 
     def test_training_ground_has_independent_second_floor_scene(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
@@ -2860,7 +2860,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertIn('item.scene === app.trainingScene', script)
 
     def test_training_ground_has_placeable_comprehensive_seventh_floor(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
@@ -2887,7 +2887,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertNotIn("payload.advisor_kind", script)
         self.assertNotIn('id="training-inline-advisor"', script)
     def test_training_floor_backgrounds_keep_office_separate_from_training_halls(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
 
         self.assertIn(
@@ -2903,7 +2903,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         )
 
     def test_training_ground_has_third_floor_coaching_office(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         index = (root / "web" / "index.html").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
@@ -2926,7 +2926,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         self.assertTrue((root / "web" / "assets" / "training" / "coaching_desk.webp").is_file())
 
     def test_training_dock_content_cannot_resize_desktop_stage(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         self.assertIn(
             ".training-layout { height:calc(100vh - 188px); min-height:592px;",
@@ -2942,20 +2942,20 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         )
 
     def test_removed_training_dialog_has_no_stale_event_bindings(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         self.assertNotIn('$("#training-player").addEventListener', script)
         self.assertNotIn('$("#training-operation-toggle").addEventListener', script)
         self.assertNotIn('$("#training-form").addEventListener', script)
 
     def test_relationship_room_detail_accepts_dom_string_instance_id(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         self.assertIn('const lookupId = String(instanceId ?? "");', script)
         self.assertIn('String(row.id ?? "") === lookupId', script)
 
     def test_relationship_room_staff_sort_has_chief_classifier(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         self.assertIn("function isStaffChief(staff)", script)
         self.assertIn("[38, 44, 50, 62].includes(jobType)", script)
@@ -2992,7 +2992,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
         )
 
     def test_training_mutation_keeps_newer_equipment_over_stale_state_response(self) -> None:
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         self.assertIn("trainingMutationRevision", script)
         self.assertIn("trainingRevisionAtStart !== Number(app.trainingMutationRevision || 0)", script)
@@ -3005,7 +3005,7 @@ if (playerAttributeValue(goalkeeper,"技术:停球") !== 14) throw new Error("go
 
 
 def test_training_compact_view_keeps_equipment_images_and_excludes_position_training() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     markup = (root / "web" / "index.html").read_text(encoding="utf-8")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     styles = (root / "web" / "app.css").read_text(encoding="utf-8")
@@ -3039,7 +3039,7 @@ def test_training_compact_view_keeps_equipment_images_and_excludes_position_trai
 
 
 def test_training_stage_equipment_click_opens_matching_available_detail() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
 
     click_handler = script.split('stage.addEventListener("click",(event)=>{', 1)[1].split("\n  });", 1)[0]

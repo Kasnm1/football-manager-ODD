@@ -8,7 +8,7 @@ from pathlib import Path
 from tools.i18n_audit import apply_baseline, scan_html
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def _texts(findings):

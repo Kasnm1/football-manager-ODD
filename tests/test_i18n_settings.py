@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 SETTINGS_LOCALES = ("en-GB", "zh-CN", "ko-KR", "pt-BR", "pt-PT")
 SETTINGS_LOCALE_OPTION_KEYS = (
     "settings.locale.option.pt_br",

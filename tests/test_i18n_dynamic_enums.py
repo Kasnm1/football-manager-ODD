@@ -12,7 +12,7 @@ from tools.preferred_moves import FM24_VERIFIED_PREFERRED_MOVES
 from tools.training_ground import FACILITIES
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 LOCALES = (
     "en-GB", "zh-CN", "zh-TW", "ko-KR", "de-DE", "es-ES", "fr-FR",
     "ru-RU", "ja-JP", "pt-BR", "pt-PT",

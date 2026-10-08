@@ -166,7 +166,7 @@ class WalletTransferTests(unittest.TestCase):
         reload_public.assert_not_called()
 
     def test_bank_page_shows_hundred_trillion_button_only_in_development(self) -> None:
-        root = Path(__file__).parents[1]
+        root = (Path(__file__).parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         backend = (root / "fm_odds_web.py").read_text(encoding="utf-8")
 
@@ -190,7 +190,7 @@ class WalletTransferTests(unittest.TestCase):
             self.assertEqual(route is not None, not frozen)
 
     def test_bank_overview_uses_text_labels_and_folds_older_dividends(self) -> None:
-        root = Path(__file__).parents[1]
+        root = (Path(__file__).parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         bank = script.split("function renderBank()", 1)[1].split(
@@ -207,7 +207,7 @@ class WalletTransferTests(unittest.TestCase):
         self.assertIn("#page-bank [data-refresh-club-info] svg{width:12px", styles)
 
     def test_bank_statement_uses_server_filters_pagination_and_stale_request_guard(self) -> None:
-        root = Path(__file__).parents[1]
+        root = (Path(__file__).parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         markup = (root / "web" / "index.html").read_text(encoding="utf-8")
         statement = script.split("function renderBankStatementDialog()", 1)[1].split(
@@ -237,7 +237,7 @@ class WalletTransferTests(unittest.TestCase):
         self.assertIn('aria-live="polite"', markup)
 
     def test_money_keypads_share_kmb_zero_shortcuts(self) -> None:
-        root = Path(__file__).parents[1]
+        root = (Path(__file__).parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
 
         self.assertIn(

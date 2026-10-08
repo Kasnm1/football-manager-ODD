@@ -494,7 +494,7 @@ def test_world_nation_decrease_charges_half_price() -> None:
 
 
 def test_world_nation_frontend_and_routes_are_wired() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     markup = (root / "web" / "index.html").read_text(encoding="utf-8")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     stylesheet = (root / "web" / "app.css").read_text(encoding="utf-8")
@@ -526,7 +526,7 @@ def test_world_nation_frontend_and_routes_are_wired() -> None:
 
 
 def test_world_nation_player_ranking_ui_has_tabs_pagination_and_player_drilldown() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     stylesheet = (root / "web" / "app.css").read_text(encoding="utf-8")
 
@@ -551,7 +551,7 @@ def test_world_nation_player_ranking_ui_has_tabs_pagination_and_player_drilldown
 
 
 def test_world_nation_load_failure_exits_spinner_and_offers_retry() -> None:
-    script = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+    script = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
         encoding="utf-8",
     )
     load = script.split("async function loadWorldNations", 1)[1].split(
@@ -570,7 +570,7 @@ def test_world_nation_load_failure_exits_spinner_and_offers_retry() -> None:
 
 
 def test_world_nation_frontend_indexes_visible_rows_and_skips_unchanged_dom() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     index = script.split("function worldNationDataIndex", 1)[1].split(
         "function worldNationContentSignature", 1,
@@ -606,7 +606,7 @@ def test_world_nation_frontend_indexes_visible_rows_and_skips_unchanged_dom() ->
 
 
 def test_world_nation_busy_keyboard_and_aria_contracts() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     markup = (root / "web" / "index.html").read_text(encoding="utf-8")
     script = (root / "web" / "app.js").read_text(encoding="utf-8")
     stylesheet = (root / "web" / "app.css").read_text(encoding="utf-8")

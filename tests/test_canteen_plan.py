@@ -132,7 +132,7 @@ def test_canteen_hook_uses_national_assignment_without_club_context() -> None:
 
 
 def test_refresh_paths_forward_current_club_address_to_ca_hook() -> None:
-    source = (Path(__file__).parents[1] / "fm_odds_web.py").read_text(encoding="utf-8")
+    source = ((Path(__file__).parents[1] / "src") / "fm_odds_web.py").read_text(encoding="utf-8")
 
     assert source.count(
         'managed_team_address(output, "national")'

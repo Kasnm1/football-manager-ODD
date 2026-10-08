@@ -10,7 +10,7 @@ does not scan database indexes and does not call `InteropReference.SetValue`,
 Build:
 
 ```powershell
-dotnet build .\FMDataBridge\FMDataBridge.csproj -c Release
+dotnet build .\src\FMDataBridge\FMDataBridge.csproj -c Release
 ```
 
 The compiled DLL is loaded by BepInEx on the next FM launch. Probe output is

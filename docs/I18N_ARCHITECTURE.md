@@ -42,11 +42,11 @@ mail.salary.subject
 
 | 来源 | 责任 | 迁移方式 |
 | --- | --- | --- |
-| `web/index.html` | 静态结构、标签、ARIA | `data-i18n` 与属性键 |
-| `web/app.js` | 动态模板、状态、Toast、弹窗 | `uiText(key, params)` / `uiPlural` |
+| `src/web/index.html` | 静态结构、标签、ARIA | `data-i18n` 与属性键 |
+| `src/web/app.js` | 动态模板、状态、Toast、弹窗 | `uiText(key, params)` / `uiPlural` |
 | Python API/领域模块 | 错误码、阶段、可重试与事实参数 | 返回稳定 `error_code`/`message_key`/`message_params` |
 | 邮件与操作记录 | 可重放事件 | 保存事件类型、模板版本与参数，阅读时翻译 |
-| `fmodd_desktop.py`、`desktop/WebViewHost.cs` | Web UI 之前的宿主提示 | 宿主内置同键目录或由启动参数传入语言 |
+| `src/fmodd_desktop.py`、`src/desktop/WebViewHost.cs` | Web UI 之前的宿主提示 | 宿主内置同键目录或由启动参数传入语言 |
 
 日志、诊断详情与开发异常可以保留技术语言，但不能直接冒充最终用户提示。游戏事实与本地化界面文案必须分字段传递。
 
@@ -54,9 +54,9 @@ API 仍兼容旧业务校验的 `error` 原因，同时用 `message_key` / `mess
 
 ### 3.1 Web 目录装配
 
-`web/i18n.js` 只负责 locale 状态、英文回退、参数替换、复数、格式化、DOM 应用与动态节点观察。领域文案按 `web/i18n.<domain>.js` 拆分；各文件在核心之前向 `window.FMODDI18nModules` 注册英中韩三种语言的同构目录。`web/i18n.ko.js` 是旧过渡目录，领域完成语义键迁移后逐步并入对应模块。
+`src/web/i18n.js` 只负责 locale 状态、英文回退、参数替换、复数、格式化、DOM 应用与动态节点观察。领域文案按 `src/web/i18n.<domain>.js` 拆分；各文件在核心之前向 `window.FMODDI18nModules` 注册英中韩三种语言的同构目录。`src/web/i18n.ko.js` 是旧过渡目录，领域完成语义键迁移后逐步并入对应模块。
 
-台湾繁体中文、德语、西语、法语、俄语、日语、巴西葡萄牙语和欧洲葡萄牙语分别由 `web/i18n.tw.js`、`web/i18n.de.js`、`web/i18n.es.js`、`web/i18n.fr.js`、`web/i18n.ru.js`、`web/i18n.ja.js`、`web/i18n.pt-BR.js` 与 `web/i18n.pt-PT.js` 注册到 `window.FMODDLocalePacks`。语言包在全部领域模块之后、核心之前加载，并覆盖同一套英文语义键；缺键由核心明确回退至英文。各语言包可根据领域模块中的中文源值和同键目标译文生成精确 legacy 映射，不复制一份独立的旧中文目录。独立语言包避免为了新增一种语言而重写所有现有三语领域文件。
+台湾繁体中文、德语、西语、法语、俄语、日语、巴西葡萄牙语和欧洲葡萄牙语分别由 `src/web/i18n.tw.js`、`src/web/i18n.de.js`、`src/web/i18n.es.js`、`src/web/i18n.fr.js`、`src/web/i18n.ru.js`、`src/web/i18n.ja.js`、`src/web/i18n.pt-BR.js` 与 `src/web/i18n.pt-PT.js` 注册到 `window.FMODDLocalePacks`。语言包在全部领域模块之后、核心之前加载，并覆盖同一套英文语义键；缺键由核心明确回退至英文。各语言包可根据领域模块中的中文源值和同键目标译文生成精确 legacy 映射，不复制一份独立的旧中文目录。独立语言包避免为了新增一种语言而重写所有现有三语领域文件。
 
 `zh-TW` 以 `zh-CN` 的稳定语义键为转换基线，但最终目录保存为静态译文，并在字形转换之后应用台湾惯用术语，例如「軟體、資料夾、儲存、載入、設定、快取、搜尋、連線、總教練、守門員、賠率、過關、交易明細、儲值、提領」。不得在运行时逐字替换，也不能让字符转换覆盖球员、球队等事实参数。
 

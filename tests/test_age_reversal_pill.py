@@ -213,7 +213,7 @@ def test_age_reversal_restores_retirement_and_age_when_item_commit_fails() -> No
 
 
 def test_age_reversal_frontend_copy_matches_fixed_ca_effect() -> None:
-    root = Path(__file__).resolve().parents[1]
+    root = (Path(__file__).resolve().parents[1] / "src")
     frontend = "\n".join(
         (root / path).read_text(encoding="utf-8")
         for path in ("web/index.html", "web/app.js")
@@ -227,7 +227,7 @@ def test_age_reversal_frontend_copy_matches_fixed_ca_effect() -> None:
 
 def test_age_reversal_frontend_updates_retirement_without_obsolete_warning() -> None:
     script = (
-        Path(__file__).resolve().parents[1] / "web" / "app.js"
+        (Path(__file__).resolve().parents[1] / "src") / "web" / "app.js"
     ).read_text(encoding="utf-8")
 
     assert "function retirementPlanWithinYears(" not in script

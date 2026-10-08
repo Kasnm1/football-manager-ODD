@@ -12,46 +12,50 @@
 - 桌面宿主目标框架：`.NET Framework 4.8`（`net48`）。
 - GitHub 公共仓库：`https://github.com/Kasnm1/football-manager-ODD`。
 
-当前版本由 `fm_odds_web.py` 的版本常量、README 与桌面源码维护。
+当前版本由 `src/fm_odds_web.py` 的版本常量、README 与桌面源码维护。
 
 ## 2. 开发边界
 
 - 修改前先阅读 `AGENTS.md`、`README.md` 和 `docs/ARCHITECTURE.md`，再定位相关模块。
 - 只修改当前需求涉及的文件，保留工作区内已有的无关改动。
-- `data/` 保存本机运行状态、存档数据、扫描样本和研究资料。默认不扫描、不修改、不清理、不提交；CE Trainer、FMRTE、内存字段、AOB、Hook 和版本差异研究除外，此类任务必须先读 `docs/RESEARCH_SOURCES.md`。
-- 不手工修改 `tools/embedded_web_assets.py`；它由 `tools/build_embedded_web_assets.py` 生成且不进入 Git。
-- 程序使用的网页图片放在 `web/assets/`；原始美术素材放在 `assets/source/`。
+- 开发版的 `src/data/` 保存本机运行状态、存档数据、扫描样本和研究资料。默认不扫描、不修改、不清理、不提交；CE Trainer、FMRTE、内存字段、AOB、Hook 和版本差异研究除外，此类任务必须先读 `docs/RESEARCH_SOURCES.md`。
+- 不手工修改 `src/tools/embedded_web_assets.py`；它由 `src/tools/build_embedded_web_assets.py` 生成且不进入 Git。
+- 程序使用的网页图片放在 `src/web/assets/`；原始美术素材放在 `src/assets/source/`。
 - `dist/`、版本宿主构建目录和其他生成物不进入 Git。
 - 未经明确要求，不启动正式 EXE，不读取 FM 刷新结果，也不进行界面截图验证。
 
 ## 3. 修改位置
 
+程序源码与运行资源位于 `src/`，测试位于 `tests/`，辅助脚本位于 `scripts/`。本文的开发命令在仓库根目录执行。
+
 | 需求 | 主要文件 |
 | --- | --- |
-| 本地服务、刷新、API、状态编排 | `fm_odds_web.py` |
-| 投注账户、注单、结算 | `tools/betting_account.py` |
-| 异常投注取证与处罚 | `tools/match_integrity.py` |
-| 赔率、赛程、盘口范围与实时市场 | `tools/preview_cup_odds.py`、`tools/live_market.py` |
-| 联赛积分榜与原生积分写入 | `tools/league_standings.py`、`tools/league_table_memory.py` |
-| 冠军盘 | `tools/championship_odds.py` |
-| 商店、物品、银行和贷款 | `tools/club_economy.py`、`web/app.js` |
-| 球员、职员、合同和属性 | `tools/club_reader.py`、`tools/player_details_fm24.py`、`tools/player_details_fm26.py` |
-| 俱乐部人物库与名人堂 | `tools/club_legacy.py` |
-| FM24/FM26 与分发版本布局 | `tools/game_layout.py` |
-| 常驻进程会话与数据库目录 | `tools/game_session.py`、`tools/database_index.py` |
-| 刷新内存核心（受保护） | `tools/refresh_memory_core.py` |
-| 转会预算 | `tools/transfer_budget.py` |
-| 已收购俱乐部球员转会与租借 | `tools/player_movement.py` |
-| 训练场与青训 | `tools/training_ground.py`、`tools/youth_intake.py`、`tools/youth_generation_hook.py` |
-| 董事会 Hook 与俱乐部愿景 | `tools/board_listens_hook.py`、`tools/club_vision.py` |
-| 比赛道具 Hook | `tools/*hook*.py`、`tools/*nuclear*.py` |
-| 存档身份、账户与存储 | `tools/save_context.py`、`tools/app_paths.py`、`tools/app_settings.py`、`tools/storage_*.py` |
-| 页面结构 | `web/index.html` |
-| 页面行为 | `web/app.js` |
-| 页面样式 | `web/app.css` |
-| 桌面入口和窗口 | `fmodd_desktop.py`、`desktop/` |
+| 本地服务、刷新、API、状态编排 | `src/fm_odds_web.py` |
+| 投注账户、注单、结算 | `src/tools/betting_account.py` |
+| 异常投注取证与处罚 | `src/tools/match_integrity.py` |
+| 赔率、赛程、盘口范围与实时市场 | `src/tools/preview_cup_odds.py`、`src/tools/live_market.py` |
+| 联赛积分榜与原生积分写入 | `src/tools/league_standings.py`、`src/tools/league_table_memory.py` |
+| 冠军盘 | `src/tools/championship_odds.py` |
+| 商店、物品、银行和贷款 | `src/tools/club_economy.py`、`src/web/app.js` |
+| 球员、职员、合同和属性 | `src/tools/club_reader.py`、`src/tools/player_details_fm24.py`、`src/tools/player_details_fm26.py` |
+| 俱乐部人物库与名人堂 | `src/tools/club_legacy.py` |
+| FM24/FM26 与分发版本布局 | `src/tools/game_layout.py` |
+| 常驻进程会话与数据库目录 | `src/tools/game_session.py`、`src/tools/database_index.py` |
+| 刷新内存核心（受保护） | `src/tools/refresh_memory_core.py` |
+| 转会预算 | `src/tools/transfer_budget.py` |
+| 已收购俱乐部球员转会与租借 | `src/tools/player_movement.py` |
+| 训练场与青训 | `src/tools/training_ground.py`、`src/tools/youth_intake.py`、`src/tools/youth_generation_hook.py` |
+| 董事会 Hook 与俱乐部愿景 | `src/tools/board_listens_hook.py`、`src/tools/club_vision.py` |
+| 比赛道具 Hook | `src/tools/*hook*.py`、`src/tools/*nuclear*.py` |
+| 存档身份、账户与存储 | `src/tools/save_context.py`、`src/tools/app_paths.py`、`src/tools/app_settings.py`、`src/tools/storage_*.py` |
+| 页面结构 | `src/web/index.html` |
+| 页面行为 | `src/web/app.js` |
+| 页面样式 | `src/web/app.css` |
+| 桌面入口和窗口 | `src/fmodd_desktop.py`、`src/desktop/` |
 
 ## 4. 日常开发流程
+
+在仓库根目录执行以下命令。安装 `pytest` 后，用 `python -m pytest tests/相关测试.py` 运行所选测试；`pyproject.toml` 配置源码导入路径。
 
 ### 4.0 运行开发版
 
@@ -60,10 +64,10 @@
 ```powershell
 python scripts\build_rust_native.py
 python scripts\build_cpp_hook_core.py
-python fm_odds_web.py --port 7857 --no-browser --keep-alive
+python src\fm_odds_web.py --port 7857 --no-browser --keep-alive
 ```
 
-在浏览器中打开 `http://127.0.0.1:7857`。开发服务直接读取 `web/`；连接游戏后，功能可用性仍由实际 FM build 与平台校验决定。
+在浏览器中打开 `http://127.0.0.1:7857`。开发服务直接读取 `src/web/`；连接游戏后，功能可用性仍由实际 FM build 与平台校验决定。
 
 
 ### 4.1 修改前检查
@@ -85,26 +89,26 @@ Get-CimInstance Win32_Process | Where-Object {
     $_.CommandLine -match 'fm_odds_web\.py' -and
     $_.CommandLine -match '(?:--port\s+|--port=)7857(?:\s|$)'
 } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
-Start-Process python -ArgumentList @('fm_odds_web.py', '--port', '7857', '--no-browser', '--keep-alive') -WorkingDirectory (Get-Location).Path -WindowStyle Hidden
+Start-Process python -ArgumentList @('src/fm_odds_web.py', '--port', '7857', '--no-browser', '--keep-alive') -WorkingDirectory (Get-Location).Path -WindowStyle Hidden
 ```
 
 重启前应确认目标进程的命令行确实包含 `fm_odds_web.py --port 7857`，不能仅凭它是 Python 进程就结束它。启动常驻进程后即结束启动步骤，不要轮询端口、等待监听状态或反复提示“仍在初始化”。
 
 ### 4.3 修改网页后刷新界面
 
-开发服务直接读取 `web/`，修改后刷新浏览器；服务端代码变化时按需重启开发服务。
+开发服务直接读取 `src/web/`，修改后刷新浏览器；服务端代码变化时按需重启开发服务。
 
 ### 4.4 基础检查
 
 只选择本次改动需要的检查，不照抄整个命令块。纯文档/技能调整检查差异、引用及适用的技能格式即可；以下语法检查仅用于对应文件确有修改且能增加有效覆盖时：
 
 ```powershell
-python -m py_compile fm_odds_web.py fmodd_desktop.py
+python -m py_compile src\fm_odds_web.py src\fmodd_desktop.py
 node --check web\app.js
 git diff --check
 ```
 
-修改 `tools/*.py` 时可检查实际变更模块。优先运行相关行为回归；涉及共享契约时覆盖受影响调用方，不自动运行全套。已通过的检查仅在新增改动、失败或明确未解决风险时重复/扩大。只使用已确认隔离的测试数据；真实 FM、账户数据或外部服务操作另需相应授权。
+修改 `src/tools/*.py` 时可检查实际变更模块。优先运行相关行为回归；涉及共享契约时覆盖受影响调用方，不自动运行全套。已通过的检查仅在新增改动、失败或明确未解决风险时重复/扩大。只使用已确认隔离的测试数据；真实 FM、账户数据或外部服务操作另需相应授权。
 
 检查通过不等于已经实机验证 FM 内存功能。涉及新偏移、Hook、伤病、属性或比赛状态时，必须区分 FM24、FM26 以及 Steam、Epic、XGP，不允许在版本未通过校验时复用其他版本地址。
 
@@ -153,7 +157,7 @@ git push -u origin 当前分支名
 - 本机扫描结果、日志、崩溃转储和临时文件
 - 用户存档、账户数据或其他隐私数据
 - 仅供研究的未确认内存样本
-- `tools/embedded_web_assets.py` 等生成文件
+- `src/tools/embedded_web_assets.py` 等生成文件
 
 ## 7. 常见问题
 
@@ -167,7 +171,7 @@ git push -u origin 当前分支名
 
 ### 开发服务无法启动
 
-先检查 `7857` 的占用者；仅当其 Python 命令行同时匹配 `fm_odds_web.py` 和端口参数 `7857` 时，按 4.2 节重启。其他占用者只报告，不自动结束。不要结束所有 Python 或 FM 进程。
+先检查 `7857` 的占用者；仅当其 Python 命令行同时匹配 `src/fm_odds_web.py` 和端口参数 `7857` 时，按 4.2 节重启。其他占用者只报告，不自动结束。不要结束所有 Python 或 FM 进程。
 
 ## 8. 每次任务的最小交付清单
 
@@ -183,7 +187,7 @@ git push -u origin 当前分支名
 
 ## 通用只读验证工具与内部编码报告
 
-`tools/fm24_process_diagnostic.py` 同时支持 FM24 与 FM26。工具只读取进程、模块、PE 身份、RTTI、适配签名、当前连接条件和本地 FMODD 状态，不写入游戏内存或存档。
+`src/tools/fm24_process_diagnostic.py` 同时支持 FM24 与 FM26。工具只读取进程、模块、PE 身份、RTTI、适配签名、当前连接条件和本地 FMODD 状态，不写入游戏内存或存档。
 
 检测完成后，界面正文与“复制检测报告”都只提供 `ODD-C1` 支持包，不向测试者显示内部可读报告。支持包包含可读诊断报告、当前已识别 `GameLayout` 的完整字段快照，以及关键运行时 RVA 的模块边界、可读性和匿名指针目标状态；它不保留运行时绝对指针。外部只看到压缩编码块，不直接显示安装路径、RVA、功能名或异常正文。该格式是便于传递和避免误读的可逆编码，不是加密、匿名化或访问控制。
 

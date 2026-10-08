@@ -63,7 +63,7 @@ def test_club_reader_frozen_import_does_not_require_odds_native_core(tmp_path: P
 
     result = subprocess.run(
         [sys.executable, "-c", script],
-        cwd=Path(__file__).resolve().parents[1],
+        cwd=(Path(__file__).resolve().parents[1] / "src"),
         capture_output=True,
         text=True,
         timeout=30,

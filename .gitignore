@@ -12,10 +12,13 @@ data/
 *.tmp
 
 # Generated web bundle
-tools/embedded_web_assets.py
-assets/source/
+/src/tools/embedded_web_assets.py
+/src/assets/source/
 
 # Build outputs
+/src/build/
+/build/
+/src/FMODD*.version.txt
 /FMODD*.version.txt
 /build/*.spec
 /build/protection.toml
@@ -24,13 +27,13 @@ build/desktop_host/FMODD.WebViewHost.*
 build/game_date_disp_candidates.txt
 dist/
 dist-compatible*/
-desktop/bin/
-desktop/obj/
-FMDataBridge/bin/
-FMDataBridge/obj/
-tools/fmrte_research/bin/
-tools/fmrte_research/obj/
-native/*/target/
+/src/desktop/bin/
+/src/desktop/obj/
+/src/FMDataBridge/bin/
+/src/FMDataBridge/obj/
+/src/tools/fmrte_research/bin/
+/src/tools/fmrte_research/obj/
+/src/native/*/target/
 output/
 
 # Local automation and editor artifacts
@@ -42,17 +45,18 @@ output/
 
 # Root-level generated Lua objects
 /*.obj
+/src/*.obj
 
 # Release archives and crash/memory artifacts
 *.zip
 *.7z
 *.dmp
 
-# Source images are kept under web/assets; ignore imported root duplicates
+# Source images are kept under src/web/assets; ignore imported root duplicates
 /买通门将.png
 /兴奋剂.png
 /病毒包裹.png
-/assets/virus-package.png
+/src/assets/virus-package.png
 
 # Local secrets, automation, raw payloads and export leftovers
 .env

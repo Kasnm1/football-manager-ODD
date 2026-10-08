@@ -380,7 +380,7 @@ class KnockoutResultTests(unittest.TestCase):
         )
 
     def test_frontend_applies_live_knockout_quotes_to_match_and_bet_slip(self):
-        source = (Path(__file__).resolve().parents[1] / "web" / "app.js").read_text(
+        source = ((Path(__file__).resolve().parents[1] / "src") / "web" / "app.js").read_text(
             encoding="utf-8",
         )
         live_apply = source.split("function applyLiveClockQuotes(clock)", 1)[1].split(
@@ -585,7 +585,7 @@ class KnockoutResultTests(unittest.TestCase):
         self.assertEqual(updated["season_results"][0]["decided_by"], "penalties")
 
     def test_frontend_opens_team_form_and_labels_knockout_results(self):
-        root = Path(__file__).resolve().parents[1]
+        root = (Path(__file__).resolve().parents[1] / "src")
         script = (root / "web" / "app.js").read_text(encoding="utf-8")
         styles = (root / "web" / "app.css").read_text(encoding="utf-8")
         markup = (root / "web" / "index.html").read_text(encoding="utf-8")

@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src")
 
 
 def test_bet_analysis_page_preserves_renderer_output_and_host_boundary() -> None:
