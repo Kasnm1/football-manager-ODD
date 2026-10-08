@@ -139,6 +139,10 @@ Windows is the current runtime platform. Download the application from [fmodd.co
 
 </details>
 
+## 联系作者
+
+反馈建议或合作交流，请发送邮件至 **[FMODD@foxmail.com](mailto:FMODD@foxmail.com)**。
+
 ---
 
 ### 商业使用与项目身份

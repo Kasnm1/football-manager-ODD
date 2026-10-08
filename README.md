@@ -128,6 +128,10 @@ Contribute an idea, a reproducible bug report, a translation improvement, a focu
 
 The maintainer reviews feedback and pull requests as time and energy allow. Thank you to everyone who tests, contributes, shares and supports FMODD.
 
+## Contact
+
+For feedback or collaboration, email **[FMODD@foxmail.com](mailto:FMODD@foxmail.com)**.
+
 ---
 
 ### Commercial use and project identity
