@@ -33,23 +33,6 @@ A Windows companion for Football Manager, built around clubs, players and the st
 
 <p align="center"><strong><a href="https://fmodd.com/donate">💛 打开官网捐赠页</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.zh-CN.md">查看二维码与全部支持方式</a></strong></p>
 
-<details>
-<summary><strong>其他支持方式：BTC · ETH · TRX · SOL · BNB</strong></summary>
-
-地址和网络来自 [官网捐赠页](https://fmodd.com/donate)，转账时请对应表中币种及网络。
-
-| 币种 | 网络 | 收款地址 |
-| --- | --- | --- |
-| BTC | Bitcoin | `bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn` |
-| ETH | Ethereum | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-| TRX | Tron | `TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC` |
-| SOL | Solana | `ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn` |
-| BNB | BNB Smart Chain | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-
-二维码见 [支持作者](docs/SUPPORT.zh-CN.md)。
-
-</details>
-
 ---
 
 ## 让一段生涯，多一些值得经营的事
@@ -101,13 +84,6 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 
 <sub>截图来自 V2.6.4，用于展示界面风格；当前版本的布局与功能以实际程序为准。</sub>
 
-<details>
-<summary><strong>展开活动中心场景美术</strong></summary>
-<br />
-<img src="docs/assets/activity-centre-art.png" alt="活动中心场景美术：球员休息、交流与比赛分析空间" width="100%" />
-<p>项目中的活动中心场景美术展示。</p>
-</details>
-
 ## V2.7.0beta · 给球员寻找新的去处
 
 活动中心 **2F「球员离队」** 将球员选择放在右侧，与其他活动保持一致；点击「为球员寻找下家」后，弹出卡片式买家选择窗口。
@@ -142,7 +118,7 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 
 ## 一起把项目做得更好
 
-欢迎提交功能建议、复现问题、改进翻译、修复代码，或分享你的玩法。小而完整的贡献也有价值。
+欢迎提交功能建议、复现问题、改进翻译、修复代码，或分享你的玩法。
 
 | 想参与什么 | 从这里开始 |
 | --- | --- |
@@ -165,9 +141,11 @@ Windows is the current runtime platform. Download the application from [fmodd.co
 
 ---
 
-### 许可与项目身份
+### 商业使用与项目身份
 
-本次公开暂未添加开源许可证，维护者保留其原创代码的权利；公开可见不代表获得任意再分发或商用许可。第三方材料遵循各自条款，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+**未经维护者事先书面授权，禁止将 FMODD 原创代码及维护者享有权利的相关内容用于商业用途，包括销售、收费分发，或将其整合进收费产品与服务。对于未经授权的商业利用及其他侵权行为，维护者将保留证据并依法追究责任。**
+
+第三方组件与素材遵循各自许可条款，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 FMODD 是社区制作的非官方项目，与 Sports Interactive、SEGA 或 FMRTE 不存在官方隶属关系。Football Manager 及相关商标属于各自权利人。
 

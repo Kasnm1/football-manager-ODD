@@ -33,23 +33,6 @@ If FMODD adds a little more joy to your save, consider buying the author a coffe
 
 <p align="center"><strong><a href="https://fmodd.com/donate">💛 Visit the donation page</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.md">All support options and QR codes</a></strong></p>
 
-<details>
-<summary><strong>Other support options: BTC · ETH · TRX · SOL · BNB</strong></summary>
-
-Addresses and networks come from the [official donation page](https://fmodd.com/donate). Match the asset and network to the corresponding entry below.
-
-| Asset | Network | Receiving address |
-| --- | --- | --- |
-| BTC | Bitcoin | `bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn` |
-| ETH | Ethereum | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-| TRX | Tron | `TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC` |
-| SOL | Solana | `ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn` |
-| BNB | BNB Smart Chain | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-
-See [Support FMODD](docs/SUPPORT.md) for QR codes.
-
-</details>
-
 ---
 
 ## More to build, more to remember
@@ -101,13 +84,6 @@ Features follow your current save and game date. Match play uses an ODD virtual 
 
 <sub>This screenshot is from V2.6.4 and illustrates the interface style. The current application determines the available layout and features.</sub>
 
-<details>
-<summary><strong>View the activity centre artwork</strong></summary>
-<br />
-<img src="docs/assets/activity-centre-art.png" alt="Activity centre artwork: a space for players to relax, talk and analyse matches" width="100%" />
-<p>Scene artwork used by the project.</p>
-</details>
-
 ## V2.7.0beta · Help a player find their next club
 
 **Activity Centre 2F → Player Departures** keeps player selection in the right sidebar, alongside the other activities. Selecting “Find a new club” opens a window with offer cards to choose from.
@@ -140,7 +116,7 @@ For the source runtime, follow the **[development quick start](docs/GETTING_STAR
 
 ## Help make FMODD better
 
-Contribute an idea, a reproducible bug report, a translation improvement, a focused fix or a new way to play. Small, complete contributions matter too.
+Contribute an idea, a reproducible bug report, a translation improvement, a focused fix or a new way to play.
 
 | How to help | Start here |
 | --- | --- |
@@ -154,9 +130,11 @@ The maintainer reviews feedback and pull requests as time and energy allow. Than
 
 ---
 
-### Licence and project identity
+### Commercial use and project identity
 
-An open-source licence has yet to be added. The maintainer retains the rights to their original code; public visibility alone does not grant unrestricted redistribution or commercial-use rights. Third-party materials follow their own terms; see [Third-party notices](THIRD_PARTY_NOTICES.md).
+**Commercial use of FMODD’s original code and other material over which the maintainer holds rights is prohibited without prior written authorisation. This includes selling, paid distribution, or incorporation into paid products or services. The maintainer will preserve evidence and pursue legal action against unauthorised commercial exploitation or other infringement.**
+
+Third-party components and materials remain governed by their respective licences; see [Third-party notices](THIRD_PARTY_NOTICES.md).
 
 FMODD is an unofficial community project, independent of Sports Interactive, SEGA and FMRTE. Football Manager and related trademarks belong to their respective owners.
 

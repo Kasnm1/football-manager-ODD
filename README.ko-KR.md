@@ -33,23 +33,6 @@ FMODD 덕분에 커리어가 조금 더 즐거워졌다면 개발자에게 커�
 
 <p align="center"><strong><a href="https://fmodd.com/donate">💛 공식 후원 페이지</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.ko-KR.md">후원 방법 및 QR 코드 보기</a></strong></p>
 
-<details>
-<summary><strong>다른 후원 방법: BTC · ETH · TRX · SOL · BNB</strong></summary>
-
-주소와 네트워크는 [공식 후원 페이지](https://fmodd.com/donate)의 정보를 따릅니다. 송금할 때 아래 표의 자산과 네트워크를 맞춰 주세요.
-
-| 자산 | 네트워크 | 수신 주소 |
-| --- | --- | --- |
-| BTC | Bitcoin | `bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn` |
-| ETH | Ethereum | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-| TRX | Tron | `TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC` |
-| SOL | Solana | `ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn` |
-| BNB | BNB Smart Chain | `0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1` |
-
-QR 코드는 [FMODD 후원 안내](docs/SUPPORT.ko-KR.md)에서 확인할 수 있습니다.
-
-</details>
-
 ---
 
 ## 더 깊게 운영하고, 더 오래 기억하는 커리어
@@ -101,13 +84,6 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 
 <sub>V2.6.4 스크린샷으로 인터페이스 스타일을 보여 줍니다. 현재 버전의 화면 구성과 기능은 실제 프로그램을 기준으로 합니다.</sub>
 
-<details>
-<summary><strong>활동 센터 배경 아트 보기</strong></summary>
-<br />
-<img src="docs/assets/activity-centre-art.png" alt="활동 센터 배경 아트: 선수들이 쉬고 대화하며 경기를 분석하는 공간" width="100%" />
-<p>프로젝트에서 사용하는 활동 센터 배경 아트입니다.</p>
-</details>
-
 ## V2.7.0beta · 선수의 다음 구단 찾기
 
 **활동 센터 2F → 선수 이적**에서는 다른 활동과 마찬가지로 오른쪽 사이드바에서 선수를 선택합니다. 「새 구단 찾기」를 누르면 구매 구단의 제안을 카드로 보여 주는 창이 열립니다.
@@ -140,7 +116,7 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 
 ## 함께 FMODD를 개선해 주세요
 
-기능 제안, 문제 재현 방법, 번역 개선, 코드 수정이나 새로운 플레이 방식을 공유해 주세요. 작지만 완성된 기여도 큰 도움이 됩니다.
+기능 제안, 문제 재현 방법, 번역 개선, 코드 수정이나 새로운 플레이 방식을 공유해 주세요.
 
 | 참여 방법 | 시작할 곳 |
 | --- | --- |
@@ -154,9 +130,11 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 
 ---
 
-### 라이선스 및 프로젝트 안내
+### 상업적 이용 및 프로젝트 안내
 
-현재 오픈소스 라이선스는 추가되지 않았습니다. 유지보수 담당자는 직접 작성한 코드에 대한 권리를 보유하며, 공개 열람만으로 제한 없는 재배포나 상업적 사용 권한이 부여되는 것은 아닙니다. 제3자 자료에는 각자의 조건이 적용됩니다. [제3자 고지](THIRD_PARTY_NOTICES.md)를 참고하세요.
+**유지보수 담당자의 사전 서면 허가 없이 FMODD의 원본 코드 및 담당자가 권리를 보유한 관련 자료를 상업적으로 이용하는 행위를 금지합니다. 판매, 유료 배포, 유료 제품이나 서비스에 포함하는 행위도 이에 해당합니다. 무단 상업적 이용이나 그 밖의 권리 침해가 확인되면 증거를 보존하고 법적 책임을 묻겠습니다.**
+
+제3자 구성 요소와 자료에는 각각의 라이선스 조건이 적용됩니다. [제3자 고지](THIRD_PARTY_NOTICES.md)를 참고하세요.
 
 FMODD는 Sports Interactive, SEGA 및 FMRTE와 공식 제휴 관계가 없는 커뮤니티 프로젝트입니다. Football Manager와 관련 상표는 각 권리자에게 귀속됩니다.
 
