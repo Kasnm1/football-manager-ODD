@@ -140,7 +140,7 @@ git diff --stat
 只暂存本次改动，避免使用会把所有未知文件一并加入的命令：
 
 ```powershell
-git add DEVELOPMENT.md 路径\到\本次文件
+git add docs/development/DEVELOPMENT.md 路径\到\本次文件
 git diff --cached --check
 git commit -m "feat: 简短说明"
 git push -u origin 当前分支名

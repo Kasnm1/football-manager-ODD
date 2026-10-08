@@ -33,9 +33,9 @@ Contribute code and materials you have the right to share. Preserve third-party 
 
 ## Develop on Windows
 
-Start with the [development quick start](docs/GETTING_STARTED.md) and [contributor rules](AGENTS.md). Native compilation uses the Windows SDK, MSVC and Rust toolchain. Changes to the desktop host also require a .NET Framework 4.8 development environment; its WebView2 SDK can be restored with `python scripts/restore_webview2.py`.
+Start with the [development quick start](docs/guides/GETTING_STARTED.md) and [contributor rules](AGENTS.md). Native compilation uses the Windows SDK, MSVC and Rust toolchain. Changes to the desktop host also require a .NET Framework 4.8 development environment; its WebView2 SDK can be restored with `python scripts/restore_webview2.py`.
 
-先阅读 [快速入门](docs/GETTING_STARTED.zh-CN.md) 和 [贡献者规则](AGENTS.md)。原生编译需要 Windows SDK、MSVC 和 Rust 工具链。桌面宿主修改另需 .NET Framework 4.8 开发环境，可通过 `python scripts/restore_webview2.py` 恢复 WebView2 SDK。
+先阅读 [快速入门](docs/guides/GETTING_STARTED.zh-CN.md) 和 [贡献者规则](AGENTS.md)。原生编译需要 Windows SDK、MSVC 和 Rust 工具链。桌面宿主修改另需 .NET Framework 4.8 开发环境，可通过 `python scripts/restore_webview2.py` 恢复 WebView2 SDK。
 
 Choose isolated tests relevant to your change. Live FM processes and personal data require separate authorisation.
 

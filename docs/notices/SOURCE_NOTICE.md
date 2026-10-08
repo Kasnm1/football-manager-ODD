@@ -1,4 +1,4 @@
-FMODD SOURCE AND THIRD-PARTY MATERIALS NOTICE
+# FMODD source and third-party materials notice
 
 This public source snapshot is provided by the project maintainer. Any project
 license is stated in LICENSE when present. This notice does not grant new rights

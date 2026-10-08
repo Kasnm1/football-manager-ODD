@@ -31,7 +31,7 @@ If FMODD adds a little more joy to your save, consider buying the author a coffe
 <a href="https://ko-fi.com/fmodd"><img src="https://img.shields.io/badge/Ko--fi-Buy_me_a_coffee-e6b74b?style=for-the-badge&amp;logo=kofi&amp;logoColor=123d32" alt="Ko-fi · Buy the author a coffee" /></a>
 </p>
 
-<p align="center"><strong><a href="https://fmodd.com/donate">💛 Visit the donation page</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.md">All support options and QR codes</a></strong></p>
+<p align="center"><strong><a href="https://fmodd.com/donate">💛 Visit the donation page</a> &nbsp; · &nbsp; <a href="docs/support/SUPPORT.md">All support options and QR codes</a></strong></p>
 
 ---
 
@@ -112,9 +112,7 @@ Back up your save before first using features that modify native game data. Beta
 | Interface | Multiple languages, display preferences and font-size settings |
 | Current version | **V2.7.0beta** |
 
-For the source runtime, follow the **[development quick start](docs/GETTING_STARTED.md)**. Detailed [product and compatibility notes](docs/PRODUCT_GUIDE.md) and the [development manual](DEVELOPMENT.md) are available in Chinese.
-
-## Help make FMODD better
+---
 
 Contribute an idea, a reproducible bug report, a translation improvement, a focused fix or a new way to play.
 
@@ -123,7 +121,7 @@ Contribute an idea, a reproducible bug report, a translation improvement, a focu
 | Report an issue or suggest a feature | [Issues](https://github.com/Kasnm1/football-manager-ODD/issues): include versions, platform and reproduction steps |
 | Improve the code | Fork → make a focused change → open a pull request; see [Contributing](CONTRIBUTING.md) |
 | Explore the structure | [Documentation map](docs/README.md), [architecture](docs/ARCHITECTURE.md) and [feature index](docs/FEATURE_INDEX.md) |
-| Run the source | [Development quick start](docs/GETTING_STARTED.md) |
+| Run the source | [Development quick start](docs/guides/GETTING_STARTED.md) |
 | Support ongoing work | [Support the author](https://fmodd.com/donate), at your own discretion |
 
 The maintainer reviews feedback and pull requests as time and energy allow. Thank you to everyone who tests, contributes, shares and supports FMODD.
@@ -140,7 +138,7 @@ For feedback or collaboration, email **[FMODD@foxmail.com](mailto:FMODD@foxmail.
 
 Third-party components and materials remain governed by their respective licences; see [Third-party notices](THIRD_PARTY_NOTICES.md).
 
-FMODD is an unofficial community project, independent of Sports Interactive, SEGA and FMRTE. Football Manager and related trademarks belong to their respective owners.
+FMODD is an unofficial community project, independent of Sports Interactive, SEGA and FMRTE.
 
 <div align="center">
 

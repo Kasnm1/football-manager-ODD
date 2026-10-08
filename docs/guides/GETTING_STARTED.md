@@ -2,7 +2,7 @@
 
 # Run the development version
 
-[← Project homepage](../README.md) · [Contributing](../CONTRIBUTING.md)
+[← Project homepage](../../README.md) · [Contributing](../../CONTRIBUTING.md)
 
 ## Prepare your environment
 
@@ -35,8 +35,8 @@ Start Football Manager, load a save, then connect through FMODD. Available opera
 
 ## Make a change
 
-Read [the contributor rules](../AGENTS.md), the [documentation map](README.md) and the relevant architecture or feature-index entry. Keep changes focused and run the checks that cover your change.
+Read [the contributor rules](../../AGENTS.md), the [documentation map](../README.md) and the relevant architecture or feature-index entry. Keep changes focused and run the checks that cover your change.
 
 Refresh the browser after editing frontend files. Restart the local service when server code changes; stop only the service instance you started. Keep personal saves, account data, credentials and local outputs outside your commits.
 
-Detailed development and troubleshooting notes are available in the [development manual (Chinese)](../DEVELOPMENT.md).
+Detailed development and troubleshooting notes are available in the [development manual (Chinese)](../development/DEVELOPMENT.md).

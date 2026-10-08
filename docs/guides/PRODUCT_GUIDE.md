@@ -1,13 +1,13 @@
 # FMODD 产品与技术详情
 
-以下保留公开源码首版的详细功能说明。首页介绍见 [仓库 README](../README.md)。
+以下保留公开源码首版的详细功能说明。首页介绍见 [仓库 README](../../README.md)。
 
 # Football Manager ODD（FMODD）
 FMODD is an unofficial Windows desktop companion for Football Manager. This repository publishes the current V2.7.0beta application source without importing the private development history.
 
 - 官网与现有安装包：[fmodd.com/download](https://fmodd.com/download)
-- 贡献方式：[CONTRIBUTING.md](../CONTRIBUTING.md)
-- 第三方材料：[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
+- 贡献方式：[CONTRIBUTING.md](../../CONTRIBUTING.md)
+- 第三方材料：[THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md)
 
 公开源码快照包含现有程序功能、运行资源和相关测试；个人数据、内部原始研究产物、编译产物和 SDK 二进制不在仓库中。源码存在及模拟测试不代表所有游戏版本已完成实机验收。
 
@@ -15,13 +15,13 @@ FMODD 是面向 Football Manager 的本地桌面工具。当前版本为 **V2.7.
 
 设置中提供手动检查更新，可比较当前软件版本与 FMODD 官网发布版本，并在发现新版时前往官网下载页面。
 
-本文是当前产品与开发入口概览。文档的用途、权威边界和推荐阅读顺序见 [`docs/README.md`](../docs/README.md)；历史更新与研究记录不能单独作为当前支持状态的依据。
+本文是当前产品与开发入口概览。文档的用途、权威边界和推荐阅读顺序见 [`docs/README.md`](../README.md)；历史更新与研究记录不能单独作为当前支持状态的依据。
 
 ## 商业使用与权利声明
 
 **未经维护者事先书面授权，禁止将 FMODD 原创代码及维护者享有权利的相关内容用于商业用途，包括销售、收费分发，或将其整合进收费产品与服务。对于未经授权的商业利用及其他侵权行为，维护者将保留证据并依法追究责任。**
 
-第三方组件与素材遵循各自许可条款，见 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。
+第三方组件与素材遵循各自许可条款，见 [THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md)。
 
 ## 游戏版本兼容性
 
@@ -93,11 +93,11 @@ FMODD 是面向 Football Manager 的本地桌面工具。当前版本为 **V2.7.
 | 常驻会话、数据库目录与刷新核心 | `tools/game_session.py`、`tools/database_index.py`、`tools/refresh_memory_core.py` |
 | WebView2 宿主 | `desktop/WebViewHost.cs` |
 
-完整文档导航见 [`docs/README.md`](../docs/README.md)，首读代码路由见 [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)，详细跨模块行为见 [`docs/RUNTIME_CONTRACTS.md`](../docs/RUNTIME_CONTRACTS.md)，赔率、盘口、投注和结算链路见 [`docs/ODDS_ARCHITECTURE.md`](../docs/ODDS_ARCHITECTURE.md)。公开证据边界见 [`docs/RESEARCH_SOURCES.md`](../docs/RESEARCH_SOURCES.md)。涉及功能存在性、作用范围、对象定位、字段偏移、AOB 或 Hook 时，应先查研究索引，不能只搜索业务源码。
+完整文档导航见 [`docs/README.md`](../README.md)，首读代码路由见 [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md)，详细跨模块行为见 [`docs/RUNTIME_CONTRACTS.md`](../RUNTIME_CONTRACTS.md)，赔率、盘口、投注和结算链路见 [`docs/ODDS_ARCHITECTURE.md`](../ODDS_ARCHITECTURE.md)。公开证据边界见 [`docs/RESEARCH_SOURCES.md`](../RESEARCH_SOURCES.md)。涉及功能存在性、作用范围、对象定位、字段偏移、AOB 或 Hook 时，应先查研究索引，不能只搜索业务源码。
 
 ## 开发启动
 
-源码运行使用浏览器开发版，依赖和启动步骤见 [开发手册](../DEVELOPMENT.md)。
+源码运行使用浏览器开发版，依赖和启动步骤见 [开发手册](../development/DEVELOPMENT.md)。
 
 原生核心变化后构建 Rust 与 C++ DLL：
 

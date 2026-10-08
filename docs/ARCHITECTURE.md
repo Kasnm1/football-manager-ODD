@@ -211,7 +211,7 @@ FM 事实 → 球队画像/xG/概率矩阵 → 服务端盘口快照 → 下单�
 | 详细运行时与业务契约 | [`RUNTIME_CONTRACTS.md`](RUNTIME_CONTRACTS.md) |
 | 赔率、盘口、投注与结算 | [`ODDS_ARCHITECTURE.md`](ODDS_ARCHITECTURE.md) |
 | CE/FMRTE、偏移、AOB、Hook、版本证据 | [`RESEARCH_SOURCES.md`](RESEARCH_SOURCES.md) |
-| 开发、验证和发布命令 | [`../DEVELOPMENT.md`](../DEVELOPMENT.md) |
+| 开发、验证和发布命令 | [开发手册](development/DEVELOPMENT.md) |
 | 当前产品能力 | [`../README.md`](../README.md) |
 
 维护原则：所有权变化更新本文；跨模块长期行为变化更新 `RUNTIME_CONTRACTS.md`；赔率链路变化更新 `ODDS_ARCHITECTURE.md`；新逆向证据更新 `RESEARCH_SOURCES.md`；用户入口和能力变化更新根 README。

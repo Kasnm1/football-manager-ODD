@@ -31,7 +31,7 @@ A Windows companion for Football Manager, built around clubs, players and the st
 <a href="https://ko-fi.com/fmodd"><img src="https://img.shields.io/badge/Ko--fi-%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E6%9D%AF%E5%92%96%E5%95%A1-e6b74b?style=for-the-badge&amp;logo=kofi&amp;logoColor=123d32" alt="Ko-fi · 请作者喝杯咖啡" /></a>
 </p>
 
-<p align="center"><strong><a href="https://fmodd.com/donate">💛 打开官网捐赠页</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.zh-CN.md">查看二维码与全部支持方式</a></strong></p>
+<p align="center"><strong><a href="https://fmodd.com/donate">💛 打开官网捐赠页</a> &nbsp; · &nbsp; <a href="docs/support/SUPPORT.zh-CN.md">查看二维码与全部支持方式</a></strong></p>
 
 ---
 
@@ -112,11 +112,7 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 | 界面 | 多语言、显示偏好与字号设置 |
 | 当前版本 | **V2.7.0beta** |
 
-精确兼容性、功能边界与技术说明见 **[产品详情](docs/PRODUCT_GUIDE.md)**。
-
-开发版源码的运行方式见 [快速入门](docs/GETTING_STARTED.zh-CN.md)；日常开发说明见 [开发手册](DEVELOPMENT.md)。
-
-## 一起把项目做得更好
+---
 
 欢迎提交功能建议、复现问题、改进翻译、修复代码，或分享你的玩法。
 
@@ -125,7 +121,7 @@ FMODD 是一个围绕 Football Manager 生涯展开的本地桌面项目。你�
 | 报告问题或提出建议 | [Issues](https://github.com/Kasnm1/football-manager-ODD/issues)；附版本、平台和复现步骤 |
 | 提交代码改进 | Fork → 修改 → Pull Request；详见 [贡献说明](CONTRIBUTING.md) |
 | 理解代码结构 | [文档导航](docs/README.md)、[架构](docs/ARCHITECTURE.md)、[功能索引](docs/FEATURE_INDEX.md) |
-| 在本机开发 | [开发手册](DEVELOPMENT.md)，包括原生核心准备与开发版运行 |
+| 在本机开发 | [开发手册](docs/development/DEVELOPMENT.md)，包括原生核心准备与开发版运行 |
 | 支持持续开发 | [支持作者](https://fmodd.com/donate)，按自己的意愿参与 |
 
 维护者按精力处理反馈与 PR，不承诺即时回复或固定更新频率。感谢每一位愿意测试、贡献和支持项目的人。
@@ -151,7 +147,7 @@ Windows is the current runtime platform. Download the application from [fmodd.co
 
 第三方组件与素材遵循各自许可条款，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-FMODD 是社区制作的非官方项目，与 Sports Interactive、SEGA 或 FMRTE 不存在官方隶属关系。Football Manager 及相关商标属于各自权利人。
+FMODD 是社区制作的非官方项目，与 Sports Interactive、SEGA 或 FMRTE 不存在官方隶属关系。
 
 <div align="center">
 

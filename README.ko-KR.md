@@ -31,7 +31,7 @@ FMODD 덕분에 커리어가 조금 더 즐거워졌다면 개발자에게 커�
 <a href="https://ko-fi.com/fmodd"><img src="https://img.shields.io/badge/Ko--fi-%EC%BB%A4%ED%94%BC%20%ED%95%9C%20%EC%9E%94%EC%9C%BC%EB%A1%9C%20%EC%9D%91%EC%9B%90%ED%95%98%EA%B8%B0-e6b74b?style=for-the-badge&amp;logo=kofi&amp;logoColor=123d32" alt="Ko-fi · 커피 한 잔으로 개발자 응원하기" /></a>
 </p>
 
-<p align="center"><strong><a href="https://fmodd.com/donate">💛 공식 후원 페이지</a> &nbsp; · &nbsp; <a href="docs/SUPPORT.ko-KR.md">후원 방법 및 QR 코드 보기</a></strong></p>
+<p align="center"><strong><a href="https://fmodd.com/donate">💛 공식 후원 페이지</a> &nbsp; · &nbsp; <a href="docs/support/SUPPORT.ko-KR.md">후원 방법 및 QR 코드 보기</a></strong></p>
 
 ---
 
@@ -112,9 +112,7 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 | 인터페이스 | 다국어, 표시 환경 설정 및 글자 크기 설정 |
 | 현재 버전 | **V2.7.0beta** |
 
-소스 실행 방법은 **[개발 버전 빠른 시작](docs/GETTING_STARTED.ko-KR.md)**을 참고하세요. 상세 [제품 및 호환성 안내](docs/PRODUCT_GUIDE.md)와 [개발 설명서](DEVELOPMENT.md)는 중국어로 제공됩니다.
-
-## 함께 FMODD를 개선해 주세요
+---
 
 기능 제안, 문제 재현 방법, 번역 개선, 코드 수정이나 새로운 플레이 방식을 공유해 주세요.
 
@@ -123,7 +121,7 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 | 문제 제보와 기능 제안 | [Issues](https://github.com/Kasnm1/football-manager-ODD/issues): 버전, 플랫폼과 재현 단계를 포함 |
 | 코드 개선 | Fork → 수정 → Pull Request; [기여 안내](CONTRIBUTING.md) 참고 |
 | 코드 구조 이해 | [문서 안내](docs/README.md), [아키텍처](docs/ARCHITECTURE.md), [기능 색인](docs/FEATURE_INDEX.md) |
-| 로컬 개발 | [개발 버전 빠른 시작](docs/GETTING_STARTED.ko-KR.md) |
+| 로컬 개발 | [개발 버전 빠른 시작](docs/guides/GETTING_STARTED.ko-KR.md) |
 | 지속적인 개발 응원 | [개발자 후원](https://fmodd.com/donate), 원하는 방식으로 참여 |
 
 유지보수 담당자는 시간과 여력이 허락하는 범위에서 피드백과 PR을 검토합니다. 테스트, 기여, 공유와 후원으로 함께해 주시는 모든 분께 감사합니다.
@@ -140,7 +138,7 @@ FMODD는 Football Manager 커리어를 위한 Windows 로컬 데스크톱 도구
 
 제3자 구성 요소와 자료에는 각각의 라이선스 조건이 적용됩니다. [제3자 고지](THIRD_PARTY_NOTICES.md)를 참고하세요.
 
-FMODD는 Sports Interactive, SEGA 및 FMRTE와 공식 제휴 관계가 없는 커뮤니티 프로젝트입니다. Football Manager와 관련 상표는 각 권리자에게 귀속됩니다.
+FMODD는 Sports Interactive, SEGA 및 FMRTE와 공식 제휴 관계가 없는 커뮤니티 프로젝트입니다.
 
 <div align="center">
 
