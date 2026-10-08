@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+node_modules/
+
+# Local FMODD state, saves, scans, probes and research dumps
+data/
+*.jsonl
+*.log
+*.tmp
+
+# Generated web bundle
+tools/embedded_web_assets.py
+assets/source/
+
+# Build outputs
+build/*/
+build/desktop_host/FMODD.WebViewHost.*
+build/game_date_disp_candidates.txt
+dist/
+dist-compatible*/
+desktop/bin/
+desktop/obj/
+FMDataBridge/bin/
+FMDataBridge/obj/
+tools/fmrte_research/bin/
+tools/fmrte_research/obj/
+native/*/target/
+output/
+
+# Local automation and editor artifacts
+.playwright-cli/
+.agents/
+.workbuddy/
+.vscode/
+.idea/
+
+# Root-level generated Lua objects
+/*.obj
+
+# Release archives and crash/memory artifacts
+*.zip
+*.7z
+*.dmp
+
+# Source images are kept under web/assets; ignore imported root duplicates
+/买通门将.png
+/兴奋剂.png
+/病毒包裹.png
+/assets/virus-package.png
+
+# Local secrets, automation, raw payloads and export leftovers
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.sqlite
+*.sqlite3
+*.db
+*.fmodd
+*.rar
+*.ct
+*.luac
+*.pdb
+*.map
+/tmp/
+/backups/
+/.workbuddy-ai/
+/.DS_Store
+/website/.wrangler/
+/website/tsconfig.tsbuildinfo

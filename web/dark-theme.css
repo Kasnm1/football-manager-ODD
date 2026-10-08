@@ -1,0 +1,951 @@
+/* FMODD night theme. Loaded after app.css so feature-specific artwork stays intact. */
+:root[data-theme="dark"] {
+  color-scheme:dark;
+  --ink:#e5eee9;
+  --muted:#9aa9a2;
+  --line:#30443b;
+  --canvas:#0b1210;
+  --surface:#111b17;
+  --green:#1a4f3f;
+  --green-2:#3b9a73;
+  --mint:#1b342a;
+  --blue:#4f86dd;
+  --gold:#e7bd59;
+  --red:#e56e65;
+  --profit-red:#ef756c;
+  --profit-red-soft:#a95752;
+  --profit-tint:#3d2422;
+  --loss-green:#49bd86;
+  --loss-green-soft:#3d8d69;
+  --loss-tint:#1c3b2d;
+  --night-raised:#16221d;
+  --night-raised-2:#1b2923;
+  --night-soft:#203129;
+  --night-border:#344a40;
+  --night-border-soft:#293b33;
+  --night-text:#e5eee9;
+  --night-muted:#9aa9a2;
+  --night-green:#65c69a;
+  --night-gold:#e7bd59;
+  --night-danger:#ff8d84;
+  --night-warning:#e9c66f;
+  background:#0b1210;
+}
+:root[data-theme="dark"][data-reverse-profit-loss-colors] {
+  --profit-red:#49bd86;
+  --profit-red-soft:#3d8d69;
+  --profit-tint:#1c3b2d;
+  --loss-green:#ef756c;
+  --loss-green-soft:#a95752;
+  --loss-tint:#3d2422;
+}
+
+:root[data-theme="dark"] .training-page.position-training-active .training-dock,
+:root[data-theme="dark"] .position-training-roster>footer{background:#111915}
+:root[data-theme="dark"] .position-training-roster>header{border-color:#31453b;background:linear-gradient(135deg,#1b2721,#14221b)}
+:root[data-theme="dark"] .position-training-roster>header h2,
+:root[data-theme="dark"] .position-player-copy strong{color:#e2eee7}
+:root[data-theme="dark"] .position-training-roster>header span,
+:root[data-theme="dark"] .position-training-roster-meta,
+:root[data-theme="dark"] .position-training-roster>footer small{color:#9aaca2}
+:root[data-theme="dark"] .position-training-duration button,
+:root[data-theme="dark"] .position-training-search,
+:root[data-theme="dark"] .position-training-player-list,
+:root[data-theme="dark"] .position-player-row,
+:root[data-theme="dark"] .position-custom-editor select{border-color:#30443a;background:#17221c;color:#dce8e1}
+:root[data-theme="dark"] .position-training-duration button.active,
+:root[data-theme="dark"] .position-player-row.selected{border-color:#3d8d69;background:#1c392b;color:#dff4e8}
+:root[data-theme="dark"] .position-player-row:hover{background:#1a2d24}
+:root[data-theme="dark"] .position-player-row.assigned-elsewhere{background:#302a1b}
+:root[data-theme="dark"] .position-player-copy small,
+:root[data-theme="dark"] .position-custom-editor>header small{color:#91a49a}
+:root[data-theme="dark"] .position-player-number{border-color:#3c5146;background:#202e27;color:#bcd0c5}
+:root[data-theme="dark"] .position-custom-editor{border-color:#31483d;background:#192a21}
+:root[data-theme="dark"] .position-custom-editor>label,
+:root[data-theme="dark"] .position-custom-editor>div label{color:#a7b9af}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .app-shell { background:#0b1210; color:var(--night-text); }
+:root[data-theme="dark"] :is(input,select,textarea,button) { color-scheme:dark; }
+:root[data-theme="dark"] ::selection { background:#347b60; color:#fff; }
+:root[data-theme="dark"] ::placeholder { color:#74857d; opacity:1; }
+:root[data-theme="dark"] :focus-visible { outline-color:#68c99d; }
+:root[data-theme="dark"] :is(.fixtures,.history-content,.league-table-scroll,.shop-cart-items,.training-dock-content,.canteen-dock-content,.settings-content,.fmodd-select-menu) {
+  scrollbar-color:#58766a #14211c;
+}
+
+/* Shared surfaces, typography and controls */
+:root[data-theme="dark"] :is(
+  .toolbar,.competition-rail,.event-panel,.betslip,.feature-page,.feature-card,
+  dialog,.settings-tabs,.mail-pagination,.mail-toast-card,.usage-notice-content,
+  .fmodd-confirm-dialog,.manager-selection-content,.portfolio-tool-dialog
+) { background:var(--night-raised); border-color:var(--night-border); color:var(--night-text); }
+:root[data-theme="dark"] :is(.feature-page,.home-wallpaper,.league-page,.activity-page,.training-page,.canteen-page,dialog)
+  :is(h1,h2,h3,h4,strong,b,dd) { color:var(--night-text); }
+:root[data-theme="dark"] :is(.feature-page,.home-wallpaper,.league-page,.activity-page,.training-page,.canteen-page,dialog)
+  :is(p,small,dt,em) { color:var(--night-muted); }
+:root[data-theme="dark"] :is(.panel-heading,.dialog-head,.feature-page>header,.activity-page-header,.training-header,.canteen-header) {
+  border-color:var(--night-border-soft);
+}
+:root[data-theme="dark"] :is(
+  .fmodd-select-trigger,.fmodd-select-option,.compact-button,.odds-button,.market-choice,
+  .keypad button,.pass-method-setting select,.world-club-search,.world-player-gender-setting,
+  .world-player-gender-setting select,.world-player-filter-row,.world-player-filter-row select,
+  .world-player-filter-row input,.world-player-filter-actions button,.world-pagination input,
+  .transfer-form input,.form-content select,.manual-player-field select,.activity-card select,
+  .activity-roster-option select,.activity-roster-option input,.hospital-default-treatment select,
+  .training-inline-form select,.portfolio-person-transfer select,.portfolio-youth-selector select,
+  .portfolio-brand-selector select,.portfolio-youth-fields input,.portfolio-youth-fields select,.portfolio-youth-manual select,
+  .owned-vision-fields select,.owned-vision-fields input,.owned-vision-create-fields select,
+  .club-legacy-curation input,.club-legacy-curation select,.club-legacy-curation textarea
+) {
+  background:#121e19; border-color:#3a5146; color:#dce8e2;
+}
+:root[data-theme="dark"] :is(.fmodd-select-trigger,.odds-button,.market-choice,.keypad button,.compact-button):hover {
+  background:#1d3028; border-color:#5a8d75; color:#f2f8f5;
+}
+:root[data-theme="dark"] .fmodd-select-menu { background:#101a16; border-color:#3c5549; color:var(--night-text); box-shadow:0 18px 42px #000a; }
+:root[data-theme="dark"] :is(.fmodd-select-group,.fmodd-select-option:hover,.fmodd-select-option:focus-visible) { background:#1a2a23; }
+:root[data-theme="dark"] .fmodd-select-option.selected { background:#214435; border-color:#4d9c77; color:#89d8b3; }
+:root[data-theme="dark"] :is(.segmented,.mode-toggle,.page-tabs,.analysis-range,.league-page-controls .segmented) { background:#1d2a24; }
+:root[data-theme="dark"] :is(.segmented button,.mode-toggle button,.page-tabs button,.analysis-range button) { color:#a6b3ad; }
+:root[data-theme="dark"] :is(.segmented .active,.mode-toggle .active,.page-tabs button.active,.analysis-range button.active,.league-page-controls .segmented button.active) {
+  background:#2e7659; color:#fff; box-shadow:0 1px 3px #0008;
+}
+:root[data-theme="dark"] :is(input,select,textarea):focus { border-color:#5cab87; box-shadow:0 0 0 2px #4b9b742e; outline:0; }
+:root[data-theme="dark"] dialog { box-shadow:0 24px 80px #000a; }
+:root[data-theme="dark"] dialog::backdrop { background:#020705c7; }
+:root[data-theme="dark"] .dialog-head .icon-button { background:#22312a; color:#bdcbc5; }
+
+/* Navigation and home */
+:root[data-theme="dark"] .main-sidebar { background:#081d17; border-right:1px solid #244036; box-shadow:5px 0 24px #0006; }
+:root[data-theme="dark"] .home-page { border-color:#30453d; background:#101a17; }
+:root[data-theme="dark"] .home-wallpaper {
+  background:radial-gradient(900px 520px at 76% 8%,#173128 0%,#101a17 54%,#0d1613 100%);
+  color:var(--night-text);
+}
+:root[data-theme="dark"] :is(.home-masthead,.home-manager-record,.home-manager-record>div>span,.home-connection,.home-footer) { border-color:#30443c; }
+:root[data-theme="dark"] :is(.home-brand-lockup h1,.home-manager-record .record-rate strong,.home-connection-state strong,.home-connect-progress strong,.home-app-grid strong,.home-footer strong) { color:#e7f1ec; }
+:root[data-theme="dark"] :is(.home-brand-lockup small,.home-brand-lockup p,.home-manager-record header small,.home-manager-record header span,.home-manager-record>div small,.home-connection-state small,.home-connection-state p,.home-connect-progress small,.home-footer) { color:#94a9a0; }
+:root[data-theme="dark"] .home-connection-state>span { border-color:#17241f; }
+:root[data-theme="dark"] .home-connect-track { border-color:#3a5549; background:#1a2923; }
+:root[data-theme="dark"] .home-app-grid>button { color:#dbe8e2; }
+:root[data-theme="dark"] .home-app-grid>button:hover { background:#192720; box-shadow:0 8px 22px #0007; }
+:root[data-theme="dark"] .home-app-grid>button.locked .home-app-icon::after { border-color:#101a17; }
+:root[data-theme="dark"] .home-global-career { border-color:#395148; background:#17251f; color:#9fb3aa; }
+:root[data-theme="dark"] .home-global-career:hover { border-color:#5a846f; background:#1c2d26; box-shadow:0 4px 14px #0006; }
+:root[data-theme="dark"] .home-global-career strong { color:#e4efe9; }
+:root[data-theme="dark"] .home-global-career svg { color:#73c69d; }
+:root[data-theme="dark"] .global-career-dialog { background:#101a17; }
+:root[data-theme="dark"] :is(.global-career-usage,.global-career-metrics article) { border-color:#33483f; background:#17231e; }
+:root[data-theme="dark"] .global-career-usage>span { background:#203a30; color:#74c89f; }
+:root[data-theme="dark"] :is(.global-career-usage strong,.global-career-metrics strong) { color:#e1ece7; }
+:root[data-theme="dark"] :is(.global-career-usage small,.global-career-usage>em,.global-career-metrics span,.global-career-metrics small,.global-career-loading) { color:#96aaa1; }
+
+/* Settings */
+:root[data-theme="dark"] .settings-tabs { box-shadow:0 1px 0 #31463d; }
+:root[data-theme="dark"] .settings-tabs button { color:#91a39b; }
+:root[data-theme="dark"] .settings-tabs button:hover { color:#8bd5b1; }
+:root[data-theme="dark"] .settings-tabs button.active { border-bottom-color:#65c69a; color:#dff4ea; }
+:root[data-theme="dark"] :is(.settings-sync-status,#mail-sync-status) { border-color:#39564a; background:#1d342a; color:#8dd1ad; }
+:root[data-theme="dark"] :is(.mail-state,.global-career-error) { color:#9cafA6; }
+:root[data-theme="dark"] :is(.mail-state strong,.global-career-error strong) { color:#dfebe5; }
+:root[data-theme="dark"] .settings-content .setting-toggle,
+:root[data-theme="dark"] :is(.odds-reading-setting,.full-refresh-setting,.save-account-setting,.cheat-setting,.support-setting,.storage-setting) {
+  border-color:#2d4138;
+}
+:root[data-theme="dark"] .portrait-source-setting{border-color:#2d4138}
+:root[data-theme="dark"] .portrait-source-setting>strong{color:#d9e5df}
+:root[data-theme="dark"] .portrait-source-setting button{background:#20362c;border-color:#3b604e;color:#8ed3b2}
+:root[data-theme="dark"] .portrait-source-setting button:hover{background:#284438;border-color:#4a755f}
+:root[data-theme="dark"] :is(.setting-toggle label,.money-currency-setting label,.ui-locale-setting strong,.font-settings label,.settings-content>div>span) { color:#d9e5df; }
+:root[data-theme="dark"] :is(.font-settings strong) { color:#dce9e3; }
+:root[data-theme="dark"] :is(.font-settings small) { color:#91a39b; }
+:root[data-theme="dark"] .font-reset-button { background:#20362c; border-color:#3b604e; color:#8ed3b2; }
+:root[data-theme="dark"] .font-reset-button:hover { background:#284438; border-color:#4a755f; }
+:root[data-theme="dark"] .font-size-setting { border-color:#2d4138; }
+:root[data-theme="dark"] .font-size-slider-control::before { background:#31493e; }
+:root[data-theme="dark"] .font-size-slider-control::after { background:#65c69a; }
+:root[data-theme="dark"] .font-size-slider-control input[type="range"] { accent-color:#65c69a; }
+:root[data-theme="dark"] .font-size-slider-control input[type="range"]::-webkit-slider-thumb,:root[data-theme="dark"] .font-size-slider-control input[type="range"]::-moz-range-thumb { border-color:#14211c; background:#65c69a; box-shadow:0 0 0 1px #8bd5b1; }
+:root[data-theme="dark"] .font-size-ticks b { border-color:#58766a; background:#15221c; }
+:root[data-theme="dark"] .font-size-setting[data-active-step="1"] .font-size-ticks b[data-font-size-tick="1"],:root[data-theme="dark"] .font-size-setting[data-active-step="2"] .font-size-ticks b[data-font-size-tick="2"],:root[data-theme="dark"] .font-size-setting[data-active-step="3"] .font-size-ticks b[data-font-size-tick="3"],:root[data-theme="dark"] .font-size-setting[data-active-step="4"] .font-size-ticks b[data-font-size-tick="4"],:root[data-theme="dark"] .font-size-setting[data-active-step="5"] .font-size-ticks b[data-font-size-tick="5"],:root[data-theme="dark"] .font-size-setting[data-active-step="6"] .font-size-ticks b[data-font-size-tick="6"] { background:#65c69a; border-color:#65c69a; box-shadow:0 0 0 2px #254a39; }
+:root[data-theme="dark"] .font-size-status { color:#a6b9ae; }
+:root[data-theme="dark"] :is(.setting-toggle small,.full-refresh-setting small,.save-account-setting small,.support-setting small,.storage-setting small,.storage-setting span) { color:#91a39b; }
+:root[data-theme="dark"] :is(.money-currency-setting select,.ui-locale-setting select,.odds-reading-fields select,.save-account-setting select,.font-settings select,.betting-limit-setting input) {
+  background:#121e19; border-color:#3a5146; color:#dce8e2;
+}
+:root[data-theme="dark"] :is(.odds-reading-setting button,.full-refresh-setting button,.save-account-setting button,.storage-setting #choose-storage-root) {
+  background:#20362c; border-color:#3b604e; color:#8ed3b2;
+}
+:root[data-theme="dark"] :is(.cheat-actions button,.betting-limit-setting,.cheat-actions .free-shop-option) { background:var(--night-raised); border-color:#334a3f; color:#d6e3dc; }
+:root[data-theme="dark"] :is(.cheat-actions .danger,.storage-setting button) { background:#34211f; border-color:#6f403c; color:#ff9b92; }
+:root[data-theme="dark"] .support-setting button { background:#392f1b; border-color:#735f2f; color:#f0ce72; }
+:root[data-theme="dark"] .settings-content .author-update-note { background:#202824; color:#abb8b2; }
+:root[data-theme="dark"] .operation-log-setting>header { border-color:#31473d; }
+:root[data-theme="dark"] .operation-log-setting>header strong { color:#dce9e3; }
+:root[data-theme="dark"] .operation-log-setting>header small { color:#91a39b; }
+:root[data-theme="dark"] .operation-log-setting>header button { background:#34211f; border-color:#70413d; color:#ff9b92; }
+:root[data-theme="dark"] .operation-log-content { background:#101915; border-color:#31463d; }
+:root[data-theme="dark"] .operation-log-row { background:#15211c; border-color:#2e4239; }
+:root[data-theme="dark"] .operation-log-main strong { color:#dce9e3; }
+:root[data-theme="dark"] .operation-log-main small { color:#8fa199; }
+:root[data-theme="dark"] .operation-log-empty strong { color:#cfe0d7; }
+:root[data-theme="dark"] #settings-dialog>.settings-content[data-active-tab="operations"] .operation-log-content::-webkit-scrollbar-thumb { background:#537e69; background-clip:padding-box; }
+:root[data-theme="dark"] #settings-dialog>.settings-content[data-active-tab="operations"] .operation-log-content::-webkit-scrollbar-track { background:#182a22; }
+:root[data-theme="dark"] .dark-mode-setting { position:relative; }
+:root[data-theme="dark"] .dark-mode-setting::after { content:""; position:absolute; right:0; top:16px; width:7px; height:7px; border-radius:50%; background:#e7bd59; box-shadow:0 0 12px #e7bd5980; }
+.theme-toggle-label { position:relative; }
+.theme-toggle-label #dark-mode { position:absolute; width:1px; height:1px; margin:0; opacity:0; pointer-events:none; }
+.theme-switch { position:relative; width:42px; height:24px; flex:0 0 auto; border:1px solid #b7c8c0; border-radius:999px; background:#dbe5e0; box-shadow:inset 0 1px 2px #17382a1f; transition:background .18s ease,border-color .18s ease; }
+.theme-switch::after { content:""; position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 2px 5px #17382a3d; transition:transform .18s ease,background .18s ease; }
+.theme-toggle-label #dark-mode:focus-visible+.theme-switch { outline:2px solid #2b7959; outline-offset:2px; }
+.theme-toggle-label #dark-mode:checked+.theme-switch { border-color:#3f8e6c; background:#225b45; }
+.theme-toggle-label #dark-mode:checked+.theme-switch::after { background:#e7bd59; transform:translateX(18px); }
+:root[data-theme="dark"] .theme-switch { border-color:#4f7965; background:#183f30; box-shadow:inset 0 1px 3px #0007; }
+
+/* Betting workspace, markets and bet slip */
+:root[data-theme="dark"] :is(.toolbar,.competition-rail,.event-panel) { background:#111b17; }
+:root[data-theme="dark"] .betslip { background:#0f1916; }
+:root[data-theme="dark"] :is(.rail-heading,.panel-heading,.slip-heading,.slip-controls,.date-group,.fixture-row,.ticket-legs) { border-color:#2c4037; }
+:root[data-theme="dark"] :is(.competition-item,.competition-name,.slip-item p,.stake-label,.slip-summary dt,.market-choice small,.market-card h3) { color:#9eaea7; }
+:root[data-theme="dark"] #page-betting .team-name-card { color:#fff; }
+:root[data-theme="dark"] #page-betting .team-name-card:hover { color:#bdebd6; }
+:root[data-theme="dark"] :is(.competition-item:hover,.fixture-row:hover) { background:#182720; }
+:root[data-theme="dark"] :is(.competition-item.active,.date-heading,.fixture-row.selected,.fixtures.detail-view .fixture-row.selected,.fixture-row-flight) {
+  background:#1b342a!important; color:#bce8d3;
+}
+:root[data-theme="dark"] .fixtures::-webkit-scrollbar-track { background:#14211c; }
+:root[data-theme="dark"] :is(.odds-button,.market-choice) { background:#14201b; border-color:#344b40; color:#deebe5; }
+:root[data-theme="dark"] :is(.odds-button:hover,.market-choice:hover) { background:#1d3229; color:#91d8b6; }
+:root[data-theme="dark"] :is(.odds-button.chosen,.market-choice.chosen,.market-choice.chosen small) { background:#367f60; border-color:#55ab83; color:#fff; }
+:root[data-theme="dark"] :is(.market-drawer,.inline-market) { background:#0f1915; border-color:#30443b; }
+:root[data-theme="dark"] :is(.market-card,.bet-market-panel,.slider-market,.slip-item,.sportsbook-market-list .market-choice) { background:#15211c; border-color:#30463c; }
+:root[data-theme="dark"] :is(.bet-market-panel>header,.inline-market .market-header,.market-category-tabs,.parlay-summary) { background:#1b2923; border-color:#30443b; }
+:root[data-theme="dark"] .market-category-tabs button { color:#9aaba3; }
+:root[data-theme="dark"] .market-category-tabs button:hover { background:#24372f; color:#d7ebe1; }
+:root[data-theme="dark"] .market-catalog-empty { background:#131f1a; border-color:#3a5046; color:#8fa199; }
+:root[data-theme="dark"] .slip-mode-label { background:#203a2f; color:#84d3ad!important; }
+:root[data-theme="dark"] .slip-reuse { background:#203a2f; color:#84d3ad; }
+:root[data-theme="dark"] .slip-reuse:hover { background:#294b3d; }
+:root[data-theme="dark"] .slip-item strong { color:#e1ebe6; }
+:root[data-theme="dark"] .slip-item em,
+:root[data-theme="dark"] .slip-summary .return dd { color:#67c99c; }
+:root[data-theme="dark"] .keypad button { background:#17241f; border-color:#354a41; color:#c9d7d0; }
+:root[data-theme="dark"] .remove-selection:hover { background:#3c2522; }
+
+/* History, results, calendars and league tables */
+:root[data-theme="dark"] :is(.history-content,.history-content.analysis-view,.results-content,.manual-refund-list,.team-form-content,.attribute-reallocation-content) { background:#0e1714; }
+:root[data-theme="dark"] :is(
+  .history-ticket,.pending-history-card,.settled-history-card,.pending-matchup,
+  .analysis-metric,.analysis-trend-card,.history-list-wrap,.manual-refund-row,
+  .result-row,.team-form-summary,.team-form-results,.team-form-row,
+  .manual-allocation-summary>div,.manual-attribute-group,.development-player-summary>div,.development-attribute
+) { background:#15211c; border-color:#33483f; }
+:root[data-theme="dark"] :is(.ticket-head,.ticket-foot,.history-list-table th,.result-date>header,.team-form-columns,.manual-attribute-group h3) { background:#1c2a24; border-color:#34483f; }
+:root[data-theme="dark"] :is(.ticket-fixture h3,.ticket-leg strong,.ticket-leg b,.ticket-details dd,.manual-refund-order strong,.result-team,.result-row b) { color:#e0ebe5; }
+:root[data-theme="dark"] :is(.ticket-fixture p,.ticket-leg small,.ticket-details dt,.ticket-foot,.manual-refund-order small,.manual-refund-quote small,.result-competition) { color:#94a69d; }
+:root[data-theme="dark"] :is(.history-tabs,.results-calendar-footer,.team-form-dialog .dialog-head,.manual-refund-footer) { background:#15211c; border-color:#33483f; }
+:root[data-theme="dark"] :is(.history-tabs button.active,.results-calendar,.team-form-dialog .dialog-head .icon-button,.results-calendar-footer>button,.calendar-head button) { background:#1d2c25; color:#dce8e2; }
+:root[data-theme="dark"] .calendar-day { background:#1c2823; color:#b8c5bf; }
+:root[data-theme="dark"] .calendar-day.no-results { background:#141d19; color:#68776f; }
+:root[data-theme="dark"] .calendar-day.has-results { background:#3e5b4e; color:#fff; }
+:root[data-theme="dark"] .league-page { background:#0f1915; border-color:#30443b; }
+:root[data-theme="dark"] :is(.league-board,.championship-competition,.championship-fixture-row,.championship-inline-market,.championship-team) { background:#15211c; border-color:#33483f; }
+:root[data-theme="dark"] :is(.league-board>header,.league-board>header .fmodd-select-trigger,.league-board>header select,.league-board>header select option) { background:#212a23; color:#e1e7dd; border-color:#344237; }
+:root[data-theme="dark"] .league-emblem { background:#393521; color:#d7bf78; }
+:root[data-theme="dark"] .league-board>header .fmodd-select-chevron { color:#a5b3a8; }
+:root[data-theme="dark"] .league-board>header .fmodd-select-trigger:focus-visible { outline-color:#68c99d; }
+:root[data-theme="dark"] .league-table-scroll::-webkit-scrollbar-track { background:#17211b; }
+:root[data-theme="dark"] .league-table-scroll::-webkit-scrollbar-thumb { background:#58766a; }
+:root[data-theme="dark"] .league-table-scroll::-webkit-scrollbar-thumb:hover { background:#789889; }
+:root[data-theme="dark"] .league-table th { background:#252f28; color:#b3bfb5; border-color:#344237; }
+:root[data-theme="dark"] .league-table td { color:#bac7bc; }
+:root[data-theme="dark"] .league-table .league-position { color:#afc0b2; }
+:root[data-theme="dark"] .league-table .league-points { color:#a5d5b5; }
+:root[data-theme="dark"] .league-table tbody tr:nth-child(odd) td { background:#17211b; }
+:root[data-theme="dark"] .league-table tbody tr:nth-child(even) td { background:#1b261f; }
+:root[data-theme="dark"] .league-table tbody tr:hover td { background:#29392e; }
+:root[data-theme="dark"] .league-table tbody tr.managed td { background:#284333; }
+:root[data-theme="dark"] .league-table tbody tr.managed:hover td { background:#314f3c; }
+
+/* Shop, inventory, bank and general feature cards */
+:root[data-theme="dark"] .feature-page { background:#0f1915; }
+:root[data-theme="dark"] .feature-card { box-shadow:0 5px 18px #0005; }
+:root[data-theme="dark"] :is(.shop-group>summary,.shop-quantity,.shop-cart-panel,.shop-cart-head,.shop-cart-footer,.data-table,.transaction-list,.contract-card,.wallet-card,.bank-transfer-card) {
+  background:#15211c; border-color:#33483f;
+}
+:root[data-theme="dark"] :is(.shop-cart-item,.feature-page>header,.shop-cart-head,.shop-cart-footer,.data-table td,.transaction-list li) { border-color:#2d4138; }
+:root[data-theme="dark"] .funding-summary-total { border-color:#34493f; }
+:root[data-theme="dark"] .funding-summary-total small { color:#91a39b!important; }
+:root[data-theme="dark"] .funding-summary-total strong,
+:root[data-theme="dark"] .funding-summary-sources b { color:#9cdbbd!important; }
+:root[data-theme="dark"] .funding-summary-recurring { color:#e3c26b!important; }
+:root[data-theme="dark"] :is(.shop-group>summary h2,.shop-product-family>h3,.shop-cart-head h2,.shop-cart-item-copy>strong,.feature-card footer strong) { color:#dce9e3; }
+:root[data-theme="dark"] :is(.shop-group>summary p,.shop-family-summary,.shop-heading-copy small,.shop-cart-head span,.shop-cart-item-copy>span) { color:#95a69e; }
+:root[data-theme="dark"] .shop-quantity input { color:#dce8e2; }
+:root[data-theme="dark"] .shop-quantity input:focus { background:#1d3028; }
+:root[data-theme="dark"] :is(.feature-card button.secondary,.credit-card-actions button,.wallet-actions button,.wallet-placeholder-actions button) { background:#20332a; color:#91d6b5; }
+:root[data-theme="dark"] :is(.feature-card button.danger,.inventory-delete-button,.shop-cart-delete) { background:#3a2421!important; color:#ff948b; }
+:root[data-theme="dark"] :is(.item-stack-count,.item-status,.salary-payday,.contract-manager-record .record-win) { background:#203a2f; color:#79cea7; }
+:root[data-theme="dark"] :is(.data-table th,.ability-list span,.credit-overview>div,.credit-terms,.wallet-history,.salary-schedule-options label) { background:#1c2a24; border-color:#32473d; }
+
+/* Club, player, world and portfolio data surfaces */
+:root[data-theme="dark"] :is(
+  .world-club-card,.world-filter-row button,.world-pagination button,.world-scan-state,
+  .world-detail-actionbar,.world-detail-staff,.world-detail-player-name,.world-detail-info-section,
+  .club-income-report,.owned-club-action,.owned-club-row-card,.detail-stat-grid>div,.detail-section,
+  .player-detail-panel,.player-attribute-group,.portfolio-report-table,.portfolio-sortbar button,
+  .portfolio-person-row,.portfolio-youth-selector,.portfolio-youth-form>section,.portfolio-brand-selector,
+  .owned-operation-card,.owned-vision-row,.owned-vision-create,.portfolio-group-information,
+  .portfolio-command,.club-legacy-summary,.club-legacy-filters>button,.club-legacy-filters>label,
+  .club-legacy-workspace,.club-legacy-detail,.club-legacy-metric,.club-legacy-panel,
+  .club-legacy-table-wrap table,.club-legacy-transfer-card,.owned-manager-search-result,
+  .owned-vision-picker-trigger,.owned-vision-picker-dialog,.owned-vision-picker-dialog>header,
+  .owned-vision-choice
+) { background:#15211c; border-color:#344940; color:#dce8e2; }
+:root[data-theme="dark"] :is(
+  .world-club-facts div,.world-detail-summary>div,.world-detail-facilities span,.world-detail-info-section dl div,
+  .owned-metric-grid div,.owned-player-row dl div,.owned-staff-row dl div,.owned-transfer-row dl div,
+  .owned-club-row-card>dl div,.owned-club-row-card>dl.owned-club-row-metrics div,
+  .player-detail-panel .detail-stat-grid>div,.person-card-facts span,.preferred-move-tag,
+  .portfolio-report-head,.portfolio-person-row dl div,.portfolio-command-grid,.portfolio-command-icon,
+  .portfolio-command-arrow,.club-legacy-facts>div,.club-legacy-filters>button b,
+  .club-legacy-player-identity>div>b,.club-legacy-detail-tabs,.club-legacy-source-note,
+  .club-legacy-achievement-list.after li,.club-legacy-source-pill
+) { background:#1c2b25; border-color:#344a40; color:#a9b9b1; }
+:root[data-theme="dark"] :is(.world-club-card,.owned-club-row-card,.portfolio-person-row,.club-legacy-metric,.club-legacy-transfer-card) { box-shadow:0 8px 24px #0005; }
+:root[data-theme="dark"] :is(.world-detail-info-section h3,.club-income-report h3,.owned-club-row-identity h2,.owned-club-row-card dd,.detail-section h3,.player-detail-panel h3,.portfolio-person-row strong,.club-legacy-metric strong,.club-legacy-panel h3,.club-legacy-transfer-card strong) { color:#dceae3; }
+:root[data-theme="dark"] :is(.world-detail-info-section dt,.owned-club-row-card dt,.owned-club-row-identity span,.owned-club-row-identity small,.portfolio-person-row small,.club-legacy-metric small,.club-legacy-transfer-card small) { color:#94a79d; }
+:root[data-theme="dark"] .world-detail-profile .world-detail-acquire { background:#dcebe4; color:#124c3a; }
+:root[data-theme="dark"] .club-income-report-table th:first-child { background:#15211c; }
+:root[data-theme="dark"] .club-income-report-table thead th,
+:root[data-theme="dark"] .club-income-report-total th,
+:root[data-theme="dark"] .club-income-report-total td { background:#1f3229; color:#b9ccc2; }
+:root[data-theme="dark"] .club-detail-content { background:#0f1815; }
+:root[data-theme="dark"] .club-detail-dialog>.dialog-head { background:#15211c; }
+:root[data-theme="dark"] .detail-player-name-input { background:#1a2923; border-color:#527062; color:#fff; }
+:root[data-theme="dark"] #page-my-clubs.feature-page {
+  border-color:#30483d;
+  background:radial-gradient(1100px 420px at 88% -90px,#193329 0%,#0f1a16 60%);
+}
+:root[data-theme="dark"] .portfolio-command-deck { background:linear-gradient(180deg,#17271f,#132019); border-color:#3c6652; box-shadow:0 12px 30px #0006; }
+:root[data-theme="dark"] .portfolio-tool-content { background:#101a16; }
+:root[data-theme="dark"] :is(.club-legacy-workspace>aside,.club-legacy-workspace>aside>header,.club-legacy-curation,.club-legacy-curation-panel,.owned-manager-search-results,.owned-vision-picker-search) { background:#111c18; border-color:#34473f; }
+:root[data-theme="dark"] :is(.club-legacy-achievement-list li,.club-legacy-metric>span,.club-legacy-panel>header>span,.club-legacy-transfer-card>span) { background:#342f20; color:#e4bd61; }
+
+/* Preserve high-contrast typography on branded dark heroes. */
+:root[data-theme="dark"] :is(.world-detail-profile,.portfolio-report-hero,.portfolio-command-deck>header,.club-legacy-hero,.owned-club-profile)
+  :is(h1,h2,h3,strong,b,dd) { color:#fff; }
+:root[data-theme="dark"] :is(.world-detail-profile,.portfolio-report-hero,.portfolio-command-deck>header,.club-legacy-hero,.owned-club-profile)
+  :is(p,small,dt,span) { color:#b9d4c8; }
+
+/* Activity centre, hospital, training ground and canteen */
+:root[data-theme="dark"] :is(.activity-page,.training-page,.canteen-page) { background:#0e1714; }
+:root[data-theme="dark"] :is(.activity-page-header,.training-header,.training-toolbar,.canteen-header,.activity-panel-head,.activity-roster-footer,.canteen-panel-heading) {
+  background:#15211c; border-color:#33483f;
+}
+:root[data-theme="dark"] :is(
+  .activity-floor-tabs,.activity-floor-panel,.activity-plan-list>div,.activity-roster-toolbar,
+  .activity-select-all,.activity-roster-options,.activity-player-row,.activity-club-action>div,
+  .hospital-bed-card,.bed-card-head,.bed-mattress,.bed-pillow,.treatment-options label,.ward-empty,
+  .bed-player-tag,.bed-medical-panel,.training-dock,.training-dock-tabs,.training-dock-item,
+  .training-available-item,.training-coach-summary,.training-coaching-note,.training-member-completed,
+  .training-repeat-use,.training-player-trigger,.training-player-menu,
+  .training-equipment-group,.training-player-group,.training-player-option,.training-selection,
+  .training-focus-panel,.training-current-moves,.training-focus-status,.canteen-dock,
+  .canteen-dock-tabs,.canteen-dock-content,.canteen-roster-bulk-actions,.canteen-roster-list,
+  .canteen-meal-option,.canteen-meal-icon,.portfolio-youth-manual,.owned-youth-plan-status
+) { background:#15211c; border-color:#33483f; color:#dce8e2; }
+:root[data-theme="dark"] :is(.activity-floor-tabs button:hover,.activity-player-row:hover,.treatment-options label:hover,.training-available-head:hover,.training-equipment-group:hover,.training-player-group:hover,.training-player-option:hover,.canteen-roster-row:hover,.canteen-meal-option:hover) { background:#20332a; }
+:root[data-theme="dark"] :is(.activity-floor-tabs button.active,.treatment-options label:has(input:checked),.training-player-option.selected,.canteen-meal-option.active) { background:#214435; border-color:#4c8f70; }
+:root[data-theme="dark"] :is(.activity-floor-tabs button,.activity-plan-price,.activity-player-row small,.training-dock-item small,.training-player-option small,.canteen-roster-row small,.canteen-meal-option small) { color:#99aaa1; }
+:root[data-theme="dark"] .activity-player-refresh-button { background:#15211c; border-color:#4c8f70; color:#8ed0ad; }
+:root[data-theme="dark"] .activity-player-refresh-button:hover:not(:disabled) { background:#20332a; }
+:root[data-theme="dark"] #page-hospital>header { background:#15211c; border-color:#33483f; }
+:root[data-theme="dark"] :is(.ward-overview,.hospital-header-overview) { background:#16251f; border-color:#355044; }
+:root[data-theme="dark"] .hospital-injuries { background:#2e201f; border-color:#65403d; }
+:root[data-theme="dark"] .patient-head { filter:saturate(.78) brightness(.82); }
+
+/* Status colors retain meaning without using pale backgrounds. */
+:root[data-theme="dark"] :is(.status.won,.manual-refund-quote em.full,.team-form-summary em.loss,.owned-transfer-direction.incoming) { background:#193d2e; color:#76d4a8; }
+:root[data-theme="dark"] :is(.status.lost,.manual-refund-quote em.locked,.team-form-summary em.win,.owned-transfer-direction.outgoing) { background:#402421; color:#ff958d; }
+:root[data-theme="dark"] :is(.status.pending,.manual-refund-quote em.early,.pending-result-search,.demo-bet-badge) { background:#40351d; color:#f0cd73; }
+:root[data-theme="dark"] :is(.status.void,.market-phase.early,.manual-refund-row.locked,.training-dock-item>button:disabled) { background:#242d29; color:#9eaba5; }
+:root[data-theme="dark"] :is(.history-clear-button,.pending-result-search.manual-refund,.owned-load-error,.player-injury-cross,.training-selection button.danger,.owned-youth-plan-status.error) { background:#3b2422; border-color:#72443f; color:#ff9c93; }
+:root[data-theme="dark"] :is(.world-address-notice,.history-support-author,.owned-rebalance-badge,.club-legacy-availability) { background:#3b321d; border-color:#766131; color:#efd077; }
+:root[data-theme="dark"] .history-list-outcome.profit { background:var(--profit-tint); color:var(--profit-red); }
+:root[data-theme="dark"] .history-list-outcome.missed { background:var(--loss-tint); color:var(--loss-green); }
+:root[data-theme="dark"] .contract-manager-record .record-loss { background:#3d2422; color:#ff9289; }
+:root[data-theme="dark"] .contract-manager-record .record-win { background:#1c3b2d; color:#78d0a7; }
+:root[data-theme="dark"] :is(.history-list-outcome.returned,.history-list-outcome.pending) { background:#2a302a; color:#bec8c3; }
+:root[data-theme="dark"] :is(.ticket-details .money.won,.analysis-profit-positive,.portfolio-report-row .profit,.owned-acquisition-change.profit,.owned-acquisition-percent.profit) { color:var(--profit-red); }
+:root[data-theme="dark"] :is(.ticket-details .money.lost,.analysis-profit-negative,.portfolio-report-row .loss,.owned-acquisition-change.loss,.owned-acquisition-percent.loss) { color:var(--loss-green); }
+:root[data-theme="dark"] :is(.odds-rise,.slip-odds.odds-rise) { color:var(--profit-red); }
+:root[data-theme="dark"] :is(.odds-fall,.slip-odds.odds-fall) { color:var(--loss-green); }
+:root[data-theme="dark"] .odds-button.quick-choice.odds-rise { background:var(--profit-tint); border-color:var(--profit-red-soft); }
+:root[data-theme="dark"] .odds-button.quick-choice.odds-fall { background:var(--loss-tint); border-color:var(--loss-green-soft); }
+:root[data-theme="dark"] :is(.ticket-details .money.pending,.analysis-profit-neutral) { color:var(--night-warning); }
+:root[data-theme="dark"] .ticket-details .money.void { color:#a4b0aa; }
+
+/* Custom overlays and small utilities */
+:root[data-theme="dark"] .startup-loading-overlay { background:#050907d9; }
+:root[data-theme="dark"] .startup-loading-overlay>div { background:#17231eeb; border-color:#3d554a; box-shadow:0 18px 60px #000b; }
+:root[data-theme="dark"] .support-author-content { background:#111a17; }
+:root[data-theme="dark"] .counseling-wheel-dialog { background:#0f1915; border-color:#385046; }
+:root[data-theme="dark"] :is(.counseling-wheel-dialog>.dialog-head,.counseling-wheel-card,.counseling-wheel-footer,.counseling-wheel-actions button) { background:#15211c; border-color:#354b41; }
+:root[data-theme="dark"] .counseling-wheel::after { background:#182720; border-color:#dce9e3; }
+:root[data-theme="dark"] .counseling-wheel-copy b { background:#24322c; color:#b3c2bb; }
+:root[data-theme="dark"] .mail-toast-card { box-shadow:0 12px 34px #0009; }
+:root[data-theme="dark"] .toast { background:#dcebe4; color:#10231b; box-shadow:0 10px 34px #000a; }
+
+@media (prefers-reduced-motion:reduce) {
+  :root[data-theme="dark"] *,
+  :root[data-theme="dark"] *::before,
+  :root[data-theme="dark"] *::after { scroll-behavior:auto!important; }
+}
+
+:root[data-theme="dark"] .world-player-editor-status { color:#9ed8bf; }
+:root[data-theme="dark"] .world-player-editor-status > i { border-color:#456f5e; border-top-color:#9ed8bf; }
+:root[data-theme="dark"] .portfolio-tool-status { color:#9ed8bf!important; }
+:root[data-theme="dark"] .portfolio-tool-status > i { border-color:#456f5e; border-top-color:#9ed8bf; }
+:root[data-theme="dark"] .world-club-detail-status { color:#9ed8bf; }
+:root[data-theme="dark"] .world-club-detail-status > i { border-color:#456f5e; border-top-color:#9ed8bf; }
+:root[data-theme="dark"] .world-nation-detail-status { color:#f1b0b5; }
+:root[data-theme="dark"] .world-nation-detail-status > i { border-color:#704b50; border-top-color:#f1b0b5; }
+:root[data-theme="dark"] .world-nation-ranking { border-color:#43534d; background:#202925; }
+:root[data-theme="dark"] .world-nation-ranking h3,
+:root[data-theme="dark"] .world-nation-ranking-row > span:nth-child(2) strong { color:#edf5f1; }
+:root[data-theme="dark"] .world-nation-ranking header small,
+:root[data-theme="dark"] .world-nation-ranking-row > span:nth-child(2) small { color:#a9b9b1; }
+:root[data-theme="dark"] .world-nation-ranking-tabs button { border-color:#53645d; background:#29342f; color:#c9d5cf; }
+:root[data-theme="dark"] .world-nation-ranking-tabs button.active { border-color:#c16f78; background:#a7444e; color:#fff; }
+:root[data-theme="dark"] .world-nation-ranking-table { border-color:#465750; }
+:root[data-theme="dark"] .world-nation-ranking-head { background:#2b3732; color:#bdcbc4; }
+:root[data-theme="dark"] .world-nation-ranking-row { border-color:#405149; background:#222c27; color:#c9d5cf; }
+:root[data-theme="dark"] .world-nation-ranking-row:nth-child(even) { background:#26312c; }
+:root[data-theme="dark"] .world-nation-ranking-row:hover,
+:root[data-theme="dark"] .world-nation-ranking-row:focus-visible { background:#3b2b2e; }
+:root[data-theme="dark"] .world-nation-ranking-head > span,
+:root[data-theme="dark"] .world-nation-ranking-row > span { border-color:#405149; }
+:root[data-theme="dark"] .world-nation-ranking-row > span:last-child strong { color:#f0a6ad; }
+:root[data-theme="dark"] .world-nation-ranking-note { background:#3a2b2e; color:#e3c6c9; }
+:root[data-theme="dark"] .world-nation-ranking > header { border-color:#46534e; background:linear-gradient(135deg,#222c27 30%,#38272a); }
+:root[data-theme="dark"] .world-nation-ranking-heading > div > span { color:#a9b9b1; }
+:root[data-theme="dark"] .world-nation-ranking-rank b { border-color:#506159; background:#2b3832; color:#c4d2cb; }
+:root[data-theme="dark"] .world-nation-ranking-avatar { background:#2b4438; color:#8fd0b1; }
+:root[data-theme="dark"] .world-nation-ranking-age,
+:root[data-theme="dark"] .world-nation-ranking-club { color:#bdcbc4; }
+:root[data-theme="dark"] .world-nation-ranking-metric > i { background:#533b40; }
+:root[data-theme="dark"] .world-nation-ranking-state { border-color:#4a5a53; background:#222d28; color:#bdcbc4; }
+:root[data-theme="dark"] .world-nation-ranking-pagination { border-color:#43524c; background:#232e29; }
+:root[data-theme="dark"] .world-nation-ranking-pagination > span { color:#bdcbc4; }
+
+/* Hall of fame page shell follows the shared dark workspace. */
+:root[data-theme="dark"] #page-hall-of-fame.feature-page { border-color:#30463d; background:#0f1915; }
+:root[data-theme="dark"] #page-hall-of-fame.feature-page>header h1 { color:#e3eee8; }
+:root[data-theme="dark"] #page-hall-of-fame .refresh-button { border-color:#344940; background:#15211c; color:#dce8e2; }
+
+/* ODD baseline: the dark theme keeps the same restrained, data-first surfaces. */
+:root[data-theme="dark"] body { background:#0d1512; }
+:root[data-theme="dark"] .topbar,
+:root[data-theme="dark"] .main-sidebar { box-shadow:none; }
+:root[data-theme="dark"] .toolbar,
+:root[data-theme="dark"] .competition-rail,
+:root[data-theme="dark"] .event-panel,
+:root[data-theme="dark"] .betslip,
+:root[data-theme="dark"] .feature-page,
+:root[data-theme="dark"] .feature-card,
+:root[data-theme="dark"] .global-career-usage { box-shadow:none; }
+:root[data-theme="dark"] .feature-card:hover { transform:none; box-shadow:none; border-color:#4b725f; }
+
+
+/* Hall of fame night: token swap for the v9 ODD layer. */
+:root[data-theme="dark"] .hall-of-fame-page{--hof-ink:#dceae3;--hof-muted:#94a79d;--hof-line:#31463c;--hof-line-soft:#263830;--hof-surface:#111b17;--hof-surface-hover:#182a21;--hof-grid-bg:#101b16;--hof-card-shadow:0 3px 10px rgba(0,0,0,.28);--hof-mint:#182a21;--hof-chip-bg:#1c2b23;--hof-green:#72c59b;--hof-accent:#1d6f51;--hof-accent-hover:#26845f;--hof-gold-ink:#e0be6a;--hof-gold-soft:#1e1a10;--hof-gold-line:#6d5416;--hof-gold-solid:#d2aa4b;--hof-hero:#0b2d24;--hof-hero-panel:#153e32;--hof-hero-ink:#eef8f3;--hof-hero-muted:#a8c4b7;--hof-red:#ef756c;--hof-danger-bg:#241514;--hof-danger-line:#7a3530}
+:root[data-theme="dark"] .legacy-match-moment-dialog{--hof-ink:#dceae3;--hof-muted:#94a79d;--hof-line:#31463c;--hof-line-soft:#263830;--hof-surface:#111b17;--hof-surface-hover:#182a21;--hof-tint:#152019;--hof-mint:#182a21;--hof-accent:#72c59b}
+
+/*
+ * Late-added workspaces still contain their light-mode surfaces in app.css.
+ * Keep one night surface ladder for those areas so a page cannot switch back
+ * to white halfway through a drawer, table, picker or dialog.
+ */
+:root[data-theme="dark"] {
+  --night-canvas:#0d1512;
+  --night-surface-0:#101a16;
+  --night-surface-1:#15211c;
+  --night-surface-2:#1b2923;
+  --night-surface-3:#20332a;
+  --night-line:#33483f;
+  --night-line-soft:#293b33;
+  --night-copy:#dce8e2;
+  --night-copy-muted:#94a79d;
+}
+
+/* Small global overlays and navigation controls. */
+:root[data-theme="dark"] :is(
+  .game-version-switch>[data-game-version-menu],
+  .game-version-switch>[data-game-version-menu]::before,
+  .game-version-switch>[data-game-version-menu] button,
+  .fixture-load-more button,
+  .mail-state button,.global-career-error button,
+  .sidebar-toggle
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .game-version-switch>[data-game-version-menu] button:hover,
+  .fixture-load-more button:hover,
+  .sidebar-toggle:hover,
+  .main-sidebar nav button:hover,
+  .main-sidebar nav .sidebar-subnav button.active,
+  .home-app-grid>button:hover
+) { background:var(--night-surface-3); border-color:#4b725f; color:#e6f2ec; }
+:root[data-theme="dark"] .topbar-center::after { background:#18372b; border-color:#37644f; color:#bfe4d0; }
+:root[data-theme="dark"] .toast { background:#172d25; color:#e5f1eb; box-shadow:0 10px 34px #000a; }
+
+/* Bank, statement and account detail surfaces. */
+:root[data-theme="dark"] :is(
+  .bank-statement-overview>div,.bank-statement-toolbar,.bank-statement-results,
+  .bank-statement-month-panel,.bank-statement-month-overview,.bank-statement-inline-error,
+  .bank-statement-results,.bank-ledger-entry-icon.is-credit,
+  .owned-club-profile dl div,.detail-stat-grid>div,.club-detail-dialog>.dialog-head,
+  .detail-player-name-row button
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .bank-statement-toolbar,.bank-statement-month-overview,.bank-statement-results,
+  .detail-stat-grid>div
+) { background:var(--night-surface-2); }
+:root[data-theme="dark"] .bank-statement-inline-error { background:#2b1b1a; border-color:#6a3d39; color:#f0aaa2; }
+:root[data-theme="dark"] .bank-ledger-entry-icon.is-credit { background:#193d2e; color:#76d4a8; }
+:root[data-theme="dark"] :is(.detail-player-name-row button:hover,.history-support-author:hover) { background:var(--night-surface-3); border-color:#4b725f; color:#dcefe5; }
+
+/* Bank finance overview surfaces. */
+:root[data-theme="dark"] .bank-finance-hero { background:#17352a; border-color:#365747; }
+:root[data-theme="dark"] .bank-hero-kicker,
+:root[data-theme="dark"] .bank-panel-header small,
+:root[data-theme="dark"] .bank-panel-header>i { color:#86cfaa; }
+:root[data-theme="dark"] .bank-finance-hero h2,
+:root[data-theme="dark"] .bank-panel-header h2,
+:root[data-theme="dark"] .bank-row-copy>strong { color:#e0eee7; }
+:root[data-theme="dark"] .bank-total-amount,
+:root[data-theme="dark"] .bank-account-split b,
+:root[data-theme="dark"] .bank-row-end>b { color:#8fd5b1; }
+:root[data-theme="dark"] .bank-account-split>div,
+:root[data-theme="dark"] .bank-statement-preview-metrics>div { background:#1c2b23; border-color:#385247; }
+:root[data-theme="dark"] .bank-account-split span,
+:root[data-theme="dark"] .bank-row-copy>span,
+:root[data-theme="dark"] .bank-panel-header>div>span,
+:root[data-theme="dark"] .bank-statement-preview-metrics span,
+:root[data-theme="dark"] .bank-dividend-history small { color:#9aafa5; }
+:root[data-theme="dark"] .bank-panel { background:var(--night-surface-1); border-color:var(--night-line); }
+:root[data-theme="dark"] .bank-panel-header { border-color:var(--night-line-soft); }
+:root[data-theme="dark"] .bank-data-row,
+:root[data-theme="dark"] .bank-dividend-history { border-color:var(--night-line-soft); }
+:root[data-theme="dark"] .bank-row-icon { background:#1c3a2d; color:#7dd2a7; }
+:root[data-theme="dark"] .bank-row-icon.is-dividend { background:#3a321c; color:#e2c46d; }
+:root[data-theme="dark"] .bank-row-icon.is-credit { background:#3a2d18; color:#e2bc62; }
+:root[data-theme="dark"] .bank-row-icon.is-budget { background:#1d3042; color:#8abce5; }
+:root[data-theme="dark"] .bank-row-icon.is-balance { background:#292941; color:#b3b2e8; }
+:root[data-theme="dark"] .bank-row-copy .credit-rule-button { background:#1b2822; border-color:#3b5147; color:#9aafa5; }
+:root[data-theme="dark"] .bank-dividend-history span>b { color:#c3d8ce; }
+:root[data-theme="dark"] .bank-statement-preview-metrics>div { background:#18251f; }
+
+/* Bank colour hierarchy v3 night overrides. */
+:root[data-theme="dark"] #page-bank{--bank-hero:#0d2b22;--bank-hero-line:#29513f;--bank-hero-copy:#e7f4ed;--bank-hero-muted:#9dc3b1;--bank-surface:#15211c;--bank-surface-soft:#1a2922;--bank-line:#33483f;--bank-line-soft:#293b33;--bank-ink:#e0eee7;--bank-muted:#9aafa5;--bank-accent:#7fd1a7;--bank-gold:#e7bd59}
+:root[data-theme="dark"] #page-bank .bank-finance-hero{background:var(--bank-hero);border-color:var(--bank-hero-line);box-shadow:0 7px 20px #0006}
+:root[data-theme="dark"] #page-bank .bank-hero-kicker{color:var(--bank-hero-muted)}
+:root[data-theme="dark"] #page-bank .bank-finance-hero h2{color:var(--bank-hero-copy)}
+:root[data-theme="dark"] #page-bank .bank-total-amount,:root[data-theme="dark"] #page-bank .bank-account-split b{color:#fff}
+:root[data-theme="dark"] #page-bank .bank-account-split,:root[data-theme="dark"] #page-bank .bank-account-split>div+div{border-color:#ffffff35}
+:root[data-theme="dark"] #page-bank .bank-account-split span{color:var(--bank-hero-muted)}
+:root[data-theme="dark"] #page-bank .bank-finance-hero-actions .primary-action{background:var(--bank-gold);color:#173c31}
+:root[data-theme="dark"] #page-bank .bank-finance-hero-actions .bank-cheat-action{background:#3b3119;border-color:#6a5622;color:#e7c86c}
+:root[data-theme="dark"] #page-bank .bank-panel{background:var(--bank-surface);border-color:var(--bank-line);box-shadow:none}
+:root[data-theme="dark"] #page-bank .bank-panel-header{background:var(--bank-surface-soft);border-color:var(--bank-line-soft)}
+:root[data-theme="dark"] #page-bank .bank-panel-header small,:root[data-theme="dark"] #page-bank .bank-panel-header>i{color:var(--bank-accent)}
+:root[data-theme="dark"] #page-bank .bank-panel-header h2,:root[data-theme="dark"] #page-bank .bank-row-copy>strong{color:var(--bank-ink)}
+:root[data-theme="dark"] #page-bank .bank-panel-header>div>span,:root[data-theme="dark"] #page-bank .bank-row-copy>span,:root[data-theme="dark"] #page-bank .bank-dividend-history small{color:var(--bank-muted)}
+:root[data-theme="dark"] #page-bank .bank-data-row,:root[data-theme="dark"] #page-bank .bank-dividend-history{border-color:var(--bank-line-soft)}
+:root[data-theme="dark"] #page-bank .bank-row-icon,:root[data-theme="dark"] #page-bank .bank-row-icon.is-income,:root[data-theme="dark"] #page-bank .bank-row-icon.is-dividend,:root[data-theme="dark"] #page-bank .bank-row-icon.is-credit,:root[data-theme="dark"] #page-bank .bank-row-icon.is-budget,:root[data-theme="dark"] #page-bank .bank-row-icon.is-balance{background:#203129;color:#85cbaa}
+:root[data-theme="dark"] #page-bank .bank-row-icon.is-dividend,:root[data-theme="dark"] #page-bank .bank-row-icon.is-credit{color:#d4bb6b}
+:root[data-theme="dark"] #page-bank .bank-row-copy .credit-rule-button{background:#1b2822;border-color:#3b5147;color:#9aafa5}
+:root[data-theme="dark"] #page-bank .bank-row-end>b{color:var(--bank-accent)}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics{background:var(--bank-surface)}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics>div{background:transparent;border-color:var(--bank-line)}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics span{color:var(--bank-muted)}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics strong{color:var(--bank-ink)}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics strong.positive{color:#7fd1a7}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics strong.negative{color:#ef8980}
+
+/* World/player directories and editors. */
+:root[data-theme="dark"] :is(
+  .world-player-table,.world-player-row,.world-player-editor-section,
+  .world-nation-ranking-state button,.portfolio-tool-dialog>.dialog-head,
+  .portfolio-youth-selector select,.portfolio-brand-selector select,
+  .portfolio-brand-option span,.owned-vision-picker-dialog>header>button,
+  .owned-vision-picker-search>input,.owned-club-reorder-toggle,
+  .owned-club-order-controls button,.owned-club-row-card>dl.owned-club-row-metrics,
+  .owned-squad-group,.club-squad-tabs button:hover
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] .world-player-row:nth-child(even) { background:var(--night-surface-0); }
+:root[data-theme="dark"] :is(.world-player-row:hover,.world-player-row:focus-visible,.world-nation-ranking-state button:hover) { background:var(--night-surface-3); }
+:root[data-theme="dark"] :is(.world-player-editor-field input,.world-nation-ranking-state,.portfolio-youth-selector select,.portfolio-brand-selector select) { background:var(--night-surface-0); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] .world-player-editor-actions { background:var(--night-surface-0); border-color:var(--night-line-soft); }
+
+/* Activity, relationship and training pickers. */
+:root[data-theme="dark"] :is(
+  .relationship-room-list,.relationship-room-card,.relationship-room-attribute,
+  .relationship-room-role select,.relationship-room-member,.relationship-room-note,
+  .training-player-picker-card>header,.training-player-search,
+  .training-player-picker-filters button,.training-focus-status.active,
+  .canteen-window-hit:hover,.canteen-window-hit:focus-visible,
+  .canteen-ban-button,.canteen-reward-button,
+  .canteen-meal-option.elite.active,.canteen-meal-option.peak.active,
+  .owned-player-row dl div.injured,.activity-roster-tabs,
+  .activity-roster-search input,.activity-language-picker-trigger,
+  .activity-language-choice,.activity-language-instant-options>div,
+  .owned-stadium-rename-footer .secondary-action
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .relationship-room-stage:hover,.training-player-picker-filters button:hover,
+  .canteen-window-hit:hover,.activity-language-choice:hover,
+  .activity-language-picker-trigger:hover
+) { background:var(--night-surface-3); border-color:#4b725f; }
+:root[data-theme="dark"] :is(
+  .activity-language-auto-status.is-warning,.training-room-intimacy.error
+) { background:#3a3020; border-color:#6c572b; color:#e5c979; }
+:root[data-theme="dark"] :is(.activity-language-actions>.button.secondary,.activity-language-actions>button.secondary) { background:var(--night-surface-2); border-color:var(--night-line); color:var(--night-copy-muted); }
+:root[data-theme="dark"] :is(.activity-language-actions>button.danger,.canteen-ban-button) { background:#3a2421; border-color:#72443f; color:#ff9c93; }
+
+/* Intelligence centre: this is the most visible white-on-dark regression. */
+:root[data-theme="dark"] :is(
+  .intelligence-purchase-card,.intelligence-picker-card select,.intelligence-panel,
+  .intelligence-history-toolbar,.intelligence-history-tabs,
+  .intelligence-history-tabs button,.intelligence-history-filters select,
+  .intelligence-results>header,.intelligence-list,.intelligence-card,
+  .intelligence-tier-list button,.intelligence-search:focus-within
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .intelligence-history-tabs button:hover,.intelligence-history-tabs button.active,
+  .intelligence-card:hover,.intelligence-card-toggle:hover,
+  .intelligence-card.expanded>.intelligence-card-toggle,
+  .intelligence-tier-list button:hover:not(:disabled)
+) { background:var(--night-surface-3); border-color:#4b725f; color:#e6f2ec; }
+:root[data-theme="dark"] .intelligence-history-tabs button.active { border-bottom-color:#65c69a; }
+:root[data-theme="dark"] .intelligence-date-group>header { background:var(--night-surface-2); color:#b9d8c7; }
+:root[data-theme="dark"] .intelligence-tier-list button:disabled { background:#202b26; border-color:#35453d; color:#87968f; }
+:root[data-theme="dark"] .intelligence-tier-list button.purchased:disabled { background:#193d2e; border-color:#4c8f70; color:#9ed8bf; }
+:root[data-theme="dark"] .intelligence-search { background:var(--night-surface-0); border-color:var(--night-line); color:var(--night-copy-muted); }
+
+/* Training archive and relationship network pages. */
+:root[data-theme="dark"] :is(
+  .training-archive-open,.training-archive-tabs,.training-archive-tabs button,
+  #training-archive-summary>div,.training-archive-record,.training-archive-pagination,
+  .training-archive-pagination button,.training-archive-usage,.training-archive-usage article,
+  .relations-command select,.relations-command input,.relations-segment button,
+  .relation-person-card,.relations-pagination button,.relations-error,
+  .relations-scope-bar select,.relations-scope-bar input,.relations-header,
+  .relations-group,.relations-card,.relationship-direction-grid,
+  .relationship-event-directions,.training-relationship-body,.training-relationship-roles,
+  .training-relationship-summary-open,.training-room-card,.room-attr-card,
+  .training-room-attr-option,.training-room-role-select,.training-room-candidate,
+  .training-room-person-card,.intimacy-ranking-tab.active,.lb-stats>div,.lb-table,
+  .staff-abilities .staff-ability-empty,.training-room-rename-btn,
+  .training-archive-role-empty,.training-archive-person>button
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .training-archive-tabs button:hover,.training-archive-tabs button.active,
+  .relations-segment button:hover,.relations-segment button.active,
+  .relations-pagination button:hover,.training-room-candidate:hover,
+  .training-room-person-card:hover,.training-archive-person>button:hover
+) { background:var(--night-surface-3); border-color:#4b725f; color:#e6f2ec; }
+:root[data-theme="dark"] :is(.relations-error,.training-room-intimacy.error) { background:#2b1b1a; border-color:#6a3d39; color:#f0aaa2; }
+
+/* Position-training controls and compact selectors. */
+:root[data-theme="dark"] :is(
+  .position-training-presets button,.position-training-controls>button,
+  .room-effect-attribute,.owned-sugar-daddy-control select,
+  .position-training-position-palette button,.position-training-edit-actions button,
+  .position-training-preset-actions button,.position-training-custom-library button,
+  .position-training-custom-name input
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .position-training-presets button:hover,.position-training-controls>button:hover,
+  .position-training-position-palette button:hover,.position-training-edit-actions button:hover,
+  .position-training-preset-actions button:hover,.position-training-custom-library button:hover
+) { background:var(--night-surface-3); border-color:#4b725f; }
+
+/* Keep semantic status chips dark as well; no pale success/error islands. */
+:root[data-theme="dark"] :is(
+  .market-phase.live,.item-status.active,.training-focus-status.active,
+  .activity-language-instant-content footer button.secondary
+) { background:var(--night-surface-2); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] .world-detail-profile .world-detail-acquire { background:#1d6f51; border-color:#4c9c77; color:#eff9f3; }
+
+/* Remaining utility panels and semantic controls that opt into a light fill in
+ * app.css.  These are intentionally explicit: branded scene artwork and the
+ * dark hero surfaces above are not filtered or inverted. */
+:root[data-theme="dark"] :is(
+  .favorite-market:hover,.top-action:hover,.favorite-competition-toggle:hover,
+  .favorite-team:hover,.load-results,.bank-cheat-action,
+  .analysis-line-switch,.manual-allocation-summary>div,.manual-reallocation-actions,
+  .development-player-summary>div,.activity-floor-tabs button>span,
+  .activity-player-check,.club-policy-hero,.fmodd-confirm-actions button,
+  .credit-default-effects,.credit-default-effects article,
+  .portfolio-command:hover,.portfolio-command:focus-visible,
+  .portfolio-report-hero dl div,.counseling-wheel-card-actions button,
+  .portfolio-relation-create,.portfolio-relation-list,
+  .portfolio-relation-create select,.portfolio-relation-create input,
+  .portfolio-relation-actions select,.portfolio-relation-create-details>.portfolio-relation-benefits,
+  .portfolio-relation-actions select option,.portfolio-relation-fields input,
+  .portfolio-relation-row.is-inconsistent
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .favorite-market:hover,.top-action:hover,.favorite-competition-toggle:hover,
+  .favorite-team:hover,.load-results:hover,.bank-cheat-action:hover,
+  .fmodd-confirm-actions button:hover,.portfolio-command:hover,
+  .portfolio-command:focus-visible,.counseling-wheel-card-actions button:hover
+) { background:var(--night-surface-3); border-color:#4b725f; color:#e6f2ec; }
+:root[data-theme="dark"] .operation-log-summary .running { background:#3a3020; border-color:#6c572b; color:#e5c979; }
+:root[data-theme="dark"] .world-acquisition-progress-track { background:#20342b; }
+:root[data-theme="dark"] .world-acquisition-progress[data-state="complete"] .world-acquisition-progress-track i { background:#65c69a; }
+:root[data-theme="dark"] .analysis-line-switch button.active { background:#2e7659; color:#fff; }
+:root[data-theme="dark"] :is(
+  .settled-history-card.profit,.settled-history-card.profit .pending-matchup,
+  .settled-history-card.missed,.settled-history-card.missed .pending-matchup,
+  .settled-history-card.returned,.settled-history-card.returned .pending-matchup
+) { background:var(--night-surface-2); border-color:var(--night-line); }
+:root[data-theme="dark"] .activity-floor-tabs button>span { background:var(--night-surface-2); border-color:var(--night-line); color:#bfe0ce; }
+:root[data-theme="dark"] .activity-player-check { background:var(--night-surface-0); border-color:#58766a; }
+:root[data-theme="dark"] :is(.club-policy-hero,.credit-default-effects article) { background:var(--night-surface-2); }
+:root[data-theme="dark"] .club-policy-error { background:#2b1b1a; border-color:#6a3d39; color:#f0aaa2; }
+:root[data-theme="dark"] .integrity-waive-fourth { background:#3a3020!important; border-color:#6c572b!important; color:#e5c979!important; }
+:root[data-theme="dark"] .portfolio-report-hero dl div { background:#1a3429; border-color:#3b6651; }
+:root[data-theme="dark"] :is(
+  .training-archive-insights span,.training-archive-usage>header,
+  .training-archive-usage article,.training-archive-record>div>span
+) { background:var(--night-surface-2); border-color:var(--night-line-soft); color:var(--night-copy-muted); }
+:root[data-theme="dark"] .training-archive-open { background:var(--night-surface-2); border-color:#4b8f70; color:#9ed8bf; }
+
+/* Artwork overlays use translucent dark panels so the scene remains the
+ * visual anchor without leaving a bright card floating above it. */
+:root[data-theme="dark"] :is(
+  .activity-scene-title,.activity-open-status,.activity-scene-lock button,
+  .activity-panel-head>span,.activity-panel-head h2 b,
+  .activity-plan-list>div,.activity-plan-price,.club-policy-status,
+  .club-policy-switch,.activity-language-actions>button.secondary
+) { background:var(--night-surface-2); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] .activity-scene-title { background:#12221be8; border-color:#577468; box-shadow:0 7px 22px #0008; }
+:root[data-theme="dark"] .activity-scene-title small { color:#8ed3b2; }
+:root[data-theme="dark"] .activity-scene-title strong { color:#e5f1eb; }
+:root[data-theme="dark"] .activity-scene-title span { color:#a4b9ae; }
+:root[data-theme="dark"] .activity-open-status { background:#1a3a2eeb; border-color:#4e866b; color:#bde6d1; }
+:root[data-theme="dark"] .activity-scene-lock button { background:#1b3429; border-color:#5b796b; color:#dcebe4; }
+:root[data-theme="dark"] :is(.club-policy-status.active,.club-policy-switch.active) { background:#193d2e; border-color:#4c8f70; color:#9ed8bf; }
+:root[data-theme="dark"] :is(.activity-nationality-footer>.activity-nationality-picker-trigger,.activity-nationality-choice-grid>button,.activity-nationality-slot-options>button){background:var(--night-surface-2);border-color:var(--night-line);color:var(--night-copy)}
+:root[data-theme="dark"] :is(.activity-nationality-choice-grid>button:hover,.activity-nationality-slot-options>button:hover,.activity-nationality-choice-grid>button.selected){background:#193d2e;border-color:#4c8f70;color:#c7ead8}
+:root[data-theme="dark"] :is(.activity-nationality-choice-grid small,.activity-nationality-slot-options small){color:var(--night-copy-muted)}
+:root[data-theme="dark"] :is(.transfer-history-summary>div,.transfer-history-tools,.transfer-history-table-wrap){background:var(--night-surface-2);border-color:var(--night-line)}
+:root[data-theme="dark"] :is(.transfer-history-summary strong,.transfer-history-table td,.transfer-history-player){color:var(--night-copy)}
+:root[data-theme="dark"] :is(.transfer-history-summary small,.transfer-history-summary span,.transfer-history-table td>span,.transfer-history-player span){color:var(--night-copy-muted)}
+:root[data-theme="dark"] :is(.transfer-history-tools select,.transfer-history-tools input,.transfer-history-tools button,.transfer-history-state button){background:var(--night-surface-1);border-color:var(--night-line);color:var(--night-copy)}
+:root[data-theme="dark"] .transfer-history-table th{background:var(--night-surface-3);color:#bcd0c5}
+:root[data-theme="dark"] .transfer-history-table th,:root[data-theme="dark"] .transfer-history-table td{border-color:var(--night-line-soft)}
+:root[data-theme="dark"] .transfer-history-state{background:var(--night-surface-2);border-color:var(--night-line);color:var(--night-copy-muted)}
+:root[data-theme="dark"] .transfer-history-state strong{color:var(--night-copy)}
+:root[data-theme="dark"] .transfer-history-directions{background:var(--night-surface-2);border-color:var(--night-line)}
+:root[data-theme="dark"] .transfer-history-directions button{color:var(--night-copy-muted)}
+:root[data-theme="dark"] .transfer-history-directions button span{color:var(--night-copy-muted)}
+:root[data-theme="dark"] .transfer-history-directions button.active{border-color:#5eaa86;background:#286a4e;color:#fff}
+:root[data-theme="dark"] .transfer-history-directions button.active span{color:#d5eee2}
+
+/* Facility text workspaces */
+:root[data-theme="dark"] .facility-view-toggle{color:#a9bbb2}
+:root[data-theme="dark"] .facility-view-toggle input{border-color:#607b6d;background:#101a16}
+:root[data-theme="dark"] .facility-view-toggle input:checked{border-color:#68c99d;background:#3d8d69}
+:root[data-theme="dark"] :is(.activity-page,.training-page,.canteen-page).facility-text-view :is(.activity-scene,.training-stage,.training-stage-panel,.canteen-stage-panel){border-color:#30443a;background:#101a16!important}
+:root[data-theme="dark"] .activity-page.facility-text-view :is(.activity-scene-node,.activity-scene-lock){border-color:#354d41;background:#18251f;color:#dce8e1}
+:root[data-theme="dark"] .activity-page.facility-text-view .activity-scene-node:hover{border-color:#55876f;background:#1d3027}
+:root[data-theme="dark"] .activity-page.facility-text-view .activity-scene-node.selected{border-color:#5aa77f;background:#1d3a2d;box-shadow:inset 3px 0 #68c99d}
+:root[data-theme="dark"] .activity-page.facility-text-view .activity-scene-node>svg{border-color:#355447;background:#20362c;color:#80d0a8}
+:root[data-theme="dark"] .activity-page.facility-text-view .activity-scene-node span{color:#e1ece6}
+:root[data-theme="dark"] .activity-page.facility-text-view :is(.activity-scene-node b,.activity-scene-lock span){color:#94a79e}
+:root[data-theme="dark"] .activity-page.facility-text-view .activity-floor-panel{background:#111b17}
+:root[data-theme="dark"] .training-page.facility-text-view :is(.training-facility,.training-empty,.training-floor-lock){border-color:#344a3f;background:#17231e;color:#dce8e1}
+:root[data-theme="dark"] .training-page.facility-text-view .training-facility:hover{border-color:#55876f;background:#1d3027}
+:root[data-theme="dark"] .training-page.facility-text-view .training-facility.selected{border-color:#5aa77f;background:#1d3a2d;box-shadow:inset 3px 0 #68c99d}
+:root[data-theme="dark"] .training-page.facility-text-view .training-facility>span:last-child{color:#e1ece6}
+:root[data-theme="dark"] .training-page.facility-text-view .training-floor-lock span{color:#94a79e}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-stage{border-color:#344a3f;background:#111b17!important}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-stage-effect{border-color:#30443a;color:#dce8e1}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-stage-windows{background:#26362e}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-window-hit{background:#17231e;color:#c9d8d0}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-window-hit:hover{background:#1d3027}
+:root[data-theme="dark"] .canteen-page.facility-text-view .canteen-window-hit.active{border-left-color:#68c99d;background:#1d3a2d;color:#a9e3c7}
+
+/* Explicit light fills in app.css must not leak through the night theme. */
+:root[data-theme="dark"] :is(
+  .market-note,.panel-heading-actions .refresh-button,.fund-options button,.results-button,
+  .league-refresh-button,.bank-statement-pagination button,.bank-statement-state button,
+  .manual-stepper button,.world-player-editor-action-row button,
+  .world-player-editor-inline-action,.relations-tabs button,
+  .relations-summary>button,.activity-nationality-pager>button,
+  .owned-club-row-toggle,.intelligence-refresh-button
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .panel-heading-actions .refresh-button:hover,.fund-options button:hover,.results-button:hover,
+  .league-refresh-button:hover:not(:disabled),.bank-statement-pagination button:hover:not(:disabled),
+  .bank-statement-state button:hover,.manual-stepper button:hover:not(:disabled),
+  .world-player-editor-action-row button:hover,.world-player-editor-inline-action:hover,
+  .relations-summary>button:hover,.activity-nationality-pager>button:hover,
+  .owned-club-row-toggle:hover,.owned-club-row-toggle:focus-visible,
+  .intelligence-refresh-button:hover
+) { background:var(--night-surface-3); border-color:#4b725f; color:#e6f2ec; }
+:root[data-theme="dark"] :is(.manual-stepper button:disabled,.owned-club-row-actions>button:only-child:disabled) {
+  background:#202b26; border-color:#35453d; color:#87968f;
+}
+:root[data-theme="dark"] .competition-parent.expanded { background:#1b342a; color:#bce8d3; }
+:root[data-theme="dark"] .competition-children { border-color:var(--night-line-soft); }
+:root[data-theme="dark"] .relations-tabs button.active { background:#2e7659; color:#fff; }
+
+/* Neutral data surfaces found by the light-fill audit. */
+:root[data-theme="dark"] :is(
+  .world-club-empty,.my-club-empty,.owned-player-move-note,.owned-form-none,
+  .bank-statement-dialog-content,.bank-statement-month,.manager-switcher,
+  .analysis-range-summary,.betting-championship-content,.manual-rule-note,
+  .detail-loading-state,.detail-error-state,.activity-roster-group-section>header,
+  .credit-default-details summary,.training-floor-panel,.owned-manager-summary span,
+  .world-player-editor-action-row input,.world-player-editor-action-row select,
+  .activity-panel-head-aside>span,.intelligence-card-body,.training-archive-dialog,
+  .relations-summary>div,.relations-card-head,.intimacy-ranking-dialog,
+  .intimacy-ranking-tabs,.intimacy-ranking-list,
+  .activity-roster-group-section>.activity-roster-group,.owned-sponsorship-panel,
+  .legacy-best-team-periods button,.legacy-best-team-formations button,
+  .legacy-best-team-table tbody tr.is-empty
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] :is(
+  .bank-statement-month:hover,.relations-card-head:hover,
+  .intimacy-rank-row:hover,.intimacy-rank-row:focus-visible,
+  .mail-item-button:hover,.lb-row:hover
+) { background:var(--night-surface-3); border-color:#4b725f; }
+:root[data-theme="dark"] .bank-statement-month.active {
+  background:#193d2e; border-color:#4c8f70; color:#c7ead8;
+}
+:root[data-theme="dark"] :is(.manager-selection-icon,.intimacy-rank-row>span,.relations-card-badge) {
+  background:var(--night-surface-2); color:#9ed8bf;
+}
+:root[data-theme="dark"] :is(.person-card,#inventory-content>.empty-feature) {
+  background:linear-gradient(145deg,var(--night-surface-2),var(--night-surface-1));
+  border-color:var(--night-line); color:var(--night-copy);
+}
+:root[data-theme="dark"] .intelligence-mode-panel {
+  background:linear-gradient(180deg,var(--night-surface-2),var(--night-surface-1));
+  border-color:var(--night-line); color:var(--night-copy);
+}
+
+/* Portfolio cards have light child gradients that otherwise override the dark card. */
+:root[data-theme="dark"] .owned-club-row-identity {
+  background:linear-gradient(180deg,#192820,#14211b); border-color:var(--night-line-soft);
+}
+:root[data-theme="dark"] .owned-club-row-form {
+  background:linear-gradient(180deg,#14211b,#192820);
+}
+:root[data-theme="dark"] .owned-club-order-controls {
+  background:var(--night-surface-2); border-color:var(--night-line); color:var(--night-copy-muted);
+}
+:root[data-theme="dark"] .owned-club-row-suspended { background:#24251d; border-color:#57513a; }
+:root[data-theme="dark"] .owned-club-row-suspended .owned-club-row-metrics div { background:#29291f; }
+
+/* Semantic chips keep their meaning without using near-white tints. */
+:root[data-theme="dark"] .world-form-win { background:#1c3b2d; color:#78d0a7; }
+:root[data-theme="dark"] .world-form-draw { background:#3a3020; color:#e5c979; }
+:root[data-theme="dark"] .world-form-loss { background:#3d2422; color:#ff9289; }
+:root[data-theme="dark"] .world-form-empty { background:var(--night-surface-2); color:var(--night-copy-muted); }
+:root[data-theme="dark"] .retirement-activity-card .retirement-dialogue { background:#19372b; color:#b9ddcc; }
+:root[data-theme="dark"] .counseling-activity-card .counseling-reply.rupture,
+:root[data-theme="dark"] .portfolio-relation-create-status[data-state="error"] {
+  background:#3d2422; border-color:#72443f; color:#ffaaa2;
+}
+:root[data-theme="dark"] .counseling-activity-card .counseling-reply.no_effect,
+:root[data-theme="dark"] .portfolio-relation-create-status[data-state="confirm"] {
+  background:#3a3020; border-color:#6c572b; color:#e5c979;
+}
+:root[data-theme="dark"] .portfolio-relation-optional>input:disabled,
+:root[data-theme="dark"] .intelligence-card-status.sealed {
+  background:#202b26; border-color:#35453d; color:#87968f;
+}
+
+/* Relationship workspaces use dark controls inside their already-dark stages. */
+:root[data-theme="dark"] :is(
+  .relationship-casting select,.relationship-identity select,
+  .relationship-timeline-controls input,.relationship-timeline-controls select
+) { background:var(--night-surface-1); border-color:var(--night-line); color:var(--night-copy); }
+:root[data-theme="dark"] .legacy-best-team>header {
+  background:linear-gradient(135deg,#17271f,#132019); border-color:var(--night-line);
+}
+:root[data-theme="dark"] :is(
+  .owned-sponsorship-facts div,.owned-sponsorship-offers li
+) { background:var(--night-surface-2); border-color:var(--night-line-soft); color:var(--night-copy); }
+
+/* Betting controls need page-scoped specificity because late app.css rules
+ * include #page-betting and otherwise win for live and precision markets. */
+:root[data-theme="dark"] #page-betting :is(.odds-button,.market-choice,.slider-add) {
+  background:#14201b; border-color:#344b40; color:#deebe5;
+}
+:root[data-theme="dark"] #page-betting :is(.odds-button,.market-choice,.slider-add):hover:not(:disabled) {
+  background:#1d3229; border-color:#5a8d75; color:#91d8b6;
+}
+:root[data-theme="dark"] #page-betting :is(.odds-button,.market-choice,.slider-add).chosen {
+  background:#367f60; border-color:#55ab83; color:#fff;
+}
+:root[data-theme="dark"] #page-betting .market-choice.chosen small { color:#fff; }
+:root[data-theme="dark"] #page-betting .odds-button.quick-choice.odds-rise:not(.chosen) {
+  background:var(--profit-tint); border-color:var(--profit-red-soft); color:var(--profit-red);
+}
+:root[data-theme="dark"] #page-betting .odds-button.quick-choice.odds-fall:not(.chosen) {
+  background:var(--loss-tint); border-color:var(--loss-green-soft); color:var(--loss-green);
+}
+:root[data-theme="dark"] #page-betting .odds-button.quick-choice.odds-flat.live-flat:not(.chosen) {
+  background:#192720; border-color:#3c5146; color:#9bb6c9;
+}
+:root[data-theme="dark"] #page-betting :is(.market-choice,.slider-add).result-correct:disabled {
+  background:#19372b; border-color:#4c9b72; color:#bce7d2;
+}
+:root[data-theme="dark"] #page-betting .bet-market-panel>header {
+  background:linear-gradient(180deg,#1b2923,#17241f);
+  border-color:#30443b; box-shadow:inset 4px 0 0 var(--market-accent);
+}
+:root[data-theme="dark"] #page-betting .bet-market-panel>header h3 { color:#dce8e2; }
+:root[data-theme="dark"] #page-betting .bet-market-panel>header .favorite-market {
+  background:transparent; color:#9aaba3;
+}
+:root[data-theme="dark"] #page-betting .bet-market-panel>header .favorite-market:hover {
+  background:var(--night-surface-3); color:#e5c979;
+}
+
+/* Purchase confirmation: keep the payment breakdown inside the dark dialog. */
+:root[data-theme="dark"] .fmodd-confirm-content p.purchase-confirm-message { color:var(--night-copy); }
+:root[data-theme="dark"] .purchase-confirm-product { color:var(--night-copy-muted); }
+:root[data-theme="dark"] .purchase-confirm-product strong { color:var(--night-copy); }
+:root[data-theme="dark"] .purchase-confirm-breakdown {
+  background:var(--night-surface-0); border-color:var(--night-line);
+}
+:root[data-theme="dark"] .purchase-confirm-breakdown>span { border-color:var(--night-line-soft); }
+:root[data-theme="dark"] .purchase-confirm-breakdown em { color:var(--night-copy-muted); }
+:root[data-theme="dark"] .purchase-confirm-breakdown b { color:var(--night-copy); }
+:root[data-theme="dark"] .purchase-confirm-breakdown .total { background:var(--night-surface-2); }
+:root[data-theme="dark"] .purchase-confirm-breakdown .total :is(em,b) { color:#9ed8bf; }
+
+/* Keep dark-mode outcome and movement surfaces bound to the shared preference. */
+:root[data-theme="dark"] .status.won,
+:root[data-theme="dark"] .team-form-summary em.win,
+:root[data-theme="dark"] .world-form-win,
+:root[data-theme="dark"] .contract-manager-record .record-win {
+  background:var(--profit-tint); color:var(--profit-red);
+}
+:root[data-theme="dark"] .status.lost,
+:root[data-theme="dark"] .team-form-summary em.loss,
+:root[data-theme="dark"] .world-form-loss,
+:root[data-theme="dark"] .contract-manager-record .record-loss {
+  background:var(--loss-tint); color:var(--loss-green);
+}
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics strong.positive { color:var(--profit-red); }
+:root[data-theme="dark"] #page-bank .bank-statement-preview-metrics strong.negative { color:var(--loss-green); }

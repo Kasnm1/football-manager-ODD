@@ -1,0 +1,71 @@
+version = "2.7.0beta"
+tag = "V2.7.0beta"
+spec = "build/FMODD-V2.7.0beta-protected.spec"
+host_output = "build/desktop_host_v270beta"
+protected_output = "build/protected_runtime_v270beta"
+rust_native_output = "build/rust_native_v270beta"
+rust_native_dll = "fmodd_native_core.dll"
+cpp_native_output = "build/cpp_native_v270beta"
+cpp_hook_dll = "fmodd_hook_core.dll"
+release_web_output = "build/web_release"
+ai_usage_notice = "AI_USAGE_NOTICE.txt"
+release_forbidden_paths = [".git", "data", "docs", "tests"]
+release_forbidden_suffixes = [".map", ".pdb", ".py", ".pyc", ".pyo", ".ts", ".tsx"]
+release_forbidden_markers = ["4.2-dev", "sourceMappingURL=", "debugger;"]
+release_forbidden_binary_markers = ["U:\\Work\\FM", "sourceMappingURL=", "debugger;"]
+integrity_strict_roots = ["assets/nation_mappings", "desktop_host", "web"]
+
+protected_modules = [
+  "tools.attribute_growth_hook",
+  "tools.board_listens_hook",
+  "tools.ca_growth_hook",
+  "tools.club_affiliations",
+  "tools.database_index",
+  "tools.game_layout",
+  "tools.game_session",
+  "tools.goalkeeper_bribe",
+  "tools.hook_native_core",
+  "tools.live_market",
+  "tools.money",
+  "tools.native_layout_core",
+  "tools.native_library_loader",
+  "tools.odds_math_core",
+  "tools.pass_methods",
+  "tools.player_details_fm24",
+  "tools.player_details_fm26",
+  "tools.player_effects",
+  "tools.player_languages",
+  "tools.player_rca",
+  "tools.preferred_moves",
+  "tools.redbull_hook",
+  "tools.referee_hook",
+  "tools.refresh_memory_core",
+  "tools.retirement",
+  "tools.rust_native_core",
+  "tools.team_nuclear_hooks",
+  "tools.transfer_budget",
+  "tools.youth_generation_hook",
+]
+
+integrity_files = [
+  "desktop_host/FMODD.WebViewHost.exe",
+  "desktop_host/FMODD.WebViewHost.exe.config",
+  "desktop_host/Microsoft.Web.WebView2.Core.dll",
+  "desktop_host/Microsoft.Web.WebView2.WinForms.dll",
+  "desktop_host/WebView2Loader.dll",
+]
+
+[integrity_file_sources]
+"AI_USAGE_NOTICE.txt" = "AI_USAGE_NOTICE.txt"
+"FMODD-V1.1.ico" = "build/FMODD-V1.1.ico"
+"assets/player_names/name_parts.json" = "assets/player_names/name_parts.json"
+"assets/player_names/name_guesses.json" = "assets/player_names/name_guesses.json"
+"assets/player_names/uid_names.json" = "assets/player_names/uid_names.json"
+
+[[integrity_trees]]
+packaged = "web"
+source_config = "release_web_output"
+
+[[integrity_trees]]
+packaged = "assets/nation_mappings"
+source = "assets/nation_mappings"

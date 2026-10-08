@@ -1,0 +1,11 @@
+{
+  "name": "fmodd-release-assets",
+  "private": true,
+  "scripts": {
+    "build:web:release": "node tools/build_release_web_assets.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.8",
+    "html-minifier-terser": "7.2.0"
+  }
+}

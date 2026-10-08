@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <FMGameDir Condition="'$(FMGameDir)' == ''">U:\SteamLibrary\steamapps\common\Football Manager 26</FMGameDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx.Core" HintPath="$(FMGameDir)\BepInEx\core\BepInEx.Core.dll" Private="false" />
+    <Reference Include="BepInEx.Unity.IL2CPP" HintPath="$(FMGameDir)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" Private="false" />
+    <Reference Include="Il2CppInterop.Runtime" HintPath="$(FMGameDir)\BepInEx\core\Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="Il2Cppmscorlib" HintPath="$(FMGameDir)\BepInEx\interop\Il2Cppmscorlib.dll" Private="false" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(FMGameDir)\BepInEx\interop\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="FM.UI" HintPath="$(FMGameDir)\BepInEx\interop\FM.UI.dll" Private="false" />
+    <Reference Include="FM.GamePlugin" HintPath="$(FMGameDir)\BepInEx\interop\FM.GamePlugin.dll" Private="false" />
+    <Reference Include="SI.Core" HintPath="$(FMGameDir)\BepInEx\interop\SI.Core.dll" Private="false" />
+    <Reference Include="SI.Bindable" HintPath="$(FMGameDir)\BepInEx\interop\SI.Bindable.dll" Private="false" />
+    <Reference Include="SI.Bindable.Reference.Core" HintPath="$(FMGameDir)\BepInEx\interop\SI.Bindable.Reference.Core.dll" Private="false" />
+    <Reference Include="SI.Interop" HintPath="$(FMGameDir)\BepInEx\interop\SI.Interop.dll" Private="false" />
+  </ItemGroup>
+</Project>
