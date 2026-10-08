@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+<title id="title">Football Manager ODD — FMODD</title>
+<desc id="desc">Forest green and gold project banner with a stylised football pitch. Club management, player development and match play.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b241e"/><stop offset="1" stop-color="#176b4d"/></linearGradient>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6b74b"/><stop offset="1" stop-color="#b9dfc8"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#a2d3b4" stop-opacity=".22"/><stop offset="1" stop-color="#a2d3b4" stop-opacity="0"/></radialGradient>
+  <clipPath id="clip"><rect width="1200" height="400" rx="20"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <ellipse cx="1050" cy="190" rx="400" ry="340" fill="url(#glow)"/>
+  <path d="M758 0 598 400M838 0 678 400M918 0 758 400" stroke="#d5eade" stroke-opacity=".045" stroke-width="1"/>
+  <rect x="54" y="44" width="6" height="22" rx="3" fill="#e6b74b"/>
+  <text x="74" y="62" fill="#d0e2d7" font-family="Arial,sans-serif" font-size="18" letter-spacing="2.8">FOOTBALL MANAGER ODD</text>
+  <text x="47" y="203" fill="#f7f8f3" font-family="Arial,sans-serif" font-size="132" font-weight="800" letter-spacing="-7">FM<tspan fill="#e6b74b">ODD</tspan></text>
+  <text x="56" y="261" fill="#e8f4ee" font-family="Arial,sans-serif" font-size="29" font-weight="600">Your club. Your players. Your story.</text>
+  <text x="57" y="309" fill="#b8d3c5" font-family="Arial,sans-serif" font-size="18">CLUB MANAGEMENT</text>
+  <circle cx="267" cy="303" r="2.5" fill="#e6b74b"/>
+  <text x="287" y="309" fill="#b8d3c5" font-family="Arial,sans-serif" font-size="18">PLAYER DEVELOPMENT</text>
+  <circle cx="520" cy="303" r="2.5" fill="#e6b74b"/>
+  <text x="540" y="309" fill="#b8d3c5" font-family="Arial,sans-serif" font-size="18">MATCH PLAY</text>
+  <g transform="translate(824 45)">
+    <rect width="320" height="310" rx="24" fill="#082a20" fill-opacity=".3" stroke="#b9dfc8" stroke-opacity=".2"/>
+    <g fill="none" stroke="#b9dfc8" stroke-width="1.5" stroke-opacity=".4">
+      <rect x="32" y="25" width="256" height="260" rx="3"/>
+      <path d="M32 155H288M92 25V77H228V25M118 25V49H202V25M92 285V233H228V285M118 285V261H202V285"/>
+      <circle cx="160" cy="155" r="38"/>
+      <path d="M130 77a36 36 0 0 0 60 0M130 233a36 36 0 0 1 60 0"/>
+    </g>
+    <path d="M91 206 160 155 225 103" fill="none" stroke="#e6b74b" stroke-opacity=".55" stroke-width="2" stroke-dasharray="5 7"/>
+    <circle cx="91" cy="206" r="11" fill="#e8f4ee"/><circle cx="91" cy="206" r="23" fill="none" stroke="#e8f4ee" stroke-opacity=".2"/>
+    <circle cx="160" cy="155" r="13" fill="#e6b74b"/><circle cx="160" cy="155" r="25" fill="none" stroke="#e6b74b" stroke-opacity=".3"/>
+    <circle cx="225" cy="103" r="11" fill="#e8f4ee"/><circle cx="225" cy="103" r="23" fill="none" stroke="#e8f4ee" stroke-opacity=".2"/>
+  </g>
+  <rect x="55" y="365" width="1089" height="2" rx="1" fill="url(#edge)" fill-opacity=".55"/>
+</g>
+</svg>

@@ -3,6 +3,7 @@
 | Document | Purpose |
 | --- | --- |
 | [../README.md](../README.md) | Product overview and development entrypoints |
+| [PRODUCT_GUIDE.md](PRODUCT_GUIDE.md) | Detailed product and compatibility overview |
 | [../AGENTS.md](../AGENTS.md) | Contributor and automation boundaries |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Module ownership and call chains |
 | [FEATURE_INDEX.md](FEATURE_INDEX.md) | Find code by feature |
