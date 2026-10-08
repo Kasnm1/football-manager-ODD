@@ -2,9 +2,10 @@
 
 | Document | Purpose |
 | --- | --- |
-| [../README.md](../README.md) | Product overview and development entrypoints |
+| [../README.md](../README.md) | Product overview: [English](../README.md), [简体中文](../README.zh-CN.md), [한국어](../README.ko-KR.md) |
 | [PRODUCT_GUIDE.md](PRODUCT_GUIDE.md) | Detailed product and compatibility overview |
-| [SUPPORT.md](SUPPORT.md) | Support links, payment networks and QR codes |
+| [SUPPORT.md](SUPPORT.md) | Support links, payment networks and QR codes: [English](SUPPORT.md), [简体中文](SUPPORT.zh-CN.md), [한국어](SUPPORT.ko-KR.md) |
+| [GETTING_STARTED.md](GETTING_STARTED.md) | Development quick start: [English](GETTING_STARTED.md), [简体中文](GETTING_STARTED.zh-CN.md), [한국어](GETTING_STARTED.ko-KR.md) |
 | [../AGENTS.md](../AGENTS.md) | Contributor and automation boundaries |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Module ownership and call chains |
 | [FEATURE_INDEX.md](FEATURE_INDEX.md) | Find code by feature |

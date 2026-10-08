@@ -1,28 +1,30 @@
-# 💛 支持 FMODD
+[English](SUPPORT.md) · [简体中文](SUPPORT.zh-CN.md) · [한국어](SUPPORT.ko-KR.md)
 
-如果 FMODD 让你的 Football Manager 生涯多了一些乐趣，欢迎请作者喝杯咖啡。感谢每一位愿意测试、贡献、分享和支持项目的人。
+# 💛 Support FMODD
 
-[← 返回项目首页](../README.md) · **[打开官网捐赠页](https://fmodd.com/donate)** · **[在 Ko-fi 支持作者](https://ko-fi.com/fmodd)**
+If FMODD adds a little more joy to your Football Manager career, consider buying the author a coffee. Thank you to everyone who tests, contributes, shares and supports the project.
 
-[![支持作者](assets/support-fmodd.svg)](https://fmodd.com/donate)
+[← Back to the project](../README.md) · **[Official donation page](https://fmodd.com/donate)** · **[Support on Ko-fi](https://ko-fi.com/fmodd)**
+
+[![Support FMODD](assets/support-fmodd.svg)](https://fmodd.com/donate)
 
 ## Ko-fi
 
-**[请作者喝杯咖啡 → ko-fi.com/fmodd](https://ko-fi.com/fmodd)**
+**[Buy the author a coffee → ko-fi.com/fmodd](https://ko-fi.com/fmodd)**
 
-Your support is motivation to keep maintaining, updating and exploring new ideas for FMODD.
+Your support helps keep FMODD growing.
 
-## 其他支持方式
+## Other support options
 
-以下币种、网络、地址与二维码来自 [官网捐赠页面](https://fmodd.com/donate)。转账时请对应所选币种与网络。
+The assets, networks, addresses and QR codes below come from the [official donation page](https://fmodd.com/donate). Match your transfer to the selected asset and network.
 
 ### Bitcoin · BTC
 
-网络：**Bitcoin**
+Network:**Bitcoin**
 
-<img src="assets/donate/bitcoin.jpg" alt="Bitcoin 收款二维码，网络 Bitcoin" width="260" />
+<img src="assets/donate/bitcoin.jpg" alt="Bitcoin receiving QR code · Bitcoin" width="260" />
 
-收款地址：
+Receiving address:
 
 ```text
 bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn
@@ -30,11 +32,11 @@ bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn
 
 ### Ethereum · ETH
 
-网络：**Ethereum**
+Network:**Ethereum**
 
-<img src="assets/donate/ethereum.jpg" alt="Ethereum 收款二维码，网络 Ethereum" width="260" />
+<img src="assets/donate/ethereum.jpg" alt="Ethereum receiving QR code · Ethereum" width="260" />
 
-收款地址：
+Receiving address:
 
 ```text
 0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1
@@ -42,11 +44,11 @@ bc1q5qs27ju07zxt33vw0mm054phmqfc5v62aqhktn
 
 ### Tron · TRX
 
-网络：**Tron**
+Network:**Tron**
 
-<img src="assets/donate/tron.jpg" alt="Tron 收款二维码，网络 Tron" width="260" />
+<img src="assets/donate/tron.jpg" alt="Tron receiving QR code · Tron" width="260" />
 
-收款地址：
+Receiving address:
 
 ```text
 TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC
@@ -54,11 +56,11 @@ TRU7ksNuvoUfr4XL3H8sgC8P1W5FQnDgXC
 
 ### Solana · SOL
 
-网络：**Solana**
+Network:**Solana**
 
-<img src="assets/donate/solana.jpg" alt="Solana 收款二维码，网络 Solana" width="260" />
+<img src="assets/donate/solana.jpg" alt="Solana receiving QR code · Solana" width="260" />
 
-收款地址：
+Receiving address:
 
 ```text
 ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn
@@ -66,14 +68,14 @@ ENMwnrGUDuRWxv8jRaQew4PstTrTf9qNrteg7dqTFdrn
 
 ### BNB · BNB
 
-网络：**BNB Smart Chain**
+Network:**BNB Smart Chain**
 
-<img src="assets/donate/bnb.jpg" alt="BNB 收款二维码，网络 BNB Smart Chain" width="260" />
+<img src="assets/donate/bnb.jpg" alt="BNB receiving QR code · BNB Smart Chain" width="260" />
 
-收款地址：
+Receiving address:
 
 ```text
 0x993fCE7736fc9e45Fa0D7f20e4F6596392c57DF1
 ```
 
-[官网捐赠页](https://fmodd.com/donate) · [项目首页](../README.md)
+[Official donation page](https://fmodd.com/donate) · [Back to the project](../README.md)
